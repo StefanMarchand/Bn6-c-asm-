@@ -4,6 +4,8 @@
 *.map
 *.gba
 *.sym
+src/*.i
+src/*.s
 
 # Textscript compressed intermediates
 data/textscript/compressed/*.s.bin

@@ -16,12 +16,16 @@ OBJCOPY = arm-none-eabi-objcopy
 OBJDUMP := arm-none-eabi-objdump
 endif
 
+AGBCC := tools/agbcc/bin/agbcc
+
 GBAGFX = tools/gbagfx/gbagfx
 SHA1SUM = sha1sum
 PY = py
+CPP = cpp
 
 # project paths
 SRCDIR = asm
+CDIR = src
 BIN = bin
 OBJ =
 CONST = constants
@@ -35,6 +39,10 @@ SFILES = rom.s data.s ewram.s iwram.s vram.s
 include lz_assets.mk
 
 OFILES = $(addprefix $(OBJ),$(SFILES:.s=.o))
+CSRCS := $(CDIR)/asm00_0_sound.c
+C_PPS := $(CSRCS:.c=.i)
+C_ASM := $(CSRCS:.c=.s)
+C_OFILES := $(CSRCS:.c=.o)
 BUILD_NAME = bn6f
 ROM = $(BUILD_NAME).gba
 ELF := $(ROM:.gba=.elf)
@@ -49,6 +57,7 @@ CDEBUG =
 CFLAGS =
 ASFLAGS = $(ARCH) $(WFLAGS) $(COMPLIANCE_FLAGS) --agbasm-colonless-labels --agbasm-colon-defined-global-labels --agbasm-local-labels --agbasm-multiline-macros \
 	--agbasm-charmap --agbasm-no-gba-thumb-after-label-disasm-fix
+C_ASFLAGS = $(ARCH) $(WFLAGS) $(COMPLIANCE_FLAGS)
 	
 ASDEBUGFLAGS = --agbasm-debug $(@:.o=.dump)
 LDFLAGS = -Map $(BUILD_NAME).map
@@ -58,7 +67,7 @@ LIB =
 
 # TODO: INTEGRATE SCAN INCLUDES
 
-all: $(ROM)
+all: $(C_OFILES) $(ROM)
 	@$(SHA1SUM) -c $(BUILD_NAME).sha1
 	@# Update machine-readable build status
 	@SHA1=$$(sha1sum $(ROM) | cut -d' ' -f1); \
@@ -73,6 +82,15 @@ $(ELF): $(OFILES)
 
 %.o: %.s
 	$(AS) $(ASFLAGS) $< -o $@
+
+$(CDIR)/asm00_0_sound.i: $(CDIR)/asm00_0_sound.c $(INC)/asm00_0_sound.h
+	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
+
+$(CDIR)/asm00_0_sound.s: $(CDIR)/asm00_0_sound.i
+	$(AGBCC) -O2 -mthumb-interwork $< -o $@
+
+$(CDIR)/asm00_0_sound.o: $(CDIR)/asm00_0_sound.s
+	$(AS) $(C_ASFLAGS) $< -o $@
 
 assets: $(LZ_FILES) $(LZ_BINFILES)
 	
@@ -90,6 +108,9 @@ tail: $(ROM)
 
 clean:
 	rm -f *.o
+	rm -f $(CDIR)/*.o
+	rm -f $(CDIR)/*.i
+	rm -f $(CDIR)/*.s
 	rm -f *.map
 	rm -f *.elf
 	# rm -f *.gba
