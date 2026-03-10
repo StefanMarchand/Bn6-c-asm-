@@ -1,9 +1,21 @@
 # binary tools used in build
 MAKE = make
+
+# Prefer local toolchain under tools/binutils if present; otherwise, fall back
+# to system-wide arm-none-eabi-* binaries. This makes the project easier to
+# build on machines where the toolchain is installed globally.
+ifneq ("$(wildcard tools/binutils/bin/arm-none-eabi-as)","")
 AS = tools/binutils/bin/arm-none-eabi-as
 LD = tools/binutils/bin/arm-none-eabi-ld
 OBJCOPY = tools/binutils/bin/arm-none-eabi-objcopy
 OBJDUMP := tools/binutils/bin/arm-none-eabi-objdump
+else
+AS = arm-none-eabi-as
+LD = arm-none-eabi-ld
+OBJCOPY = arm-none-eabi-objcopy
+OBJDUMP := arm-none-eabi-objdump
+endif
+
 GBAGFX = tools/gbagfx/gbagfx
 SHA1SUM = sha1sum
 PY = py
@@ -48,6 +60,10 @@ LIB =
 
 all: $(ROM)
 	@$(SHA1SUM) -c $(BUILD_NAME).sha1
+	@# Update machine-readable build status
+	@SHA1=$$(sha1sum $(ROM) | cut -d' ' -f1); \
+	TIMESTAMP=$$(date -u +"%Y-%m-%dT%H:%M:%SZ"); \
+	SHA1="$$SHA1" TIMESTAMP="$$TIMESTAMP" python3 tools/update_build_status.py
 
 $(ROM): $(ELF)
 	$(OBJCOPY) -O binary $(ELF) $(ROM)

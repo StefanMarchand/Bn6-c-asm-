@@ -1,12 +1,18 @@
-# BN6 C + ASM Decomp & Tooling
+# MegaMan Battle Network 6: Cybeast Falzar
 
-This repo is the starting point for a **Mega Man Battle Network 6** (BN6) mixed C + ASM project and tooling ecosystem. The long‑term goal is to make BN6 modding as accessible as modern Pokémon ROM hacking:
+This is a disassembly of MegaMan Battle Network 6: Cybeast Falzar
 
-- Decompile key parts of BN6 into readable C while keeping a byte‑perfect ROM build.
-- Define machine‑readable JSON schemas for chips, enemies, encounters, shops, NaviCust, text, etc.
-- Provide CLI tools (`bn6-extract`, `bn6-apply`) so mods can be described and applied via JSON.
-- Eventually build a GUI/IDE ("EXE Studio") on top of those tools.
+It builds the following rom:
 
-This repo will hold the **game code and build system** (ASM + C). Supporting specs and tools may live in sibling repos but are designed to integrate cleanly.
+* bn6f.gba `sha1: 0676ecd4d58a976af3346caebb44b9b6489ad099`
 
-For the full roadmap, see [`docs/ROADMAP.md`](docs/ROADMAP.md) (to be added soon).
+To set up the repository, see [INSTALL.md](INSTALL.md).
+To contribute, see [CONTRIBUTE.md](CONTRIBUTE.md).
+
+
+
+## See also
+- Discord: [**pret**][Discord]
+- [gh LanHikari22/bn6f-modding](https://github.com/LanHikari22/bn6f-modding)
+
+[Discord]: https://discord.gg/vdTW48Q

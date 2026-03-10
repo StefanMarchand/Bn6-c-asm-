@@ -1,0 +1,17 @@
+# Build artifacts
+*.o
+*.elf
+*.map
+*.gba
+*.sym
+
+# Textscript compressed intermediates
+data/textscript/compressed/*.s.bin
+data/textscript/compressed/*.s.lz
+
+# Local toolchains and compilers
+/tools/agbcc/
+/tools/binutils/
+
+# Misc
+*.log
