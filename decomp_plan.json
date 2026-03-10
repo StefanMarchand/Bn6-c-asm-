@@ -1,0 +1,34 @@
+{
+  "files": [
+    {
+      "name": "battle_core",
+      "priority": 1,
+      "functions": [
+        {
+          "label": "InitBattle",
+          "address": "0x08012345",
+          "status": "todo",
+          "notes": "Initial battle setup (placeholder entry until real disassembly is imported)."
+        },
+        {
+          "label": "LoadChipData",
+          "address": "0x08012678",
+          "status": "todo",
+          "notes": "Loads chip stats into memory (placeholder)."
+        }
+      ]
+    },
+    {
+      "name": "menu_core",
+      "priority": 2,
+      "functions": [
+        {
+          "label": "InitMainMenu",
+          "address": "0x08020000",
+          "status": "todo",
+          "notes": "Main menu initialization (placeholder)."
+        }
+      ]
+    }
+  ]
+}
