@@ -39,7 +39,7 @@ SFILES = rom.s data.s ewram.s iwram.s vram.s
 include lz_assets.mk
 
 OFILES = $(addprefix $(OBJ),$(SFILES:.s=.o))
-CSRCS := $(CDIR)/asm00_0_sound.c $(CDIR)/asm00_0_soundmain.c $(CDIR)/asm00_0_playsfx.c $(CDIR)/asm00_0_playmusic.c $(CDIR)/asm00_0_music_80005F2.c $(CDIR)/asm00_2_sub_800ED80.c
+CSRCS := $(CDIR)/asm00_0_sound.c $(CDIR)/asm00_0_soundmain.c $(CDIR)/asm00_0_playsfx.c $(CDIR)/asm00_0_playmusic.c $(CDIR)/asm00_0_music_80005F2.c $(CDIR)/asm00_0_sub_800060A.c $(CDIR)/asm00_2_sub_800ED80.c
 C_PPS := $(CSRCS:.c=.i)
 C_ASM := $(CSRCS:.c=.s)
 C_OFILES := $(CSRCS:.c=.o)
@@ -85,7 +85,7 @@ $(ELF): $(OFILES)
 %.o: %.s
 	$(AS) $(ASFLAGS) $< -o $@
 
-rom.o: $(CDIR)/asm00_0_soundmain.s $(CDIR)/asm00_0_sound.s $(CDIR)/asm00_0_playsfx.s $(CDIR)/asm00_0_playmusic.s $(CDIR)/asm00_0_music_80005F2.s $(CDIR)/asm00_2_sub_800ED80.s $(CDIR)/battle_core_initbattle_rominc.s
+rom.o: $(CDIR)/asm00_0_soundmain.s $(CDIR)/asm00_0_sound.s $(CDIR)/asm00_0_playsfx.s $(CDIR)/asm00_0_playmusic.s $(CDIR)/asm00_0_music_80005F2.s $(CDIR)/asm00_0_sub_800060A_rominc.s $(CDIR)/asm00_2_sub_800ED80.s $(CDIR)/battle_core_initbattle_rominc.s
 
 $(CDIR)/%.i: $(CDIR)/%.c $(INC)/asm00_0_sound.h
 	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
@@ -119,6 +119,14 @@ $(CDIR)/asm00_0_playmusic.s: $(CDIR)/asm00_0_playmusic.i
 $(CDIR)/asm00_0_music_80005F2.s: $(CDIR)/asm00_0_music_80005F2.i
 	$(AGBCC) -O2 -mthumb-interwork $< -o $@
 	python3 tools/fix_agbcc_music_80005F2.py $@
+
+$(CDIR)/asm00_0_sub_800060A.s: $(CDIR)/asm00_0_sub_800060A.i
+	$(AGBCC) -O2 -mthumb-interwork $< -o $@
+	python3 tools/fix_agbcc_sub_800060A.py $@
+
+$(CDIR)/asm00_0_sub_800060A_rominc.s: $(CDIR)/asm00_0_sub_800060A.i
+	$(AGBCC) -O2 -mthumb-interwork $< -o $@
+	python3 tools/fix_agbcc_sub_800060A_rominc.py $@
 
 $(CDIR)/asm00_2_sub_800ED80.s: $(CDIR)/asm00_2_sub_800ED80.i
 	$(AGBCC) -O2 -mthumb-interwork $< -o $@

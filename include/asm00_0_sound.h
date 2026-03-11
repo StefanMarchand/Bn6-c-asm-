@@ -13,15 +13,19 @@ struct Toolkit {
 
 register struct Toolkit *gToolkit asm("r10");
 
+extern unsigned char byte_2010B90[];
+
 int m4aSoundMain(void);
 int call_m4aSoundMain(void);
 int m4a_2_814F00C(void);
 int call_m4a_2_814F00C(void);
 int sound_8000808(int value, int unused1, int unused2, int (*handler)(void));
+int sound_8000822(int value, int bgMusicIndicator);
 int m4a_800061E(int songId, int unused1, int unused2);
 int sound_8000630(int songId, int unused1, int unused2);
 int PlaySoundEffect(int songId, int unused1, int unused2);
 int PlayMusic(int songId, int unused1, int unused2);
 int music_80005F2(int songId, int previousSong, int unused2);
+int sub_800060A(int value, int unused1, int unused2);
 
 #endif

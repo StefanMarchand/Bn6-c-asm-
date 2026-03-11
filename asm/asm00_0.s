@@ -17,20 +17,7 @@ dword_80005BC:
 	.include "src/asm00_0_playmusic.s"
 
 	.include "src/asm00_0_music_80005F2.s"
-
-	thumb_func_start sub_800060A
-sub_800060A:
-	push {r1-r7,lr}
-	ldr r1, off_8000864 // =byte_2010B90
-	ldrb r1, [r1]
-	cmp r1, #0
-	bne loc_8000616
-	mov r1, #0xff
-loc_8000616:
-	ldr r3, off_8000868 // =sound_8000822+1
-	bl sound_8000808 // () -> void
-	pop {r1-r7,pc}
-	thumb_func_end sub_800060A
+	.include "src/asm00_0_sub_800060A_rominc.s"
 
 // () -> void
 	thumb_local_start

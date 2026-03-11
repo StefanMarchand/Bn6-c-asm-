@@ -37,8 +37,8 @@
         {
           "label": "sub_800060A",
           "address": "0x0800060A",
-          "status": "todo",
-          "notes": "Small sound dispatch helper in asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c."
+          "status": "matching",
+          "notes": "Small sound dispatch helper in asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c. Implemented in src/asm00_0_sub_800060A.c and included directly from asm/asm00_0.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original shared literal-pool references so the linked bytes and final ROM SHA1 remain identical."
         },
         {
           "label": "sound_8000642",
