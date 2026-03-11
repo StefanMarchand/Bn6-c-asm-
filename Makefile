@@ -39,7 +39,7 @@ SFILES = rom.s data.s ewram.s iwram.s vram.s
 include lz_assets.mk
 
 OFILES = $(addprefix $(OBJ),$(SFILES:.s=.o))
-CSRCS := $(CDIR)/asm00_0_sound.c $(CDIR)/asm00_0_soundmain.c
+CSRCS := $(CDIR)/asm00_0_sound.c $(CDIR)/asm00_0_soundmain.c $(CDIR)/asm00_0_playsfx.c
 C_PPS := $(CSRCS:.c=.i)
 C_ASM := $(CSRCS:.c=.s)
 C_OFILES := $(CSRCS:.c=.o)
@@ -85,7 +85,7 @@ $(ELF): $(OFILES)
 %.o: %.s
 	$(AS) $(ASFLAGS) $< -o $@
 
-rom.o: $(CDIR)/asm00_0_soundmain.s $(CDIR)/asm00_0_sound.s
+rom.o: $(CDIR)/asm00_0_soundmain.s $(CDIR)/asm00_0_sound.s $(CDIR)/asm00_0_playsfx.s
 
 $(CDIR)/%.i: $(CDIR)/%.c $(INC)/asm00_0_sound.h
 	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
@@ -100,6 +100,11 @@ $(CDIR)/asm00_0_soundmain.s: $(CDIR)/asm00_0_soundmain.i
 $(CDIR)/asm00_0_sound.s: $(CDIR)/asm00_0_sound.i
 	$(AGBCC) -O2 -mthumb-interwork $< -o $@
 	python3 tools/fix_agbcc_thumb_wrapper.py $@ call_m4a_2_814F00C
+
+$(CDIR)/asm00_0_playsfx.s: $(CDIR)/asm00_0_playsfx.i
+	$(AGBCC) -O2 -mthumb-interwork $< -o $@
+	python3 tools/fix_agbcc_thumb_wrapper.py $@ PlaySoundEffect
+	python3 tools/fix_agbcc_play_sound_effect.py $@
 
 $(CDIR)/%.o: $(CDIR)/%.s
 	$(AS) $(C_ASFLAGS) $< -o $@

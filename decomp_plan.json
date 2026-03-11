@@ -15,6 +15,12 @@
           "address": "0x080005C4",
           "status": "matching",
           "notes": "Simple sound wrapper from asm/asm00_0.s. The C wrapper in src/asm00_0_sound.c now builds through the agbcc helper path and is included directly from asm/asm00_0.s; a small post-process normalizes the wrapper epilogue so the linked bytes and final ROM SHA1 remain identical."
+        },
+        {
+          "label": "PlaySoundEffect",
+          "address": "0x080005CC",
+          "status": "matching",
+          "notes": "Small sound thunk from asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c. Implemented in src/asm00_0_playsfx.c and included directly from asm/asm00_0.s; a narrow post-process restores the original push/pop wrapper shape so the linked bytes and final ROM SHA1 remain identical."
         }
       ]
     },

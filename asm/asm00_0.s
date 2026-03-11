@@ -13,16 +13,7 @@ dword_80005BC:
 	thumb_func_end call_m4aSoundMain
 
 	.include "src/asm00_0_sound.s"
-
-	thumb_func_start PlaySoundEffect
-// (enum SoundEffect idx) -> void
-// this can play any song in the song array but
-// usage-wise it is only be used for sound effects
-PlaySoundEffect:
-	push {r1-r7,lr}
-	bl m4a_800061E // () -> void
-	pop {r1-r7,pc}
-	thumb_func_end PlaySoundEffect
+	.include "src/asm00_0_playsfx.s"
 
 	thumb_func_start PlayMusic
 PlayMusic: // (song: u8) -> ()
