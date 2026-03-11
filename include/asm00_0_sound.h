@@ -17,6 +17,13 @@ extern unsigned char byte_2010B90[];
 extern void *off_8000704[];
 extern int dword_200A490[];
 
+struct SoundRequest {
+    int value;
+    int unused1;
+    int unused2;
+    int (*handler)(void);
+};
+
 int m4aSoundMain(void);
 int call_m4aSoundMain(void);
 int m4a_2_814F00C(void);

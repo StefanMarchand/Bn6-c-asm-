@@ -181,25 +181,7 @@ off_8000804:
 	.word loc_80007E8+1
 	thumb_func_end sub_80007BE
 
-// () -> void
-	thumb_local_start
-sound_8000808:
-	push {r4-r7,lr}
-	ldr r5, dword_200A490_p
-	ldr r7, [r5]
-	cmp r7, #0x20
-	blt loc_8000814
-	b locret_8000820
-loc_8000814:
-	add r6, r7, #1
-	str r6, [r5]
-	lsl r7, r7, #4
-	add r7, #0xc
-	add r7, r7, r5
-	stmia r7!, {r0-r3}
-locret_8000820:
-	pop {r4-r7,pc}
-	thumb_func_end sound_8000808
+	.include "src/asm00_0_sound_8000808_rominc.s"
 
 // (struct ? *a5, unk8 bgMusInd_a0, unk8 a1, unk8 *a2) -> ?
 	thumb_local_start

@@ -85,8 +85,8 @@
         {
           "label": "sound_8000808",
           "address": "0x08000808",
-          "status": "todo",
-          "notes": "Small queued sound command helper in asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c."
+          "status": "matching",
+          "notes": "Small queued sound command helper in asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c. Implemented in src/asm00_0_sound_8000808.c and included directly from asm/asm00_0.s via a dedicated ROM-include wrapper; narrow post-process scripts preserve the original queue-store body in ROM and a standalone literal setup for the C object build, keeping the final ROM SHA1 identical."
         }
       ]
     },
