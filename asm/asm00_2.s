@@ -1,39 +1,6 @@
 
 	.include "src/asm00_2_sub_800ED80.s"
-
-	thumb_func_start sub_800ED90
-sub_800ED90:
-	push {r5,r7,lr}
-	mov r5, r0
-	ldrh r0, [r5,#oBattleObject_NameID]
-	bl sub_800F29C
-	cmp r0, #2
-	bne loc_800EDC6
-	ldrb r0, [r5,#oBattleObject_Alliance]
-	bl getBattleHandAddr_8010018
-	ldrb r1, [r0]
-	add r1, r1, r1
-	add r0, r0, r1
-	add r0, #2
-	mov r7, r0
-	ldrh r0, [r7]
-	mov r1, #0
-	bl sub_800EF34
-	ldrh r2, [r7,#0x18]
-	add r2, r2, r0
-	ldrh r0, [r7,#0x24]
-	add r2, r2, r0
-	ldrh r1, [r7,#0xc]
-	ldrh r0, [r7]
-	ldrb r3, [r5,#oBattleObject_ChipsHeld]
-	pop {r5,r7,pc}
-loc_800EDC6:
-	ldrh r0, [r5,#oBattleObject_Chip]
-	mov r1, #0
-	mov r2, #0
-	ldrb r3, [r5,#oBattleObject_ChipsHeld]
-	pop {r5,r7,pc}
-	thumb_func_end sub_800ED90
+	.include "src/asm00_2_sub_800ED90.s"
 
 	thumb_local_start
 sub_800EDD0:

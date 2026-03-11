@@ -117,6 +117,12 @@
           "address": "0x0800ED80",
           "status": "matching",
           "notes": "Tiny AI bitfield helper in asm/asm00_2.s with an existing sketch in docs/decomp/asm00_2.c. Implemented in src/asm00_2_sub_800ED80.c and included directly from asm/asm00_2.s; a narrow post-process preserves the original literal-pool layout so the linked bytes and final ROM SHA1 remain identical."
+        },
+        {
+          "label": "sub_800ED90",
+          "address": "0x0800ED90",
+          "status": "matching",
+          "notes": "Battle chip-stat fetch helper in asm/asm00_2.s with an existing sketch in docs/decomp/asm00_2.c. Implemented in src/asm00_2_sub_800ED90.c with a minimal battle-object header in include/asm00_2_sub_800ED90.h and included directly from asm/asm00_2.s; a narrow post-process preserves the original multi-register return shape so the linked bytes and final ROM SHA1 remain identical."
         }
       ]
     },
