@@ -185,6 +185,42 @@
           "notes": "Placeholder roadmap entry resolved against the imported disassembly: 0x08020000 lands inside the actual Thumb function sub_801FFD6, which starts at 0x0801FFD6 in asm/asm01.s. Implemented in src/menu_core_initmainmenu.c with minimal menu transfer/toolkit structs in include/menu_core_initmainmenu.h, included directly from asm/asm01.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original literal-pool references so the final ROM SHA1 remains identical."
         }
       ]
+    },
+    {
+      "name": "asm03_1_0",
+      "priority": 2,
+      "functions": [
+        {
+          "label": "noop_8033A7C",
+          "address": "0x08033A7C",
+          "status": "matching",
+          "notes": "Tiny real-world PET update no-op in asm/asm03_1_0.s with an existing sketch in docs/decomp/asm03_1.c. Implemented alongside the neighboring real-world update wrappers in src/asm03_1_0_realworld_wrappers.c with a minimal prototype header in include/asm03_1_0_realworld_wrappers.h, included directly from asm/asm03_1_0.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original local Thumb body so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_8033A80",
+          "address": "0x08033A80",
+          "status": "matching",
+          "notes": "Small real-world PET update wrapper in asm/asm03_1_0.s with an existing sketch in docs/decomp/asm03_1.c. Implemented alongside the neighboring real-world update wrappers in src/asm03_1_0_realworld_wrappers.c and included directly from asm/asm03_1_0.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original local Thumb call sequence so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "onUpdateInRealWorld_8033A96",
+          "address": "0x08033A96",
+          "status": "matching",
+          "notes": "Small real-world PET update wrapper in asm/asm03_1_0.s with an existing sketch in docs/decomp/asm03_1.c. Implemented alongside the neighboring real-world update wrappers in src/asm03_1_0_realworld_wrappers.c and included directly from asm/asm03_1_0.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original local Thumb call sequence so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_8033AB0",
+          "address": "0x08033AB0",
+          "status": "matching",
+          "notes": "Small real-world PET update wrapper in asm/asm03_1_0.s with an existing sketch in docs/decomp/asm03_1.c. Implemented alongside the neighboring real-world update wrappers in src/asm03_1_0_realworld_wrappers.c and included directly from asm/asm03_1_0.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original local Thumb call sequence so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_8033AC4",
+          "address": "0x08033AC4",
+          "status": "matching",
+          "notes": "Small real-world PET update wrapper in asm/asm03_1_0.s with an existing sketch in docs/decomp/asm03_1.c. Implemented alongside the neighboring real-world update wrappers in src/asm03_1_0_realworld_wrappers.c and included directly from asm/asm03_1_0.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original local Thumb call sequence so the final ROM SHA1 remains identical."
+        }
+      ]
     }
   ]
 }

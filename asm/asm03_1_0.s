@@ -339,59 +339,7 @@ off_8033A78:
 	thumb_func_end dispatch_80339CC
 
 /// Might be put for null checks, do not do anything on index 0
-	thumb_local_start
-noop_8033A7C: // (self: *const S2011E30 $r5) -> ()
-	push {lr}
-	pop {pc}
-	thumb_func_end noop_8033A7C
-
-	thumb_local_start
-sub_8033A80: // (self: * S2011E30 $r5) -> ()
-	push {lr}
-	mov r0, #0
-	bl sub_8033B80
-	mov r0, #0
-	bl sub_8033F80
-	mov r0, #0
-	bl gfxTransfer_8033DA0 // (a0: u32?) -> ()
-	pop {pc}
-	thumb_func_end sub_8033A80
-
-	thumb_local_start
-onUpdateInRealWorld_8033A96: // (self: * S2011E30 $r5) -> ()
-	push {lr}
-	mov r0, #0
-	bl sub_8033B80
-	mov r0, #0
-	bl sub_8033F80
-	bl sub_8033BE8
-	mov r0, #0
-	bl gfxTransfer_8033DA0 // (a0: u32?) -> ()
-	pop {pc}
-	thumb_func_end onUpdateInRealWorld_8033A96
-
-	thumb_local_start
-sub_8033AB0: // (self: * S2011E30 $r5) -> ()
-	push {lr}
-	mov r0, #0
-	bl sub_8033B80
-	mov r0, #0
-	bl sub_8033F80
-	bl sub_8033C68
-	pop {pc}
-	thumb_func_end sub_8033AB0
-
-	thumb_local_start
-sub_8033AC4: // (self: * S2011E30 $r5) -> ()
-	push {lr}
-	mov r0, #0
-	bl sub_8033B80
-	mov r0, #0
-	bl sub_8033F80
-	bl sub_8033C68
-	bl sub_8033BE8
-	pop {pc}
-	thumb_func_end sub_8033AC4
+	.include "src/asm03_1_0_realworld_wrappers_rominc.s"
 
 	thumb_local_start
 sub_8033ADC: // (self: * S2011E30 $r5) -> ()
