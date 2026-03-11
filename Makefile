@@ -39,7 +39,7 @@ SFILES = rom.s data.s ewram.s iwram.s vram.s
 include lz_assets.mk
 
 OFILES = $(addprefix $(OBJ),$(SFILES:.s=.o))
-CSRCS := $(CDIR)/asm00_0_sound.c
+CSRCS := $(CDIR)/asm00_0_sound.c $(CDIR)/asm00_0_soundmain.c
 C_PPS := $(CSRCS:.c=.i)
 C_ASM := $(CSRCS:.c=.s)
 C_OFILES := $(CSRCS:.c=.o)
@@ -63,6 +63,8 @@ ASDEBUGFLAGS = --agbasm-debug $(@:.o=.dump)
 LDFLAGS = -Map $(BUILD_NAME).map
 LIB =
 
+.SUFFIXES:
+
 .PHONY: syms
 
 # TODO: INTEGRATE SCAN INCLUDES
@@ -83,13 +85,19 @@ $(ELF): $(OFILES)
 %.o: %.s
 	$(AS) $(ASFLAGS) $< -o $@
 
-$(CDIR)/asm00_0_sound.i: $(CDIR)/asm00_0_sound.c $(INC)/asm00_0_sound.h
+rom.o: $(CDIR)/asm00_0_soundmain.s
+
+$(CDIR)/%.i: $(CDIR)/%.c $(INC)/asm00_0_sound.h
 	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
 
-$(CDIR)/asm00_0_sound.s: $(CDIR)/asm00_0_sound.i
+$(CDIR)/%.s: $(CDIR)/%.i
 	$(AGBCC) -O2 -mthumb-interwork $< -o $@
 
-$(CDIR)/asm00_0_sound.o: $(CDIR)/asm00_0_sound.s
+$(CDIR)/asm00_0_soundmain.s: $(CDIR)/asm00_0_soundmain.i
+	$(AGBCC) -O2 -mthumb-interwork $< -o $@
+	python3 tools/fix_soundmain_epilogue.py $@
+
+$(CDIR)/%.o: $(CDIR)/%.s
 	$(AS) $(C_ASFLAGS) $< -o $@
 
 assets: $(LZ_FILES) $(LZ_BINFILES)

@@ -5,6 +5,12 @@
       "priority": 1,
       "functions": [
         {
+          "label": "call_m4aSoundMain",
+          "address": "0x080005AC",
+          "status": "matching",
+          "notes": "Simple sound wrapper from asm/asm00_0.s. Implemented in src/asm00_0_soundmain.c and wired into the ROM via the agbcc-generated wrapper include; a small post-process step normalizes the wrapper epilogue so the linked bytes and final ROM SHA1 remain identical."
+        },
+        {
           "label": "call_m4a_2_814F00C",
           "address": "0x080005C4",
           "status": "nonmatching",

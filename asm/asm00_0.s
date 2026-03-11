@@ -2,11 +2,7 @@
 
 // FILE module sound
 
-	thumb_func_start call_m4aSoundMain
-call_m4aSoundMain:
-	push {lr}
-	bl m4aSoundMain
-	pop {pc}
+	.include "src/asm00_0_soundmain.s"
 	.word unk_2006840
 	.word dword_80005BC
 	.balign 4, 0
