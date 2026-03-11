@@ -105,6 +105,12 @@
           "address": "0x0800318C",
           "status": "matching",
           "notes": "Tiny battle object linked-list initializer in asm/asm00_1.s with an existing sketch in docs/decomp/asm00_1.c. Implemented in src/asm00_1_sub_800318C.c with a minimal linked-list header in include/asm00_1_battle_objects.h, included directly from asm/asm00_1.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original Thumb body and literal layout so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "RunBattleObjectLogic",
+          "address": "0x080031AC",
+          "status": "matching",
+          "notes": "Battle object linked-list runner in asm/asm00_1.s with an existing sketch in docs/decomp/asm00_1.c. Implemented in src/asm00_1_runbattleobjectlogic.c using the shared minimal battle-object/toolkit header in include/asm00_1_battle_objects.h, included directly from asm/asm00_1.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original Thumb body and embedded jump-table layout so the final ROM SHA1 remains identical."
         }
       ]
     },
@@ -123,6 +129,30 @@
           "address": "0x0800ED90",
           "status": "matching",
           "notes": "Battle chip-stat fetch helper in asm/asm00_2.s with an existing sketch in docs/decomp/asm00_2.c. Implemented in src/asm00_2_sub_800ED90.c with a minimal battle-object header in include/asm00_2_sub_800ED90.h and included directly from asm/asm00_2.s; a narrow post-process preserves the original multi-register return shape so the linked bytes and final ROM SHA1 remain identical."
+        },
+        {
+          "label": "sub_800EDD0",
+          "address": "0x0800EDD0",
+          "status": "matching",
+          "notes": "Battle chip-stat helper in asm/asm00_2.s with an existing sketch in docs/decomp/asm00_2.c. Implemented alongside the neighboring chip helpers in src/asm00_2_chip_helpers.c with a shared minimal header in include/asm00_2_chip_helpers.h, included directly from asm/asm00_2.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original Thumb bodies and embedded element-damage table so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_800EE26",
+          "address": "0x0800EE26",
+          "status": "matching",
+          "notes": "Battle chip execution helper in asm/asm00_2.s with an existing sketch in docs/decomp/asm00_2.c. Implemented alongside the neighboring chip helpers in src/asm00_2_chip_helpers.c with a shared minimal header in include/asm00_2_chip_helpers.h, included directly from asm/asm00_2.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original Thumb bodies and register-return convention so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_800EE98",
+          "address": "0x0800EE98",
+          "status": "matching",
+          "notes": "Small battle chip side-effect helper in asm/asm00_2.s with an existing sketch in docs/decomp/asm00_2.c. Implemented alongside the neighboring chip helpers in src/asm00_2_chip_helpers.c with a shared minimal header in include/asm00_2_chip_helpers.h, included directly from asm/asm00_2.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original Thumb body, literal references, and embedded element-damage table so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_800EF02",
+          "address": "0x0800EF02",
+          "status": "matching",
+          "notes": "Small battle chip stat helper in asm/asm00_2.s with an existing sketch in docs/decomp/asm00_2.c. Implemented alongside the neighboring chip helpers in src/asm00_2_chip_helpers.c with a shared minimal header in include/asm00_2_chip_helpers.h, included directly from asm/asm00_2.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original Thumb body and register-return convention so the final ROM SHA1 remains identical."
         }
       ]
     },

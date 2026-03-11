@@ -45,80 +45,7 @@ MaxAmountOfObjects:
 
 	.include "src/asm00_1_sub_800318C_rominc.s"
 
-	thumb_local_start
-RunBattleObjectLogic:
-	push {r4-r7,lr}
-	sub sp, sp, #0x10
-	bl object_Clear3RAMBytes_800371A
-	mov r0, #0
-	str r0, [sp]
-	ldr r7, .eBattleObjectsLinkedListStart_p
-.processBattleObjectLoop
-	ldr r7, [r7,#oBattleObject_LinkedList_Next] // linked list
-	ldr r0, .eBattleObjectsLinkedListSentinel_p
-	cmp r7, r0
-	beq .reachedLinkedListSentinel
-	ldr r0, .dword_200AF70_p
-	str r7, [r0]
-	mov r5, #0x10
-	add r5, r5, r7
-	ldrb r4, [r5,#oBattleObject_Flags]
-	mov r6, r10
-	ldr r6, [r6,#oToolkit_GameStatePtr]
-	ldrb r0, [r6,#oGameState_BattlePaused]
-	tst r0, r0
-	beq .loc_80031DC
-	mov r0, #4
-	tst r4, r0
-	beq .doneCurrentBattleObject
-.loc_80031DC
-	bl battle_isTimeStop
-	beq .notInTimeStop
-	mov r0, #0x10
-	tst r4, r0
-	beq .doneCurrentBattleObject
-.notInTimeStop
-	ldrb r0, [r5,#oBattleObject_Type]
-	mov r1, #0xf
-	and r0, r1
-	lsl r0, r0, #2
-	ldr r1, .BattleObjectFunctionJumptableTable_p
-	ldr r0, [r0,r1]
-	ldrb r1, [r5,#oBattleObject_Index]
-	lsl r1, r1, #2
-	ldr r0, [r0,r1]
-	push {r7}
-	mov lr, pc
-	bx r0
-	pop {r7}
-.doneCurrentBattleObject
-	bl object_800372A
-	b .processBattleObjectLoop
-.reachedLinkedListSentinel
-	mov r0, #0
-	ldr r1, .dword_200AF70_p
-	str r0, [r1]
-	add sp, sp, #0x10
-	pop {r4-r7,pc}
-	.balign 4, 0
-.eBattleObjectsLinkedListStart_p:
-	.word eBattleObjectsLinkedListStart
-.eBattleObjectsLinkedListSentinel_p:
-	.word eBattleObjectsLinkedListSentinel
-.BattleObjectFunctionJumptableTable_p:
-	.word .BattleObjectFunctionJumptableTable
-.BattleObjectFunctionJumptableTable: // 8003220
-	// a table of jumptable pointers. Index to an entry is derived from the
-	// lower 4 bits of the 2nd (zero-indexed) member of the struct in the
-	// linked list, starting from eBattleObjectsLinkedListStart. Index to an entry from the
-	// read Jumptable pointer is derived from the first member of the struct
-	.word NULL
-	.word T1BattleObjectJumptable
-	.word NULL
-	.word T3BattleObjectJumptable
-	.word T4BattleObjectJumptable
-.dword_200AF70_p:
-	.word eUnkBattleObjectLinkedList
+	.include "src/asm00_1_runbattleobjectlogic_rominc.s"
 
 	.word off_800323C
 off_800323C:
@@ -142,7 +69,6 @@ DebugMsg_800326A: .asciz "S%02x"
 word_8003270:
 	.hword 0x1B
 DebugMsg_8003272: .asciz "F%02x"
-	thumb_func_end RunBattleObjectLogic
 
 	thumb_local_start
 // clobbers: r0, r1, r2, r3
