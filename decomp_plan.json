@@ -97,8 +97,8 @@
         {
           "label": "sub_800318C",
           "address": "0x0800318C",
-          "status": "todo",
-          "notes": "Tiny battle object linked-list initializer in asm/asm00_1.s with an existing sketch in docs/decomp/asm00_1.c."
+          "status": "matching",
+          "notes": "Tiny battle object linked-list initializer in asm/asm00_1.s with an existing sketch in docs/decomp/asm00_1.c. Implemented in src/asm00_1_sub_800318C.c with a minimal linked-list header in include/asm00_1_battle_objects.h, included directly from asm/asm00_1.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original Thumb body and literal layout so the final ROM SHA1 remains identical."
         }
       ]
     },

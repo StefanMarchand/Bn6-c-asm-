@@ -43,26 +43,7 @@ MaxAmountOfObjects:
 	.word NUM_T4_BATTLE_OBJECTS
 	.word NUM_OVERWORLD_MAP_OBJECTS
 
-	thumb_local_start
-sub_800318C:
-	ldr r0, off_80031A4 // =eBattleObjectsLinkedListStart
-	ldr r1, off_80031A8 // =eBattleObjectsLinkedListSentinel
-	ldr r2, off_80031A0 // =eUnkBattleObjectLinkedList
-	mov r3, #0
-	str r3, [r2]
-	str r3, [r0]
-	str r1, [r0,#0x4] // (dword_2009384 - 0x2009380)
-	str r0, [r1]
-	str r3, [r1,#0x4] // (dword_2009AB4 - 0x2009ab0)
-	mov pc, lr
-	.balign 4, 0
-off_80031A0:
-	.word eUnkBattleObjectLinkedList
-off_80031A4:
-	.word eBattleObjectsLinkedListStart
-off_80031A8:
-	.word eBattleObjectsLinkedListSentinel
-	thumb_func_end sub_800318C
+	.include "src/asm00_1_sub_800318C_rominc.s"
 
 	thumb_local_start
 RunBattleObjectLogic:
