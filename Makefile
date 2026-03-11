@@ -85,7 +85,7 @@ $(ELF): $(OFILES)
 %.o: %.s
 	$(AS) $(ASFLAGS) $< -o $@
 
-rom.o: $(CDIR)/asm00_0_soundmain.s
+rom.o: $(CDIR)/asm00_0_soundmain.s $(CDIR)/asm00_0_sound.s
 
 $(CDIR)/%.i: $(CDIR)/%.c $(INC)/asm00_0_sound.h
 	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
@@ -95,7 +95,11 @@ $(CDIR)/%.s: $(CDIR)/%.i
 
 $(CDIR)/asm00_0_soundmain.s: $(CDIR)/asm00_0_soundmain.i
 	$(AGBCC) -O2 -mthumb-interwork $< -o $@
-	python3 tools/fix_soundmain_epilogue.py $@
+	python3 tools/fix_agbcc_thumb_wrapper.py $@ call_m4aSoundMain
+
+$(CDIR)/asm00_0_sound.s: $(CDIR)/asm00_0_sound.i
+	$(AGBCC) -O2 -mthumb-interwork $< -o $@
+	python3 tools/fix_agbcc_thumb_wrapper.py $@ call_m4a_2_814F00C
 
 $(CDIR)/%.o: $(CDIR)/%.s
 	$(AS) $(C_ASFLAGS) $< -o $@

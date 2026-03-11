@@ -12,12 +12,7 @@ dword_80005BC:
 	.balign 4, 0
 	thumb_func_end call_m4aSoundMain
 
-	thumb_func_start call_m4a_2_814F00C
-call_m4a_2_814F00C:
-	push {lr}
-	bl m4a_2_814F00C
-	pop {pc}
-	thumb_func_end call_m4a_2_814F00C
+	.include "src/asm00_0_sound.s"
 
 	thumb_func_start PlaySoundEffect
 // (enum SoundEffect idx) -> void

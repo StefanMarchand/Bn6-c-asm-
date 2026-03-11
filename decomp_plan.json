@@ -13,8 +13,8 @@
         {
           "label": "call_m4a_2_814F00C",
           "address": "0x080005C4",
-          "status": "nonmatching",
-          "notes": "Simple sound wrapper from asm/asm00_0.s. First C translation lives in src/asm00_0_sound.c and compiles through the new agbcc-based auxiliary C pipeline, but it is not linked into the ROM yet, so the original ASM implementation remains authoritative until a byte-matching replacement path is ready."
+          "status": "matching",
+          "notes": "Simple sound wrapper from asm/asm00_0.s. The C wrapper in src/asm00_0_sound.c now builds through the agbcc helper path and is included directly from asm/asm00_0.s; a small post-process normalizes the wrapper epilogue so the linked bytes and final ROM SHA1 remain identical."
         }
       ]
     },
