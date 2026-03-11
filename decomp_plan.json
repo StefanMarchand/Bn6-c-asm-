@@ -139,8 +139,8 @@
         {
           "label": "InitMainMenu",
           "address": "0x08020000",
-          "status": "todo",
-          "notes": "Main menu initialization (placeholder)."
+          "status": "matching",
+          "notes": "Placeholder roadmap entry resolved against the imported disassembly: 0x08020000 lands inside the actual Thumb function sub_801FFD6, which starts at 0x0801FFD6 in asm/asm01.s. Implemented in src/menu_core_initmainmenu.c with minimal menu transfer/toolkit structs in include/menu_core_initmainmenu.h, included directly from asm/asm01.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original literal-pool references so the final ROM SHA1 remains identical."
         }
       ]
     }
