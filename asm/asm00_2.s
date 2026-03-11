@@ -7893,53 +7893,7 @@ off_80126E0:
 	thumb_func_end sub_801265A
 
 	thumb_func_start somethingWriteChipParams_80126E4
-somethingWriteChipParams_80126E4:
-	push {r4,r6,r7,lr}
-	mov r4, #1
-	b loc_80126F6
-loc_80126EA:
-	push {r4,r6,r7,lr}
-	mov r4, #0
-	b loc_80126F6
-	push {r4,r6,r7,lr}
-	ldr r7, [r5,#0x58]
-	add r7, #0xa0
-loc_80126F6:
-	strh r0, [r7,#oAIAttackVars_Unk_14]
-	bl getChip8021DA8 // (which_chip: i32) -> *const ChipData
-	mov r6, r0
-	ldr r1, [r6,#0x10]
-	str r1, [r7,#oAIAttackVars_Unk_0c]
-	ldrh r0, [r7,#oAIAttackVars_Unk_14]
-	ldrb r1, [r5,#oBattleObject_Alliance]
-	bl sub_80109A4
-	ldrb r1, [r6,#0xa]
-	lsl r1, r1, #0x10
-	add r1, r1, r0
-	str r1, [r7,#oAIAttackVars_Damage]
-	ldrb r1, [r6,#0x14] // chip use delay?
-	strb r1, [r7,#oAIAttackVars_Unk_05]
-	mov r1, #0
-	strh r1, [r7,#oAIAttackVars_AttackBoost]
-	ldrb r1, [r6,#0xc]
-	strb r1, [r7,#oAIAttackVars_Unk_03]
-	ldrb r1, [r6,#4]
-	ldrb r2, [r6,#6]
-	ldr r0, off_80129E0 // =byte_80129E4
-	ldrb r0, [r0,r2]
-	orr r1, r0
-	strb r1, [r7,#oAIAttackVars_Unk_02]
-	mov r1, #0
-	strb r1, [r7,#oAIAttackVars_Unk_04]
-	tst r4, r4
-	beq loc_801273A
-	ldrb r0, [r5,#oBattleObject_Alliance]
-	ldrh r1, [r7,#oAIAttackVars_Unk_14]
-	bl sub_8021D14
-loc_801273A:
-	ldrb r0, [r6,#0xb]
-	pop {r4,r6,r7,pc}
-	thumb_func_end somethingWriteChipParams_80126E4
+	.include "src/battle_core_loadchipdata_rominc.s"
 
 	thumb_local_start
 sub_801273E:

@@ -39,7 +39,7 @@ SFILES = rom.s data.s ewram.s iwram.s vram.s
 include lz_assets.mk
 
 OFILES = $(addprefix $(OBJ),$(SFILES:.s=.o))
-CSRCS := $(CDIR)/asm00_0_sound.c $(CDIR)/asm00_0_soundmain.c $(CDIR)/asm00_0_playsfx.c $(CDIR)/asm00_0_playmusic.c $(CDIR)/asm00_0_music_80005F2.c $(CDIR)/asm00_0_sub_800060A.c $(CDIR)/asm00_0_sound_8000642.c $(CDIR)/asm00_0_sound_800065A.c $(CDIR)/asm00_0_sound_8000672.c $(CDIR)/asm00_0_sound_800068A.c $(CDIR)/asm00_0_musicGameState_8000784.c $(CDIR)/asm00_0_sub_80007A0.c $(CDIR)/asm00_0_zeroFill_80007B2.c $(CDIR)/asm00_0_sound_8000808.c $(CDIR)/asm00_2_sub_800ED80.c
+CSRCS := $(CDIR)/asm00_0_sound.c $(CDIR)/asm00_0_soundmain.c $(CDIR)/asm00_0_playsfx.c $(CDIR)/asm00_0_playmusic.c $(CDIR)/asm00_0_music_80005F2.c $(CDIR)/asm00_0_sub_800060A.c $(CDIR)/asm00_0_sound_8000642.c $(CDIR)/asm00_0_sound_800065A.c $(CDIR)/asm00_0_sound_8000672.c $(CDIR)/asm00_0_sound_800068A.c $(CDIR)/asm00_0_musicGameState_8000784.c $(CDIR)/asm00_0_sub_80007A0.c $(CDIR)/asm00_0_zeroFill_80007B2.c $(CDIR)/asm00_0_sound_8000808.c $(CDIR)/asm00_2_sub_800ED80.c $(CDIR)/battle_core_loadchipdata.c
 C_PPS := $(CSRCS:.c=.i)
 C_ASM := $(CSRCS:.c=.s)
 C_OFILES := $(CSRCS:.c=.o)
@@ -85,12 +85,15 @@ $(ELF): $(OFILES)
 %.o: %.s
 	$(AS) $(ASFLAGS) $< -o $@
 
-rom.o: $(CDIR)/asm00_0_soundmain.s $(CDIR)/asm00_0_sound.s $(CDIR)/asm00_0_playsfx.s $(CDIR)/asm00_0_playmusic.s $(CDIR)/asm00_0_music_80005F2.s $(CDIR)/asm00_0_sub_800060A_rominc.s $(CDIR)/asm00_0_sound_8000642_rominc.s $(CDIR)/asm00_0_sound_800065A_rominc.s $(CDIR)/asm00_0_sound_8000672_rominc.s $(CDIR)/asm00_0_sound_800068A_rominc.s $(CDIR)/asm00_0_musicGameState_8000784_rominc.s $(CDIR)/asm00_0_sub_80007A0_rominc.s $(CDIR)/asm00_0_zeroFill_80007B2_rominc.s $(CDIR)/asm00_0_sound_8000808_rominc.s $(CDIR)/asm00_2_sub_800ED80.s $(CDIR)/battle_core_initbattle_rominc.s
+rom.o: $(CDIR)/asm00_0_soundmain.s $(CDIR)/asm00_0_sound.s $(CDIR)/asm00_0_playsfx.s $(CDIR)/asm00_0_playmusic.s $(CDIR)/asm00_0_music_80005F2.s $(CDIR)/asm00_0_sub_800060A_rominc.s $(CDIR)/asm00_0_sound_8000642_rominc.s $(CDIR)/asm00_0_sound_800065A_rominc.s $(CDIR)/asm00_0_sound_8000672_rominc.s $(CDIR)/asm00_0_sound_800068A_rominc.s $(CDIR)/asm00_0_musicGameState_8000784_rominc.s $(CDIR)/asm00_0_sub_80007A0_rominc.s $(CDIR)/asm00_0_zeroFill_80007B2_rominc.s $(CDIR)/asm00_0_sound_8000808_rominc.s $(CDIR)/asm00_2_sub_800ED80.s $(CDIR)/battle_core_initbattle_rominc.s $(CDIR)/battle_core_loadchipdata_rominc.s
 
 $(CDIR)/%.i: $(CDIR)/%.c $(INC)/asm00_0_sound.h
 	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
 
 $(CDIR)/battle_core_initbattle.i: $(CDIR)/battle_core_initbattle.c $(INC)/battle_core_initbattle.h
+	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
+
+$(CDIR)/battle_core_loadchipdata.i: $(CDIR)/battle_core_loadchipdata.c $(INC)/battle_core_loadchipdata.h
 	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
 
 $(CDIR)/asm00_2_sub_800ED80.i: $(CDIR)/asm00_2_sub_800ED80.c $(INC)/asm00_2_ai.h
@@ -203,6 +206,14 @@ $(CDIR)/battle_core_initbattle.s: $(CDIR)/battle_core_initbattle.i
 $(CDIR)/battle_core_initbattle_rominc.s: $(CDIR)/battle_core_initbattle.i
 	$(AGBCC) -O2 -mthumb-interwork $< -o $@
 	python3 tools/fix_agbcc_sub_8012346_rominc.py $@
+
+$(CDIR)/battle_core_loadchipdata.s: $(CDIR)/battle_core_loadchipdata.i
+	$(AGBCC) -O2 -mthumb-interwork $< -o $@
+	python3 tools/fix_agbcc_battle_core_loadchipdata.py $@
+
+$(CDIR)/battle_core_loadchipdata_rominc.s: $(CDIR)/battle_core_loadchipdata.i
+	$(AGBCC) -O2 -mthumb-interwork $< -o $@
+	python3 tools/fix_agbcc_battle_core_loadchipdata_rominc.py $@
 
 $(CDIR)/%.o: $(CDIR)/%.s
 	$(AS) $(C_ASFLAGS) $< -o $@

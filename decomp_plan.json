@@ -127,8 +127,8 @@
         {
           "label": "LoadChipData",
           "address": "0x08012678",
-          "status": "todo",
-          "notes": "Loads chip stats into memory (placeholder)."
+          "status": "matching",
+          "notes": "Placeholder roadmap entry resolved against the imported disassembly: the actual chip-parameter loader starts at 0x080126E4 as somethingWriteChipParams_80126E4, with the shared internal entry loc_80126EA at 0x080126EA. Implemented in src/battle_core_loadchipdata.c with minimal battle/chip structs in include/battle_core_loadchipdata.h, included directly from asm/asm00_2.s, and post-processed to preserve the original shared-entry Thumb body so the final ROM SHA1 remains identical."
         }
       ]
     },
