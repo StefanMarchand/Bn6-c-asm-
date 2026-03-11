@@ -43,26 +43,26 @@
         {
           "label": "sound_8000642",
           "address": "0x08000642",
-          "status": "todo",
-          "notes": "Indexed sound wrapper in asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c."
+          "status": "matching",
+          "notes": "Indexed sound wrapper in asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c. Implemented in src/asm00_0_sound_8000642.c and included directly from asm/asm00_0.s via a dedicated ROM-include wrapper; narrow post-process scripts preserve both the original shared literal-pool references in ROM and a standalone literal setup for the C object build, keeping the final ROM SHA1 identical."
         },
         {
           "label": "sound_800065A",
           "address": "0x0800065A",
-          "status": "todo",
-          "notes": "Indexed sound wrapper in asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c."
+          "status": "matching",
+          "notes": "Indexed sound wrapper in asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c. Implemented in src/asm00_0_sound_800065A.c and included directly from asm/asm00_0.s via a dedicated ROM-include wrapper; narrow post-process scripts preserve both the original shared literal-pool references in ROM and a standalone literal setup for the C object build, keeping the final ROM SHA1 identical."
         },
         {
           "label": "sound_8000672",
           "address": "0x08000672",
-          "status": "todo",
-          "notes": "Indexed sound wrapper in asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c."
+          "status": "matching",
+          "notes": "Indexed sound wrapper in asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c. Implemented in src/asm00_0_sound_8000672.c and included directly from asm/asm00_0.s via a dedicated ROM-include wrapper; narrow post-process scripts preserve both the original shared literal-pool references in ROM and a standalone literal setup for the C object build, keeping the final ROM SHA1 identical."
         },
         {
           "label": "sound_800068A",
           "address": "0x0800068A",
-          "status": "todo",
-          "notes": "Indexed sound wrapper in asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c."
+          "status": "matching",
+          "notes": "Indexed sound wrapper in asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c. Implemented in src/asm00_0_sound_800068A.c and included directly from asm/asm00_0.s via a dedicated ROM-include wrapper; narrow post-process scripts preserve both the original shared literal-pool references in ROM and a standalone literal setup for the C object build, keeping the final ROM SHA1 identical."
         },
         {
           "label": "musicGameState_8000784",
@@ -79,8 +79,8 @@
         {
           "label": "zeroFill_80007B2",
           "address": "0x080007B2",
-          "status": "todo",
-          "notes": "Short zero-fill helper in asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c."
+          "status": "matching",
+          "notes": "Short zero-fill helper in asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c. Implemented in src/asm00_0_zeroFill_80007B2.c and included directly from asm/asm00_0.s via a dedicated ROM-include wrapper; narrow post-process scripts preserve the original shared literal references in ROM while keeping the standalone C object build self-contained, so the final ROM SHA1 remains identical."
         },
         {
           "label": "sound_8000808",

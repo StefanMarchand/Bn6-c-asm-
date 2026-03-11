@@ -44,65 +44,10 @@ sound_8000630:
 	pop {pc}
 	thumb_func_end sound_8000630
 
-	thumb_func_start sound_8000642
-sound_8000642:
-	push {r4-r7,lr}
-	lsl r0, r0, #2
-	ldr r7, off_8000700 // =off_8000704
-	ldr r0, [r7,r0]
-	mov r3, r10
-	push {r3}
-	ldr r3, off_8000874 // =sub_814F9AC+1
-	bl sound_8000808 // () -> void
-	pop {r3}
-	mov r10, r3
-	pop {r4-r7,pc}
-	thumb_func_end sound_8000642
-
-	thumb_func_start sound_800065A
-sound_800065A:
-	push {r4-r7,lr}
-	lsl r0, r0, #2
-	ldr r7, off_8000700 // =off_8000704
-	ldr r0, [r7,r0]
-	mov r3, r10
-	push {r3}
-	ldr r3, off_8000878 // =sub_814FA14+1
-	bl sound_8000808 // () -> void
-	pop {r3}
-	mov r10, r3
-	pop {r4-r7,pc}
-	thumb_func_end sound_800065A
-
-	thumb_func_start sound_8000672
-sound_8000672:
-	push {r4-r7,lr}
-	lsl r0, r0, #2
-	ldr r7, off_8000700 // =off_8000704
-	ldr r0, [r7,r0]
-	mov r3, r10
-	push {r3}
-	ldr r3, off_800087C // =sub_814F988+1
-	bl sound_8000808 // () -> void
-	pop {r3}
-	mov r10, r3
-	pop {r4-r7,pc}
-	thumb_func_end sound_8000672
-
-	thumb_func_start sound_800068A
-sound_800068A:
-	push {r4-r7,lr}
-	ldr r7, off_8000700 // =off_8000704
-	lsl r0, r0, #2
-	ldr r0, [r7,r0]
-	mov r2, r10
-	push {r2}
-	ldr r3, off_8000880 // =sub_814E87C+1
-	bl sound_8000808 // () -> void
-	pop {r2}
-	mov r10, r2
-	pop {r4-r7,pc}
-	thumb_func_end sound_800068A
+	.include "src/asm00_0_sound_8000642_rominc.s"
+	.include "src/asm00_0_sound_800065A_rominc.s"
+	.include "src/asm00_0_sound_8000672_rominc.s"
+	.include "src/asm00_0_sound_800068A_rominc.s"
 
 	thumb_func_start sound_80006A2
 sound_80006A2:
@@ -216,16 +161,7 @@ sub_80007A0:
 	pop {r1-r7,pc}
 	thumb_func_end sub_80007A0
 
-	thumb_func_start zeroFill_80007B2
-zeroFill_80007B2:
-	push {lr}
-	// memBlock
-	ldr r0, dword_200A490_p
-	// size
-	ldr r1, numWords // =0x20c
-	bl ZeroFillByWord // (mut_mem: *mut (), num_bytes: usize) -> ()
-	pop {pc}
-	thumb_func_end zeroFill_80007B2
+	.include "src/asm00_0_zeroFill_80007B2_rominc.s"
 
 	thumb_func_start sub_80007BE
 sub_80007BE:
