@@ -132,18 +132,7 @@ off_8000704:
 	thumb_func_end sound_80006A2
 
 	.include "src/asm00_0_musicGameState_8000784_rominc.s"
-
-	thumb_local_start
-sub_80007A0:
-	push {r1-r7,lr}
-	mov r1, r10
-	push {r1}
-	ldr r3, off_800089C // =sub_814E9F0+1
-	bl sound_8000808 // () -> void
-	pop {r1}
-	mov r10, r1
-	pop {r1-r7,pc}
-	thumb_func_end sub_80007A0
+	.include "src/asm00_0_sub_80007A0_rominc.s"
 
 	.include "src/asm00_0_zeroFill_80007B2_rominc.s"
 

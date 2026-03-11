@@ -73,8 +73,8 @@
         {
           "label": "sub_80007A0",
           "address": "0x080007A0",
-          "status": "todo",
-          "notes": "Small sound wrapper in asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c."
+          "status": "matching",
+          "notes": "Small sound wrapper in asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c. Implemented in src/asm00_0_sub_80007A0.c and included directly from asm/asm00_0.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original wrapper shape so the final ROM SHA1 remains identical."
         },
         {
           "label": "zeroFill_80007B2",
