@@ -21,6 +21,96 @@
           "address": "0x080005CC",
           "status": "matching",
           "notes": "Small sound thunk from asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c. Implemented in src/asm00_0_playsfx.c and included directly from asm/asm00_0.s; a narrow post-process restores the original push/pop wrapper shape so the linked bytes and final ROM SHA1 remain identical."
+        },
+        {
+          "label": "PlayMusic",
+          "address": "0x080005D4",
+          "status": "matching",
+          "notes": "Next real function after PlaySoundEffect in asm/asm00_0.s; the older battle_core TODO entries remain placeholder guide data. Implemented in src/asm00_0_playmusic.c and included directly from asm/asm00_0.s; a narrow post-process restores the original wrapper shape so the linked bytes and final ROM SHA1 remain identical."
+        },
+        {
+          "label": "music_80005F2",
+          "address": "0x080005F2",
+          "status": "matching",
+          "notes": "Small BG music wrapper in asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c. Implemented in src/asm00_0_music_80005F2.c and included directly from asm/asm00_0.s; a narrow post-process restores the original wrapper shape so the linked bytes and final ROM SHA1 remain identical."
+        },
+        {
+          "label": "sub_800060A",
+          "address": "0x0800060A",
+          "status": "todo",
+          "notes": "Small sound dispatch helper in asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c."
+        },
+        {
+          "label": "sound_8000642",
+          "address": "0x08000642",
+          "status": "todo",
+          "notes": "Indexed sound wrapper in asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c."
+        },
+        {
+          "label": "sound_800065A",
+          "address": "0x0800065A",
+          "status": "todo",
+          "notes": "Indexed sound wrapper in asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c."
+        },
+        {
+          "label": "sound_8000672",
+          "address": "0x08000672",
+          "status": "todo",
+          "notes": "Indexed sound wrapper in asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c."
+        },
+        {
+          "label": "sound_800068A",
+          "address": "0x0800068A",
+          "status": "todo",
+          "notes": "Indexed sound wrapper in asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c."
+        },
+        {
+          "label": "musicGameState_8000784",
+          "address": "0x08000784",
+          "status": "todo",
+          "notes": "Small game-state music helper in asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c."
+        },
+        {
+          "label": "sub_80007A0",
+          "address": "0x080007A0",
+          "status": "todo",
+          "notes": "Small sound wrapper in asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c."
+        },
+        {
+          "label": "zeroFill_80007B2",
+          "address": "0x080007B2",
+          "status": "todo",
+          "notes": "Short zero-fill helper in asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c."
+        },
+        {
+          "label": "sound_8000808",
+          "address": "0x08000808",
+          "status": "todo",
+          "notes": "Small queued sound command helper in asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c."
+        }
+      ]
+    },
+    {
+      "name": "asm00_1",
+      "priority": 2,
+      "functions": [
+        {
+          "label": "sub_800318C",
+          "address": "0x0800318C",
+          "status": "todo",
+          "notes": "Tiny battle object linked-list initializer in asm/asm00_1.s with an existing sketch in docs/decomp/asm00_1.c."
+        }
+      ]
+    },
+    {
+      "name": "asm00_2",
+      "priority": 2,
+      "functions": [
+        {
+          "label": "sub_800ED80",
+          "address": "0x0800ED80",
+          "status": "matching",
+          "notes": "Tiny AI bitfield helper in asm/asm00_2.s with an existing sketch in docs/decomp/asm00_2.c. Implemented in src/asm00_2_sub_800ED80.c and included directly from asm/asm00_2.s; a narrow post-process preserves the original literal-pool layout so the linked bytes and final ROM SHA1 remain identical."
         }
       ]
     },
@@ -31,8 +121,8 @@
         {
           "label": "InitBattle",
           "address": "0x08012345",
-          "status": "todo",
-          "notes": "Initial battle setup (placeholder entry until real disassembly is imported)."
+          "status": "matching",
+          "notes": "Placeholder roadmap entry resolved by address against the imported disassembly: the actual Thumb function starts at 0x08012346 as sub_8012346 in asm/asm00_2.s. Implemented in src/battle_core_initbattle.c, included directly from asm/asm00_2.s, and post-processed to preserve the original ldr-literal wrapper shape so the final ROM SHA1 remains identical."
         },
         {
           "label": "LoadChipData",

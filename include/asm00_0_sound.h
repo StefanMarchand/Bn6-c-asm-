@@ -1,11 +1,27 @@
 #ifndef ASM00_0_SOUND_H
 #define ASM00_0_SOUND_H
 
+struct GameState {
+    unsigned char pad[0xF];
+    unsigned char bgMusicIndicator;
+};
+
+struct Toolkit {
+    unsigned char pad[0x3C];
+    struct GameState *gameState;
+};
+
+register struct Toolkit *gToolkit asm("r10");
+
 int m4aSoundMain(void);
 int call_m4aSoundMain(void);
 int m4a_2_814F00C(void);
 int call_m4a_2_814F00C(void);
+int sound_8000808(int value, int unused1, int unused2, int (*handler)(void));
 int m4a_800061E(int songId, int unused1, int unused2);
+int sound_8000630(int songId, int unused1, int unused2);
 int PlaySoundEffect(int songId, int unused1, int unused2);
+int PlayMusic(int songId, int unused1, int unused2);
+int music_80005F2(int songId, int previousSong, int unused2);
 
 #endif

@@ -14,46 +14,9 @@ dword_80005BC:
 
 	.include "src/asm00_0_sound.s"
 	.include "src/asm00_0_playsfx.s"
+	.include "src/asm00_0_playmusic.s"
 
-	thumb_func_start PlayMusic
-PlayMusic: // (song: u8) -> ()
-	push {r1-r7,lr}
-	mov r7, r10
-	ldr r7, [r7,#oToolkit_GameStatePtr]
-	ldrb r1, [r7,#oGameState_BGMusicIndicator]
-	cmp r0, r1
-	beq locret_80005F0
-	strb r0, [r7,#oGameState_BGMusicIndicator]
-	cmp r0, #0x63
-	bne loc_80005EC
-	bl sound_8000630
-	b locret_80005F0
-loc_80005EC:
-	bl m4a_800061E // () -> void
-locret_80005F0:
-	pop {r1-r7,pc}
-	thumb_func_end PlayMusic
-
-	thumb_func_start music_80005F2
-music_80005F2: // (bg_music_indicator: u8) -> ()
-	push {r1-r7,lr}
-
-	mov r7, r10
-
-	ldr r7, [r7,#oToolkit_GameStatePtr]
-	strb r0, [r7,#oGameState_BGMusicIndicator]
-
-	cmp r0, #0x63
-	bne loc_8000604
-
-	bl sound_8000630
-
-	b locret_8000608
-loc_8000604:
-	bl m4a_800061E // () -> void
-locret_8000608:
-	pop {r1-r7,pc}
-	thumb_func_end music_80005F2
+	.include "src/asm00_0_music_80005F2.s"
 
 	thumb_func_start sub_800060A
 sub_800060A:

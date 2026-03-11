@@ -1,15 +1,5 @@
 
-	thumb_func_start sub_800ED80
-sub_800ED80:
-	ldr r1, [r0,#oAIData_Unk_7c]
-	ldr r2, off_800ED8C // =eUsedAIDataBitfield 
-	ldr r3, [r2]
-	bic r3, r1
-	str r3, [r2]
-	mov pc, lr
-off_800ED8C:
-	.word eUsedAIDataBitfield
-	thumb_func_end sub_800ED80
+	.include "src/asm00_2_sub_800ED80.s"
 
 	thumb_func_start sub_800ED90
 sub_800ED90:
@@ -7277,12 +7267,7 @@ sub_801233C:
 	thumb_func_end sub_801233C
 
 	thumb_local_start
-sub_8012346:
-	push {lr}
-	ldr r0, off_80126D0 // =0x17c 
-	bl loc_80126EA
-	pop {pc}
-	thumb_func_end sub_8012346
+	.include "src/battle_core_initbattle_rominc.s"
 
 	thumb_local_start
 sub_8012350:

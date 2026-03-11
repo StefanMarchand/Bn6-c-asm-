@@ -39,7 +39,7 @@ SFILES = rom.s data.s ewram.s iwram.s vram.s
 include lz_assets.mk
 
 OFILES = $(addprefix $(OBJ),$(SFILES:.s=.o))
-CSRCS := $(CDIR)/asm00_0_sound.c $(CDIR)/asm00_0_soundmain.c $(CDIR)/asm00_0_playsfx.c
+CSRCS := $(CDIR)/asm00_0_sound.c $(CDIR)/asm00_0_soundmain.c $(CDIR)/asm00_0_playsfx.c $(CDIR)/asm00_0_playmusic.c $(CDIR)/asm00_0_music_80005F2.c $(CDIR)/asm00_2_sub_800ED80.c
 C_PPS := $(CSRCS:.c=.i)
 C_ASM := $(CSRCS:.c=.s)
 C_OFILES := $(CSRCS:.c=.o)
@@ -85,9 +85,15 @@ $(ELF): $(OFILES)
 %.o: %.s
 	$(AS) $(ASFLAGS) $< -o $@
 
-rom.o: $(CDIR)/asm00_0_soundmain.s $(CDIR)/asm00_0_sound.s $(CDIR)/asm00_0_playsfx.s
+rom.o: $(CDIR)/asm00_0_soundmain.s $(CDIR)/asm00_0_sound.s $(CDIR)/asm00_0_playsfx.s $(CDIR)/asm00_0_playmusic.s $(CDIR)/asm00_0_music_80005F2.s $(CDIR)/asm00_2_sub_800ED80.s $(CDIR)/battle_core_initbattle_rominc.s
 
 $(CDIR)/%.i: $(CDIR)/%.c $(INC)/asm00_0_sound.h
+	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
+
+$(CDIR)/battle_core_initbattle.i: $(CDIR)/battle_core_initbattle.c $(INC)/battle_core_initbattle.h
+	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
+
+$(CDIR)/asm00_2_sub_800ED80.i: $(CDIR)/asm00_2_sub_800ED80.c $(INC)/asm00_2_ai.h
 	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
 
 $(CDIR)/%.s: $(CDIR)/%.i
@@ -105,6 +111,26 @@ $(CDIR)/asm00_0_playsfx.s: $(CDIR)/asm00_0_playsfx.i
 	$(AGBCC) -O2 -mthumb-interwork $< -o $@
 	python3 tools/fix_agbcc_thumb_wrapper.py $@ PlaySoundEffect
 	python3 tools/fix_agbcc_play_sound_effect.py $@
+
+$(CDIR)/asm00_0_playmusic.s: $(CDIR)/asm00_0_playmusic.i
+	$(AGBCC) -O2 -mthumb-interwork $< -o $@
+	python3 tools/fix_agbcc_playmusic.py $@
+
+$(CDIR)/asm00_0_music_80005F2.s: $(CDIR)/asm00_0_music_80005F2.i
+	$(AGBCC) -O2 -mthumb-interwork $< -o $@
+	python3 tools/fix_agbcc_music_80005F2.py $@
+
+$(CDIR)/asm00_2_sub_800ED80.s: $(CDIR)/asm00_2_sub_800ED80.i
+	$(AGBCC) -O2 -mthumb-interwork $< -o $@
+	python3 tools/fix_agbcc_sub_800ED80.py $@
+
+$(CDIR)/battle_core_initbattle.s: $(CDIR)/battle_core_initbattle.i
+	$(AGBCC) -O2 -mthumb-interwork $< -o $@
+	python3 tools/fix_agbcc_sub_8012346.py $@
+
+$(CDIR)/battle_core_initbattle_rominc.s: $(CDIR)/battle_core_initbattle.i
+	$(AGBCC) -O2 -mthumb-interwork $< -o $@
+	python3 tools/fix_agbcc_sub_8012346_rominc.py $@
 
 $(CDIR)/%.o: $(CDIR)/%.s
 	$(AS) $(C_ASFLAGS) $< -o $@
