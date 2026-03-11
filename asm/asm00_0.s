@@ -49,51 +49,7 @@ sound_8000630:
 	.include "src/asm00_0_sound_8000672_rominc.s"
 	.include "src/asm00_0_sound_800068A_rominc.s"
 
-	thumb_func_start sound_80006A2
-sound_80006A2:
-	push {r4-r7,lr}
-	cmp r0, #0x25
-	bgt loc_80006B0
-	mov r7, r10
-	ldr r7, [r7,#oToolkit_GameStatePtr]
-	strb r0, [r7,#oGameState_BGMusicIndicator]
-	b loc_80006B0
-loc_80006B0:
-	mov r4, r12
-	mov r5, r8
-	mov r6, r9
-	mov r7, r10
-	push {r4-r7}
-	ldr r7, off_8000700 // =off_8000704
-	lsl r2, r2, #2
-	ldr r7, [r7,r2]
-	mov r4, r0
-	mov r5, r1
-	ldr r3, off_8000884 // =m4a_SongNumStart+1
-	bl sound_8000808 // () -> void
-	mov r0, r7
-	ldr r3, off_8000888 // =sub_814EB1C+1
-	bl sound_8000808 // () -> void
-	mov r0, r7
-	mov r1, #0xff
-	mov r2, #0
-	ldr r3, off_800088C // =sub_814F9AC+1
-	bl sound_8000808 // () -> void
-	mov r0, r4
-	ldr r3, off_8000890 // =sub_814E9F0+1
-	bl sound_8000808 // () -> void
-	mov r0, r7
-	mov r1, r5
-	ldr r3, off_8000894 // =sub_814EAF0+1
-	bl sound_8000808 // () -> void
-	pop {r4-r7}
-	mov r12, r4
-	mov r8, r5
-	mov r9, r6
-	mov r10, r7
-	pop {r4-r7,pc}
-	.word off_2010890
-	.balign 4, 0
+	.include "src/asm00_0_sound_80006A2_rominc.s"
 off_8000700:
 	.word off_8000704
 off_8000704:

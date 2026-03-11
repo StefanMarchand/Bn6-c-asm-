@@ -65,6 +65,12 @@
           "notes": "Indexed sound wrapper in asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c. Implemented in src/asm00_0_sound_800068A.c and included directly from asm/asm00_0.s via a dedicated ROM-include wrapper; narrow post-process scripts preserve both the original shared literal-pool references in ROM and a standalone literal setup for the C object build, keeping the final ROM SHA1 identical."
         },
         {
+          "label": "sound_80006A2",
+          "address": "0x080006A2",
+          "status": "matching",
+          "notes": "Multi-step sound queue helper in asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c. Implemented in src/asm00_0_sound_80006A2.c and included directly from asm/asm00_0.s via a dedicated ROM-include wrapper; narrow post-process scripts preserve the original Thumb body in ROM while keeping the standalone C object build self-contained, so the final ROM SHA1 remains identical."
+        },
+        {
           "label": "musicGameState_8000784",
           "address": "0x08000784",
           "status": "matching",
