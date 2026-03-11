@@ -131,23 +131,7 @@ off_8000704:
 	.word off_2010890
 	thumb_func_end sound_80006A2
 
-// () -> void
-	thumb_func_start musicGameState_8000784
-musicGameState_8000784:
-	push {r7,lr}
-	mov r1, r10
-	push {r1}
-	ldr r3, off_8000898 // =sub_814EA58+1
-	bl sound_8000808 // () -> void
-	pop {r1}
-	mov r10, r1
-	mov r7, r10
-	ldr r7, [r7,#oToolkit_GameStatePtr] // Toolkit.gamestate
-	mov r0, #0xff
-	strb r0, [r7,#oGameState_BGMusicIndicator] // GameState.bgMusicIndicator
-	pop {r7,pc}
-	.byte 0, 0
-	thumb_func_end musicGameState_8000784
+	.include "src/asm00_0_musicGameState_8000784_rominc.s"
 
 	thumb_local_start
 sub_80007A0:

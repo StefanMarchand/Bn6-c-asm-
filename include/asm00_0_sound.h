@@ -23,6 +23,7 @@ int m4a_2_814F00C(void);
 int call_m4a_2_814F00C(void);
 void ZeroFillByWord(void *memBlock, int size);
 int sub_814E87C(void);
+int sub_814EA58(void);
 int sub_814F988(void);
 int sub_814F9AC(void);
 int sub_814FA14(void);
@@ -38,6 +39,7 @@ int sound_8000642(int index, int unused1, int unused2);
 int sound_800065A(int index, int unused1, int unused2);
 int sound_8000672(int index, int unused1, int unused2);
 int sound_800068A(int index, int unused1, int unused2);
+int musicGameState_8000784(int songId, int unused1, int unused2);
 void zeroFill_80007B2(void);
 
 #endif

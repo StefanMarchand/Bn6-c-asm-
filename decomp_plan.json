@@ -67,8 +67,8 @@
         {
           "label": "musicGameState_8000784",
           "address": "0x08000784",
-          "status": "todo",
-          "notes": "Small game-state music helper in asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c."
+          "status": "matching",
+          "notes": "Small game-state music helper in asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c. Implemented in src/asm00_0_musicGameState_8000784.c and included directly from asm/asm00_0.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original wrapper shape and trailing alignment bytes so the final ROM SHA1 remains identical."
         },
         {
           "label": "sub_80007A0",
