@@ -66,3 +66,33 @@ void onUpdateInInternet_8033B1E(void)
     sub_8033F80(1);
     sub_8033EE8();
 }
+
+void sub_8033B30(void)
+{
+    sub_8033E0C();
+    sub_8033F80(1);
+    sub_8033D88();
+    sub_8033EE8();
+}
+
+void sub_8033B46(void)
+{
+    sub_8033E0C();
+    sub_8033F80(1);
+    sub_8033D88();
+    sub_8033EE8();
+}
+
+void sub_8033B5C(void)
+{
+    sub_8033E0C();
+    sub_8033F80(1);
+    sub_8033EE8();
+}
+
+void sub_8033B6E(void)
+{
+    sub_8033E0C();
+    sub_8033F80(1);
+    sub_8033EE8();
+}

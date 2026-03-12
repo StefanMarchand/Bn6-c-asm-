@@ -342,48 +342,6 @@ off_8033A78:
 	.include "src/asm03_1_0_realworld_wrappers_rominc.s"
 
 	thumb_local_start
-sub_8033B30: // (self: * S2011E30 $r5) -> ()
-	push {lr}
-	bl sub_8033E0C
-	mov r0, #1
-	bl sub_8033F80
-	bl sub_8033D88
-	bl sub_8033EE8
-	pop {pc}
-	thumb_func_end sub_8033B30
-
-	thumb_local_start
-sub_8033B46: // (self: * S2011E30 $r5) -> ()
-	push {lr}
-	bl sub_8033E0C
-	mov r0, #1
-	bl sub_8033F80
-	bl sub_8033D88
-	bl sub_8033EE8
-	pop {pc}
-	thumb_func_end sub_8033B46
-
-	thumb_local_start
-sub_8033B5C: // (self: * S2011E30 $r5) -> ()
-	push {lr}
-	bl sub_8033E0C
-	mov r0, #1
-	bl sub_8033F80
-	bl sub_8033EE8
-	pop {pc}
-	thumb_func_end sub_8033B5C
-
-	thumb_local_start
-sub_8033B6E: // (self: * S2011E30 $r5) -> ()
-	push {lr}
-	bl sub_8033E0C
-	mov r0, #1
-	bl sub_8033F80
-	bl sub_8033EE8
-	pop {pc}
-	thumb_func_end sub_8033B6E
-
-	thumb_local_start
 sub_8033B80:
 	push {lr}
 	mov r2, #0x18

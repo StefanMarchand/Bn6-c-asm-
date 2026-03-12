@@ -5,4 +5,5 @@ void sub_8033BE8(void);
 void sub_8033C68(void);
 void sub_8033CF0(void);
 void sub_8033E0C(void);
+void sub_8033D88(void);
 void sub_8033EE8(void);

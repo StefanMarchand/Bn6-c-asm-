@@ -105,6 +105,48 @@ onUpdateInInternet_8033B1E: // (self: * S2011E30 $r5) -> ()
 \tbl sub_8033EE8
 \tpop {pc}
 \tthumb_func_end onUpdateInInternet_8033B1E
+
+\tthumb_local_start
+sub_8033B30: // (self: * S2011E30 $r5) -> ()
+\tpush {lr}
+\tbl sub_8033E0C
+\tmov r0, #1
+\tbl sub_8033F80
+\tbl sub_8033D88
+\tbl sub_8033EE8
+\tpop {pc}
+\tthumb_func_end sub_8033B30
+
+\tthumb_local_start
+sub_8033B46: // (self: * S2011E30 $r5) -> ()
+\tpush {lr}
+\tbl sub_8033E0C
+\tmov r0, #1
+\tbl sub_8033F80
+\tbl sub_8033D88
+\tbl sub_8033EE8
+\tpop {pc}
+\tthumb_func_end sub_8033B46
+
+\tthumb_local_start
+sub_8033B5C: // (self: * S2011E30 $r5) -> ()
+\tpush {lr}
+\tbl sub_8033E0C
+\tmov r0, #1
+\tbl sub_8033F80
+\tbl sub_8033EE8
+\tpop {pc}
+\tthumb_func_end sub_8033B5C
+
+\tthumb_local_start
+sub_8033B6E: // (self: * S2011E30 $r5) -> ()
+\tpush {lr}
+\tbl sub_8033E0C
+\tmov r0, #1
+\tbl sub_8033F80
+\tbl sub_8033EE8
+\tpop {pc}
+\tthumb_func_end sub_8033B6E
 """
 
 
