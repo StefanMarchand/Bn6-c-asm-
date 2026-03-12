@@ -589,50 +589,7 @@ off_804646C:
 	.byte 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
 	thumb_func_end sub_8046450
 
-// () -> void
-	thumb_func_start sub_804657C
-sub_804657C:
-	push {r4-r7,lr}
-	// memBlock
-	ldr r0, off_80466D4 // =eStructArr2008450 
-	// size
-	ldr r1, off_804659C // =0x528 
-	bl ZeroFillByWord // (mut_mem: *mut (), num_bytes: usize) -> ()
-	ldr r5, off_80466D4 // =eStructArr2008450 
-	mov r7, #0
-loc_804658A:
-	mov r0, #0x20 
-	strb r0, [r5,#2]
-	strb r7, [r5,#3]
-	add r5, #0x58 
-	add r7, #1
-	cmp r7, #0xf
-	blt loc_804658A
-	pop {r4-r7,pc}
-	.balign 4, 0
-off_804659C:
-	.word 0x528
-	thumb_func_end sub_804657C
-
-// (void *a1) -> void
-	thumb_func_start sub_80465A0
-sub_80465A0:
-	push {r4-r7,lr}
-loc_80465A2:
-	ldrb r7, [r0]
-	cmp r7, #0xff
-	beq locret_80465BA
-	push {r0}
-	ldrh r2, [r0,#2]
-	ldrb r1, [r0,#1]
-	ldrb r0, [r0]
-	bl sub_8046670
-	pop {r0}
-	add r0, #4
-	b loc_80465A2
-locret_80465BA:
-	pop {r4-r7,pc}
-	thumb_func_end sub_80465A0
+	.include "src/asm03_2_text_sprite_wrappers_rominc.s"
 
 	thumb_func_start sub_80465BC
 sub_80465BC:
@@ -731,31 +688,7 @@ loc_8046652:
 	pop {r4-r7,pc}
 	thumb_func_end sub_80465F8
 
-// () -> void
-	thumb_func_start sub_8046664
-sub_8046664:
-	push {r4-r7,lr}
-	bl sub_80466AA // () -> void
-	bl sub_804657C // () -> void
-	pop {r4-r7,pc}
-	thumb_func_end sub_8046664
-
-	thumb_func_start sub_8046670
-sub_8046670:
-	push {r4-r7,lr}
-	ldr r5, off_80466D4 // =eStructArr2008450 
-	mov r4, #0x58 
-	mul r1, r4
-	add r5, r5, r1
-	strb r0, [r5,#1]
-	mov r0, #9
-	strb r0, [r5]
-	str r2, [r5,#4]
-	mov r0, #0
-	str r0, [r5,#8]
-	mov r0, r5
-	pop {r4-r7,pc}
-	thumb_func_end sub_8046670
+	.include "src/asm03_2_text_sprite_reset_wrappers_rominc.s"
 
 	thumb_func_start sub_804668A
 sub_804668A:
@@ -766,18 +699,7 @@ sub_804668A:
 	pop {r4-r7,pc}
 	thumb_func_end sub_804668A
 
-	thumb_func_start sub_8046696
-sub_8046696:
-	push {r4-r7,lr}
-	ldr r5, off_80466D4 // =eStructArr2008450 
-	mov r1, #0x58 
-	mul r1, r0
-	add r5, r5, r1
-	mov r0, #0
-	strb r0, [r5]
-	bl sprite_makeUnscalable
-	pop {r4-r7,pc}
-	thumb_func_end sub_8046696
+	.include "src/asm03_2_text_sprite_clear_8046696_rominc.s"
 
 // () -> void
 	thumb_local_start

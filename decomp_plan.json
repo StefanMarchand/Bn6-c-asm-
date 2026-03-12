@@ -339,6 +339,36 @@
           "address": "0x08045FE4",
           "status": "matching",
           "notes": "Shared local text-render setup entry in asm/asm03_2.s with an existing sketch in docs/decomp/asm03_2.c. Implemented as the exported C helper loc_8045FE4 alongside the neighboring wrappers and included directly from asm/asm03_2.s via the shared ROM-include wrapper; a narrow post-process preserves the original shared local-entry wrapper shape so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_804657C",
+          "address": "0x0804657C",
+          "status": "matching",
+          "notes": "Small text-sprite state initializer in asm/asm03_2.s with an existing sketch in docs/decomp/asm03_2.c. Implemented in src/asm03_2_text_sprite_wrappers.c with a minimal text-sprite header in include/asm03_2_text_sprite_wrappers.h and included directly from asm/asm03_2.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original loop body and local size literal so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_80465A0",
+          "address": "0x080465A0",
+          "status": "matching",
+          "notes": "Small text-sprite init-list walker in asm/asm03_2.s with an existing sketch in docs/decomp/asm03_2.c. Implemented in src/asm03_2_text_sprite_wrappers.c with a minimal text-sprite header in include/asm03_2_text_sprite_wrappers.h and included directly from asm/asm03_2.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original local loop and call sequence so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_8046664",
+          "address": "0x08046664",
+          "status": "matching",
+          "notes": "Tiny text-sprite reset wrapper in asm/asm03_2.s with an existing sketch in docs/decomp/asm03_2.c. Implemented in src/asm03_2_text_sprite_reset_wrappers.c with a minimal text-sprite header in include/asm03_2_text_sprite_reset_wrappers.h and included directly from asm/asm03_2.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original two-call wrapper shape so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_8046670",
+          "address": "0x08046670",
+          "status": "matching",
+          "notes": "Small text-sprite slot initializer in asm/asm03_2.s with an existing sketch in docs/decomp/asm03_2.c. Implemented in src/asm03_2_text_sprite_reset_wrappers.c with a minimal text-sprite header in include/asm03_2_text_sprite_reset_wrappers.h and included directly from asm/asm03_2.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original slot-addressing Thumb body so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_8046696",
+          "address": "0x08046696",
+          "status": "matching",
+          "notes": "Tiny text-sprite clear wrapper in asm/asm03_2.s with an existing sketch in docs/decomp/asm03_2.c. Implemented in src/asm03_2_text_sprite_clear_8046696.c with a minimal text-sprite header in include/asm03_2_text_sprite_clear_8046696.h and included directly from asm/asm03_2.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original slot-addressing wrapper shape so the final ROM SHA1 remains identical."
         }
       ]
     }
