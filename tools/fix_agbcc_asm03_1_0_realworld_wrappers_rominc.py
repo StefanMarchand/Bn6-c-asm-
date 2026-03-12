@@ -56,6 +56,55 @@ sub_8033AC4: // (self: * S2011E30 $r5) -> ()
 \tbl sub_8033BE8
 \tpop {pc}
 \tthumb_func_end sub_8033AC4
+
+\tthumb_local_start
+sub_8033ADC: // (self: * S2011E30 $r5) -> ()
+\tpush {lr}
+\tmov r0, #1
+\tbl sub_8033B80
+\tmov r0, #0
+\tbl sub_8033F80
+\tbl sub_8033CF0
+\tpop {pc}
+\tthumb_func_end sub_8033ADC
+
+\tthumb_local_start
+sub_8033AF0: // (self: * S2011E30 $r5) -> ()
+\tpush {lr}
+\tmov r0, #1
+\tbl sub_8033B80
+\tmov r0, #0
+\tbl sub_8033F80
+\tbl sub_8033CF0
+\tbl sub_8033BE8
+\tpop {pc}
+\tthumb_func_end sub_8033AF0
+
+\tthumb_local_start
+noop_8033B08: // (self: *const S2011E30 $r5) -> ()
+\tpush {lr}
+\tpop {pc}
+\tthumb_func_end noop_8033B08
+
+\tthumb_local_start
+sub_8033B0C: // (self: * S2011E30 $r5) -> ()
+\tpush {lr}
+\tbl sub_8033E0C
+\tmov r0, #1
+\tbl sub_8033F80
+\tbl sub_8033EE8
+\tpop {pc}
+\tthumb_func_end sub_8033B0C
+
+\tthumb_local_start
+onUpdateInInternet_8033B1E: // (self: * S2011E30 $r5) -> ()
+\tpush {lr}
+\tbl sub_8033E0C
+\tmov r0, #1
+\tbl sub_8033F80
+\tbl sub_8033EE8
+\tpop {pc}
+\tthumb_func_end onUpdateInInternet_8033B1E
 """
 
 

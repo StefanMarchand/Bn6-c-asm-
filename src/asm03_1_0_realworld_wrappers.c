@@ -33,3 +33,36 @@ void sub_8033AC4(void)
     sub_8033C68();
     sub_8033BE8();
 }
+
+void sub_8033ADC(void)
+{
+    sub_8033B80(1);
+    sub_8033F80(0);
+    sub_8033CF0();
+}
+
+void sub_8033AF0(void)
+{
+    sub_8033B80(1);
+    sub_8033F80(0);
+    sub_8033CF0();
+    sub_8033BE8();
+}
+
+void noop_8033B08(void)
+{
+}
+
+void sub_8033B0C(void)
+{
+    sub_8033E0C();
+    sub_8033F80(1);
+    sub_8033EE8();
+}
+
+void onUpdateInInternet_8033B1E(void)
+{
+    sub_8033E0C();
+    sub_8033F80(1);
+    sub_8033EE8();
+}

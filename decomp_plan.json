@@ -249,6 +249,36 @@
           "address": "0x08033AC4",
           "status": "matching",
           "notes": "Small real-world PET update wrapper in asm/asm03_1_0.s with an existing sketch in docs/decomp/asm03_1.c. Implemented alongside the neighboring real-world update wrappers in src/asm03_1_0_realworld_wrappers.c and included directly from asm/asm03_1_0.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original local Thumb call sequence so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_8033ADC",
+          "address": "0x08033ADC",
+          "status": "matching",
+          "notes": "Small real-world PET update wrapper in asm/asm03_1_0.s with an existing sketch in docs/decomp/asm03_1.c. Implemented alongside the neighboring real-world/internet update wrappers in src/asm03_1_0_realworld_wrappers.c and included directly from asm/asm03_1_0.s via the shared ROM-include wrapper; a narrow post-process preserves the original local Thumb call sequence so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_8033AF0",
+          "address": "0x08033AF0",
+          "status": "matching",
+          "notes": "Small real-world PET update wrapper in asm/asm03_1_0.s with an existing sketch in docs/decomp/asm03_1.c. Implemented alongside the neighboring real-world/internet update wrappers in src/asm03_1_0_realworld_wrappers.c and included directly from asm/asm03_1_0.s via the shared ROM-include wrapper; a narrow post-process preserves the original local Thumb call sequence so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "noop_8033B08",
+          "address": "0x08033B08",
+          "status": "matching",
+          "notes": "Tiny internet PET update no-op in asm/asm03_1_0.s with an existing sketch in docs/decomp/asm03_1.c. Implemented alongside the neighboring real-world/internet update wrappers in src/asm03_1_0_realworld_wrappers.c and included directly from asm/asm03_1_0.s via the shared ROM-include wrapper; a narrow post-process preserves the original local Thumb body so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_8033B0C",
+          "address": "0x08033B0C",
+          "status": "matching",
+          "notes": "Small internet PET update wrapper in asm/asm03_1_0.s with an existing sketch in docs/decomp/asm03_1.c. Implemented alongside the neighboring real-world/internet update wrappers in src/asm03_1_0_realworld_wrappers.c and included directly from asm/asm03_1_0.s via the shared ROM-include wrapper; a narrow post-process preserves the original local Thumb call sequence so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "onUpdateInInternet_8033B1E",
+          "address": "0x08033B1E",
+          "status": "matching",
+          "notes": "Small internet PET update wrapper in asm/asm03_1_0.s with an existing sketch in docs/decomp/asm03_1.c. Implemented alongside the neighboring real-world/internet update wrappers in src/asm03_1_0_realworld_wrappers.c and included directly from asm/asm03_1_0.s via the shared ROM-include wrapper; a narrow post-process preserves the original local Thumb call sequence so the final ROM SHA1 remains identical."
         }
       ]
     }
