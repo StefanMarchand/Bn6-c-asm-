@@ -480,23 +480,7 @@ loc_800F286:
 	pop {pc}
 	thumb_func_end sub_800F26C
 
-	thumb_func_start sub_800F29C
-sub_800F29C:
-	push {lr}
-	bl sub_80182B4
-	ldrb r2, [r0]
-	ldrb r1, [r0,#2]
-	ldrb r0, [r0,#1]
-	pop {pc}
-	thumb_func_end sub_800F29C
-
-	thumb_func_start sub_800F2AA
-sub_800F2AA:
-	push {lr}
-	ldrh r1, [r5,#oBattleObject_NameID]
-	bl nullsub_3
-	pop {pc}
-	thumb_func_end sub_800F2AA
+	.include "src/asm00_2_small_helpers_rominc.s"
 
 	thumb_local_start
 nullsub_3:

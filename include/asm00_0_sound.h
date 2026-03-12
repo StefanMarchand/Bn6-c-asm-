@@ -14,8 +14,11 @@ struct Toolkit {
 register struct Toolkit *gToolkit asm("r10");
 
 extern unsigned char byte_2010B90[];
+extern unsigned char byte_200A494[];
 extern void *off_8000704[];
 extern int dword_200A490[];
+extern struct SoundRequest *dword_200A498;
+extern struct SoundRequest algn_200A49C[];
 
 struct SoundRequest {
     int value;
@@ -53,6 +56,7 @@ int sound_800068A(int index, int unused1, int unused2);
 int sound_80006A2(int songId, int unused1, int bankIndex);
 int musicGameState_8000784(int songId, int unused1, int unused2);
 int sub_80007A0(int value, int unused1, int unused2);
+int sub_80007BE(void);
 void zeroFill_80007B2(void);
 
 #endif

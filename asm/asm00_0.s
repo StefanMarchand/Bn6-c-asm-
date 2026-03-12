@@ -18,31 +18,7 @@ dword_80005BC:
 
 	.include "src/asm00_0_music_80005F2.s"
 	.include "src/asm00_0_sub_800060A_rominc.s"
-
-// () -> void
-	thumb_local_start
-m4a_800061E:
-	push {lr}
-	mov r1, r10
-	push {r1}
-	ldr r3, off_800086C // =m4a_SongNumStart+1
-	bl sound_8000808 // () -> void
-	pop {r1}
-	mov r10, r1
-	pop {pc}
-	thumb_func_end m4a_800061E
-
-	thumb_local_start
-sound_8000630:
-	push {lr}
-	mov r1, r10
-	push {r1}
-	ldr r3, off_8000870 // =sub_814EA58+1
-	bl sound_8000808 // () -> void
-	pop {r1}
-	mov r10, r1
-	pop {pc}
-	thumb_func_end sound_8000630
+	.include "src/asm00_0_sound_wrappers.s"
 
 	.include "src/asm00_0_sound_8000642_rominc.s"
 	.include "src/asm00_0_sound_800065A_rominc.s"
@@ -91,51 +67,7 @@ off_8000704:
 	.include "src/asm00_0_sub_80007A0_rominc.s"
 
 	.include "src/asm00_0_zeroFill_80007B2_rominc.s"
-
-	thumb_func_start sub_80007BE
-sub_80007BE:
-	push {r4-r7,lr}
-	ldr r5, dword_200A490_p
-	ldr r7, [r5]
-	cmp r7, #0
-	beq loc_80007F0
-	ldrb r0, [r5,#0x4] // (byte_200A494 - 0x200a490)
-	add r0, #1
-	cmp r0, #0x1a
-	blt loc_80007D2
-	mov r0, #0
-loc_80007D2:
-	strb r0, [r5,#0x4] // (byte_200A494 - 0x200a490)
-	mov r0, #0
-	str r0, [r5,#0x8] // (dword_200A498 - 0x200a490)
-	mov r6, #0xc
-	add r6, r6, r5
-loc_80007DC:
-	ldmia r6!, {r0-r3}
-	mov r4, r10
-	push {r4}
-	ldr r4, off_8000804 // =loc_80007E8+1
-	mov lr, r4
-	bx r3
-loc_80007E8:
-	pop {r4}
-	mov r10, r4
-	sub r7, #1
-	bne loc_80007DC
-loc_80007F0:
-	mov r0, #0
-	str r0, [r5]
-	ldr r6, [r5,#0x8] // (dword_200A498 - 0x200a490)
-	cmp r6, #0
-	beq locret_8000800
-	ldmia r6!, {r0-r3}
-	bl sound_8000808 // () -> void
-locret_8000800:
-	pop {r4-r7,pc}
-	.balign 4, 0
-off_8000804:
-	.word loc_80007E8+1
-	thumb_func_end sub_80007BE
+	.include "src/asm00_0_sub_80007BE_rominc.s"
 
 	.include "src/asm00_0_sound_8000808_rominc.s"
 

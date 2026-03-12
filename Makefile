@@ -85,7 +85,7 @@ $(ELF): $(OFILES)
 %.o: %.s
 	$(AS) $(ASFLAGS) $< -o $@
 
-rom.o: $(CDIR)/asm00_0_soundmain.s $(CDIR)/asm00_0_sound.s $(CDIR)/asm00_0_playsfx.s $(CDIR)/asm00_0_playmusic.s $(CDIR)/asm00_0_music_80005F2.s $(CDIR)/asm00_0_sub_800060A_rominc.s $(CDIR)/asm00_0_sound_8000642_rominc.s $(CDIR)/asm00_0_sound_800065A_rominc.s $(CDIR)/asm00_0_sound_8000672_rominc.s $(CDIR)/asm00_0_sound_800068A_rominc.s $(CDIR)/asm00_0_sound_80006A2_rominc.s $(CDIR)/asm00_0_musicGameState_8000784_rominc.s $(CDIR)/asm00_0_sub_80007A0_rominc.s $(CDIR)/asm00_0_zeroFill_80007B2_rominc.s $(CDIR)/asm00_0_sound_8000808_rominc.s $(CDIR)/asm00_1_sub_800318C_rominc.s $(CDIR)/asm00_1_runbattleobjectlogic_rominc.s $(CDIR)/asm00_2_sub_800ED80.s $(CDIR)/asm00_2_sub_800ED90.s $(CDIR)/asm00_2_chip_helpers_rominc.s $(CDIR)/battle_core_initbattle_rominc.s $(CDIR)/battle_core_loadchipdata_rominc.s $(CDIR)/menu_core_initmainmenu_rominc.s $(CDIR)/asm03_1_0_realworld_wrappers_rominc.s
+rom.o: $(CDIR)/asm00_0_soundmain.s $(CDIR)/asm00_0_sound.s $(CDIR)/asm00_0_playsfx.s $(CDIR)/asm00_0_playmusic.s $(CDIR)/asm00_0_music_80005F2.s $(CDIR)/asm00_0_sub_800060A_rominc.s $(CDIR)/asm00_0_sound_wrappers.s $(CDIR)/asm00_0_sound_8000642_rominc.s $(CDIR)/asm00_0_sound_800065A_rominc.s $(CDIR)/asm00_0_sound_8000672_rominc.s $(CDIR)/asm00_0_sound_800068A_rominc.s $(CDIR)/asm00_0_sound_80006A2_rominc.s $(CDIR)/asm00_0_musicGameState_8000784_rominc.s $(CDIR)/asm00_0_sub_80007A0_rominc.s $(CDIR)/asm00_0_zeroFill_80007B2_rominc.s $(CDIR)/asm00_0_sub_80007BE_rominc.s $(CDIR)/asm00_0_sound_8000808_rominc.s $(CDIR)/asm00_1_sub_800318C_rominc.s $(CDIR)/asm00_1_runbattleobjectlogic_rominc.s $(CDIR)/asm00_2_sub_800ED80.s $(CDIR)/asm00_2_sub_800ED90.s $(CDIR)/asm00_2_chip_helpers_rominc.s $(CDIR)/asm00_2_small_helpers_rominc.s $(CDIR)/battle_core_initbattle_rominc.s $(CDIR)/battle_core_loadchipdata_rominc.s $(CDIR)/menu_core_initmainmenu_rominc.s $(CDIR)/asm03_1_0_realworld_wrappers_rominc.s
 
 $(CDIR)/%.i: $(CDIR)/%.c $(INC)/asm00_0_sound.h
 	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
@@ -112,6 +112,9 @@ $(CDIR)/asm00_2_sub_800ED90.i: $(CDIR)/asm00_2_sub_800ED90.c $(INC)/asm00_2_sub_
 	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
 
 $(CDIR)/asm00_2_chip_helpers.i: $(CDIR)/asm00_2_chip_helpers.c $(INC)/asm00_2_chip_helpers.h
+	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
+
+$(CDIR)/asm00_2_small_helpers.i: $(CDIR)/asm00_2_small_helpers.c $(INC)/asm00_2_small_helpers.h
 	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
 
 $(CDIR)/asm03_1_0_realworld_wrappers.i: $(CDIR)/asm03_1_0_realworld_wrappers.c $(INC)/asm03_1_0_realworld_wrappers.h
@@ -213,9 +216,17 @@ $(CDIR)/asm00_0_zeroFill_80007B2_rominc.s: $(CDIR)/asm00_0_zeroFill_80007B2.i
 	$(AGBCC) -O2 -mthumb-interwork $< -o $@
 	python3 tools/fix_agbcc_zeroFill_80007B2_rominc.py $@
 
+$(CDIR)/asm00_0_sound_wrappers.s: $(CDIR)/asm00_0_sound_wrappers.i
+	$(AGBCC) -O2 -mthumb-interwork $< -o $@
+	python3 tools/fix_agbcc_asm00_0_sound_wrappers.py $@
+
 $(CDIR)/asm00_0_sound_8000808.s: $(CDIR)/asm00_0_sound_8000808.i
 	$(AGBCC) -O2 -mthumb-interwork $< -o $@
 	python3 tools/fix_agbcc_sound_8000808.py $@
+
+$(CDIR)/asm00_0_sub_80007BE_rominc.s: $(CDIR)/asm00_0_sub_80007BE.i
+	$(AGBCC) -O2 -mthumb-interwork $< -o $@
+	python3 tools/fix_agbcc_sub_80007BE_rominc.py $@
 
 $(CDIR)/asm00_0_sound_8000808_rominc.s: $(CDIR)/asm00_0_sound_8000808.i
 	$(AGBCC) -O2 -mthumb-interwork $< -o $@
@@ -252,6 +263,10 @@ $(CDIR)/asm00_2_chip_helpers.s: $(CDIR)/asm00_2_chip_helpers.i
 $(CDIR)/asm00_2_chip_helpers_rominc.s: $(CDIR)/asm00_2_chip_helpers.i
 	$(AGBCC) -O2 -mthumb-interwork $< -o $@
 	python3 tools/fix_agbcc_asm00_2_chip_helpers.py $@
+
+$(CDIR)/asm00_2_small_helpers_rominc.s: $(CDIR)/asm00_2_small_helpers.i
+	$(AGBCC) -O2 -mthumb-interwork $< -o $@
+	python3 tools/fix_agbcc_asm00_2_small_helpers_rominc.py $@
 
 $(CDIR)/battle_core_initbattle.s: $(CDIR)/battle_core_initbattle.i
 	$(AGBCC) -O2 -mthumb-interwork $< -o $@

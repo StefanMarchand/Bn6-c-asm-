@@ -41,6 +41,18 @@
           "notes": "Small sound dispatch helper in asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c. Implemented in src/asm00_0_sub_800060A.c and included directly from asm/asm00_0.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original shared literal-pool references so the linked bytes and final ROM SHA1 remain identical."
         },
         {
+          "label": "m4a_800061E",
+          "address": "0x0800061E",
+          "status": "matching",
+          "notes": "Tiny sound-start wrapper in asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c. Implemented alongside the neighboring sound wrappers in src/asm00_0_sound_wrappers.c and included directly from asm/asm00_0.s; a narrow post-process preserves the original wrapper shape and shared literal-pool reference so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sound_8000630",
+          "address": "0x08000630",
+          "status": "matching",
+          "notes": "Tiny special-case sound wrapper in asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c. Implemented alongside the neighboring sound wrappers in src/asm00_0_sound_wrappers.c and included directly from asm/asm00_0.s; a narrow post-process preserves the original wrapper shape and shared literal-pool reference so the final ROM SHA1 remains identical."
+        },
+        {
           "label": "sound_8000642",
           "address": "0x08000642",
           "status": "matching",
@@ -87,6 +99,12 @@
           "address": "0x080007B2",
           "status": "matching",
           "notes": "Short zero-fill helper in asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c. Implemented in src/asm00_0_zeroFill_80007B2.c and included directly from asm/asm00_0.s via a dedicated ROM-include wrapper; narrow post-process scripts preserve the original shared literal references in ROM while keeping the standalone C object build self-contained, so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_80007BE",
+          "address": "0x080007BE",
+          "status": "matching",
+          "notes": "Small sound-queue drain helper in asm/asm00_0.s with an existing sketch in docs/decomp/asm00_0.c. Implemented in src/asm00_0_sub_80007BE.c and included directly from asm/asm00_0.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original callback dispatch sequence and local literal so the final ROM SHA1 remains identical."
         },
         {
           "label": "sound_8000808",
@@ -153,6 +171,18 @@
           "address": "0x0800EF02",
           "status": "matching",
           "notes": "Small battle chip stat helper in asm/asm00_2.s with an existing sketch in docs/decomp/asm00_2.c. Implemented alongside the neighboring chip helpers in src/asm00_2_chip_helpers.c with a shared minimal header in include/asm00_2_chip_helpers.h, included directly from asm/asm00_2.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original Thumb body and register-return convention so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_800F29C",
+          "address": "0x0800F29C",
+          "status": "matching",
+          "notes": "Tiny enemy metadata helper in asm/asm00_2.s with an existing sketch in docs/decomp/asm00_2.c. Implemented alongside the neighboring tiny AI helpers in src/asm00_2_small_helpers.c with a minimal header in include/asm00_2_small_helpers.h, included directly from asm/asm00_2.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original multi-register return shape so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_800F2AA",
+          "address": "0x0800F2AA",
+          "status": "matching",
+          "notes": "Tiny battle-object animation no-op wrapper in asm/asm00_2.s with an existing sketch in docs/decomp/asm00_2.c. Implemented alongside the neighboring tiny AI helpers in src/asm00_2_small_helpers.c with a minimal header in include/asm00_2_small_helpers.h, included directly from asm/asm00_2.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original call sequence and register setup so the final ROM SHA1 remains identical."
         }
       ]
     },
