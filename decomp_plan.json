@@ -539,10 +539,40 @@
           "notes": "Small text-sprite slot initializer in asm/asm03_2.s with an existing sketch in docs/decomp/asm03_2.c. Implemented in src/asm03_2_text_sprite_reset_wrappers.c with a minimal text-sprite header in include/asm03_2_text_sprite_reset_wrappers.h and included directly from asm/asm03_2.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original slot-addressing Thumb body so the final ROM SHA1 remains identical."
         },
         {
+          "label": "sub_804668A",
+          "address": "0x0804668A",
+          "status": "matching",
+          "notes": "Tiny text-sprite clear helper in asm/asm03_2.s with an existing sketch in docs/decomp/asm03_2.c. Implemented in src/asm03_2_text_sprite_clear_wrappers.c with a minimal text-sprite clear header in include/asm03_2_text_sprite_clear_wrappers.h, included directly from asm/asm03_2.s via a dedicated ROM-include wrapper; the ROM body stays byte-identical to the original helper so the final ROM SHA1 remains identical."
+        },
+        {
           "label": "sub_8046696",
           "address": "0x08046696",
           "status": "matching",
           "notes": "Tiny text-sprite clear wrapper in asm/asm03_2.s with an existing sketch in docs/decomp/asm03_2.c. Implemented in src/asm03_2_text_sprite_clear_8046696.c with a minimal text-sprite header in include/asm03_2_text_sprite_clear_8046696.h and included directly from asm/asm03_2.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original slot-addressing wrapper shape so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_80466AA",
+          "address": "0x080466AA",
+          "status": "matching",
+          "notes": "Small text-sprite clear-all helper in asm/asm03_2.s with an existing sketch in docs/decomp/asm03_2.c. Implemented alongside the neighboring clear helper in src/asm03_2_text_sprite_clear_wrappers.c with a minimal text-sprite clear header in include/asm03_2_text_sprite_clear_wrappers.h, included directly from asm/asm03_2.s via a dedicated ROM-include wrapper; the ROM body stays byte-identical to the original loop helper so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_80468E0",
+          "address": "0x080468E0",
+          "status": "matching",
+          "notes": "Tiny secondary text-sprite clear helper in asm/asm03_2.s with an existing sketch in docs/decomp/asm03_2.c. Implemented in src/asm03_2_text_sprite_secondary_clear.c with a minimal secondary text-sprite header in include/asm03_2_text_sprite_secondary_clear.h, included directly from asm/asm03_2.s via a shared ROM-include wrapper; the ROM body stays byte-identical to the original helper so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_80468EC",
+          "address": "0x080468EC",
+          "status": "matching",
+          "notes": "Tiny indexed secondary text-sprite clear helper in asm/asm03_2.s with an existing sketch in docs/decomp/asm03_2.c. Implemented alongside the neighboring secondary clear helpers in src/asm03_2_text_sprite_secondary_clear.c and included directly from asm/asm03_2.s via the shared ROM-include wrapper; the ROM body stays byte-identical to the original indexed wrapper so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_8046900",
+          "address": "0x08046900",
+          "status": "matching",
+          "notes": "Small secondary text-sprite clear-all helper in asm/asm03_2.s with an existing sketch in docs/decomp/asm03_2.c. Implemented alongside the neighboring secondary clear helpers in src/asm03_2_text_sprite_secondary_clear.c and included directly from asm/asm03_2.s via the shared ROM-include wrapper; the ROM body stays byte-identical to the original loop helper so the final ROM SHA1 remains identical."
         }
       ]
     },

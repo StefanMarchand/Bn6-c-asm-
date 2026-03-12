@@ -690,35 +690,11 @@ loc_8046652:
 
 	.include "src/asm03_2_text_sprite_reset_wrappers_rominc.s"
 
-	thumb_func_start sub_804668A
-sub_804668A:
-	push {r4-r7,lr}
-	mov r0, #0
-	strb r0, [r5]
-	bl sprite_makeUnscalable
-	pop {r4-r7,pc}
-	thumb_func_end sub_804668A
+	.include "src/asm03_2_text_sprite_clear_804668A_rominc.s"
 
 	.include "src/asm03_2_text_sprite_clear_8046696_rominc.s"
 
-// () -> void
-	thumb_local_start
-sub_80466AA:
-	push {r4-r7,lr}
-	ldr r5, off_80466D4 // =eStructArr2008450 
-	mov r7, #0
-loc_80466B0:
-	ldrb r0, [r5]
-	tst r0, r0
-	beq loc_80466BA
-	bl sub_804668A
-loc_80466BA:
-	add r5, #0x58 
-	add r7, #1
-	cmp r7, #0xf
-	blt loc_80466B0
-	pop {r4-r7,pc}
-	thumb_func_end sub_80466AA
+	.include "src/asm03_2_text_sprite_clear_80466AA_rominc.s"
 
 	thumb_func_start getStructFrom2008450
 getStructFrom2008450:
@@ -1022,45 +998,7 @@ sub_80468C6:
 	pop {r4-r7,pc}
 	thumb_func_end sub_80468C6
 
-	thumb_func_start sub_80468E0
-sub_80468E0:
-	push {r4-r7,lr}
-	mov r0, #0
-	strb r0, [r5]
-	bl sprite_makeUnscalable
-	pop {r4-r7,pc}
-	thumb_func_end sub_80468E0
-
-	thumb_func_start sub_80468EC
-sub_80468EC:
-	push {r4-r7,lr}
-	ldr r5, off_8046928 // =byte_2011860 
-	mov r1, #0x58 
-	mul r1, r0
-	add r5, r5, r1
-	mov r0, #0
-	strb r0, [r5]
-	bl sprite_makeUnscalable
-	pop {r4-r7,pc}
-	thumb_func_end sub_80468EC
-
-	thumb_local_start
-sub_8046900:
-	push {r4-r7,lr}
-	ldr r5, off_8046928 // =byte_2011860 
-	mov r7, #0
-loc_8046906:
-	ldrb r0, [r5]
-	tst r0, r0
-	beq loc_8046910
-	bl sub_80468E0
-loc_8046910:
-	add r5, #0x58 
-	add r7, #1
-	cmp r7, #5
-	blt loc_8046906
-	pop {r4-r7,pc}
-	thumb_func_end sub_8046900
+	.include "src/asm03_2_text_sprite_clear_80468E0_rominc.s"
 
 	thumb_func_start sub_804691A
 sub_804691A:
