@@ -617,6 +617,30 @@
           "notes": "Small map-group object-spawn wrapper in maps/SeasideTown/loader.s with an existing sketch in docs/decomp/asm06.c. Implemented in src/asm06_seasidetown_spawn.c with the shared minimal mapgroup helper header in include/mapgroup_spawn_helpers.h and included directly from maps/SeasideTown/loader.s; a narrow post-process restores the original toolkit/map-number wrapper shape so the final ROM SHA1 remains identical."
         }
       ]
+    },
+    {
+      "name": "asm07",
+      "priority": 2,
+      "functions": [
+        {
+          "label": "GreenTown_EnterMapGroup",
+          "address": "0x0805DF08",
+          "status": "matching",
+          "notes": "Map-group entry loader in maps/GreenTown/loader.s with an existing sketch in docs/decomp/asm07.c. Implemented in src/asm07_greentown_entermapgroup.c with the shared minimal mapgroup helper header in include/mapgroup_spawn_helpers.h, included directly from maps/GreenTown/loader.s; a dedicated post-process script restores the original Thumb body and literal labels so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "GreenTown_LoadGFXAnims",
+          "address": "0x0805DFA2",
+          "status": "matching",
+          "notes": "Small map-group GFX anim loader wrapper in maps/GreenTown/loader.s with an existing sketch in docs/decomp/asm07.c. Implemented in src/asm07_greentown_loadgfxanims.c with the shared minimal mapgroup helper header in include/mapgroup_spawn_helpers.h and included directly from maps/GreenTown/loader.s; a narrow post-process restores the original literal-load wrapper shape so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "GreenTown_SpawnMapObjectsForMap",
+          "address": "0x0805DFF0",
+          "status": "matching",
+          "notes": "Small map-group object-spawn wrapper in maps/GreenTown/loader.s with an existing sketch in docs/decomp/asm07.c. Implemented in src/asm07_greentown_spawn.c with the shared minimal mapgroup helper header in include/mapgroup_spawn_helpers.h and included directly from maps/GreenTown/loader.s; a narrow post-process restores the original toolkit/map-number wrapper shape so the final ROM SHA1 remains identical."
+        }
+      ]
     }
   ]
 }

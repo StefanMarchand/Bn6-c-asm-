@@ -44,6 +44,11 @@ extern void *off_8059624[];
 extern void *off_8059678[];
 extern void *off_8059DE8[];
 extern void *off_80596E0[];
+extern void *off_805DD24[];
+extern void *off_805DF74[];
+extern void *off_805DFB4[];
+extern void *off_805E1FC[];
+extern void *pt_805E008[];
 
 int initMapTilesState_803037c(int mapGroup, int mapNumber);
 int decompressCoordEventData_8030aa4(int mapGroup, int mapNumber);
@@ -64,5 +69,8 @@ int CyberAcademy_SpawnMapObjectsForMap(void);
 void *SeasideTown_EnterMapGroup(void);
 int SeasideTown_LoadGFXAnims(int unused, int mapNumber);
 int SeasideTown_SpawnMapObjectsForMap(void);
+void *GreenTown_EnterMapGroup(void);
+int GreenTown_LoadGFXAnims(int unused, int mapNumber);
+int GreenTown_SpawnMapObjectsForMap(void);
 
 #endif

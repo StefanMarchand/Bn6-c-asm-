@@ -34,6 +34,16 @@ FUNCTIONS = {
         "sprite_table": "off_8059624",
         "spawn": "SeasideTown_SpawnMapObjectsForMap",
     },
+    "GreenTown_EnterMapGroup": {
+        "warp_literal": "off_805DF64",
+        "warp_table": "off_805DD24",
+        "sprite_state_literal": "off_805DF68",
+        "state_literal": "off_805DF6C",
+        "state_table": "off_805E1FC",
+        "sprite_literal": "off_805DF70",
+        "sprite_table": "off_805DF74",
+        "spawn": "GreenTown_SpawnMapObjectsForMap",
+    },
 }
 
 
