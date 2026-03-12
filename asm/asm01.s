@@ -50,20 +50,7 @@ locret_801FE5C:
 	pop {r4,pc}
 	thumb_func_end sub_801FE24
 
-	thumb_func_start sub_801FE5E
-sub_801FE5E:
-	ldr r3, off_80200D0 // =eStruct203F7D8
-	ldrb r0, [r3]
-	mov pc, lr
-	thumb_func_end sub_801FE5E
-
-	thumb_func_start sub_801FE64
-sub_801FE64:
-	ldr r1, off_80200D4 // =eStruct203F7D8
-	mov r0, #0
-	strb r0, [r1]
-	mov pc, lr
-	thumb_func_end sub_801FE64
+	.include "src/asm01_menu_transfer_state_rominc.s"
 
 	thumb_func_start sub_801FE6C
 sub_801FE6C:
@@ -127,33 +114,7 @@ locret_801FEE6:
 	pop {r4,r6,pc}
 	thumb_func_end sub_801FE6C
 
-	thumb_func_start eStruct203F7D8_getUnk01
-eStruct203F7D8_getUnk01:
-	ldr r0, off_80200EC // =eStruct203F7D8
-	ldrb r0, [r0,#0x1] // (eStruct203F7D8+1 - 0x203f7d8)
-	mov pc, lr
-	thumb_func_end eStruct203F7D8_getUnk01
-
-	thumb_func_start sub_801FEEE
-sub_801FEEE:
-	push {r4-r7,lr}
-	mov r7, r0
-	bl eStruct200BC30_getJumpOffset00
-	ldr r1, off_801FF04 // =off_801FF08 
-	ldr r2, [r1,r0]
-	mov r0, r7
-	mov lr, pc
-	bx r2
-	pop {r4-r7,pc}
-	.balign 4, 0
-off_801FF04:
-	.word off_801FF08
-off_801FF08:
-	.word sub_801FF18+1
-	.word sub_801FFD6+1
-	.word sub_801FFD6+1
-	.word sub_801FF18+1
-	thumb_func_end sub_801FEEE
+	.include "src/asm01_menu_transfer_dispatch_rominc.s"
 
 	thumb_local_start
 sub_801FF18:
@@ -265,15 +226,8 @@ loc_801FFD2:
 
 	.include "src/menu_core_initmainmenu_rominc.s"
 
-	thumb_func_start sub_80200A4
-sub_80200A4:
-	ldr r3, off_8020130 // =eStruct203F7D8
-	strb r0, [r3,#0x3] // (eStruct203F7D8+3 - 0x203f7d8)
-	ldrb r0, [r3,#0x2] // (eStruct203F7D8+2 - 0x203f7d8)
-	mov r1, #1
-	orr r0, r1
-	strb r0, [r3,#0x2] // (eStruct203F7D8+2 - 0x203f7d8)
-	mov pc, lr
+	.include "src/asm01_menu_transfer_timer_rominc.s"
+
 	.balign 4, 0x00
 off_80200B4:
 	.word eStruct203F7D8

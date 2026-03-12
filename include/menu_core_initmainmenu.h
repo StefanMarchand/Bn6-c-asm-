@@ -57,7 +57,9 @@ extern unsigned int dword_203CBE0[];
 
 void sub_800A0D6(int side, unsigned short flags);
 unsigned short sub_803F740(int arg0);
+int eStruct200BC30_getJumpOffset00(void);
 
+int sub_801FF18(int stateFlags);
 int sub_801FFD6(int stateFlags);
 
 #endif
