@@ -49,6 +49,11 @@ extern void *off_805DF74[];
 extern void *off_805DFB4[];
 extern void *off_805E1FC[];
 extern void *pt_805E008[];
+extern void *off_8060184[];
+extern void *off_80603D8[];
+extern void *off_8060418[];
+extern void *off_80606BC[];
+extern void *pt_8060464[];
 
 int initMapTilesState_803037c(int mapGroup, int mapNumber);
 int decompressCoordEventData_8030aa4(int mapGroup, int mapNumber);
@@ -72,5 +77,8 @@ int SeasideTown_SpawnMapObjectsForMap(void);
 void *GreenTown_EnterMapGroup(void);
 int GreenTown_LoadGFXAnims(int unused, int mapNumber);
 int GreenTown_SpawnMapObjectsForMap(void);
+void *SkyTown_EnterMapGroup(void);
+int SkyTown_LoadGFXAnims(int unused, int mapNumber);
+int SkyTown_SpawnMapObjectsForMap(void);
 
 #endif

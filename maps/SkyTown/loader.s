@@ -1,52 +1,6 @@
 
 	thumb_func_start SkyTown_EnterMapGroup
-SkyTown_EnterMapGroup:
-	push {r4-r7,lr}
-	mov r7, r10
-	ldr r0, off_80603C8 // =off_8060184 
-	ldr r1, [r7,#oToolkit_Warp2011bb0_Ptr]
-	ldrb r2, [r5,#oGameState_MapNumber]
-	lsl r4, r2, #2
-	add r0, r0, r4
-	ldr r0, [r0]
-	str r0, [r1,#oWarp2011bb0_WarpDataPtr]
-	ldrb r0, [r5,#oGameState_MapGroup]
-	ldrb r1, [r5,#oGameState_MapNumber]
-	bl initMapTilesState_803037c // (map_group: u8, map_number: u8) -> ()
-	ldrb r0, [r5,#oGameState_MapGroup]
-	ldrb r1, [r5,#oGameState_MapNumber]
-	bl decompressCoordEventData_8030aa4 // (map_group: u8, map_number: u8) -> ()
-	ldr r0, [r5,#oGameState_PlayerX]
-	ldr r1, [r5,#oGameState_PlayerY]
-	ldr r2, [r5,#oGameState_PlayerZ]
-	ldrb r3, [r5,#oGameState_MapGroup]
-	ldrb r4, [r5,#oGameState_MapNumber]
-	bl camera_init_802FF4C // (player_x: u32, player_y: u32, player_z: u32, map_group: u8, map_number: u8) -> ()
-	bl decompAndCopyMapTiles_8030472 // () -> ()
-	ldr r0, off_80603CC // =unk_2037800 
-	bl initUncompSpriteState_80028d4 // (a0: *const ?) -> ()
-	ldrb r1, [r5,#oGameState_MapNumber]
-	lsl r1, r1, #2
-	ldr r0, off_80603D4 // =off_80603D8 
-	ldr r0, [r0,r1]
-	bl uncompSprite_8002906 // (sprite_load_data: *const SpriteLoadData) -> bool
-	bl chatbox_uncompMapTextArchives_803FD08 // () -> int
-	bl SkyTown_SpawnMapObjectsForMap
-	ldr r0, off_80603D0 // =off_80606BC 
-	ldrb r1, [r5,#oGameState_MapNumber]
-	lsl r1, r1, #2
-	ldr r0, [r0,r1]
-	str r0, [r5,#oGameState_Unk_64]
-	pop {r4-r7,pc}
-	.balign 4, 0
-off_80603C8:
-	.word off_8060184
-off_80603CC:
-	.word unk_2037800
-off_80603D0:
-	.word off_80606BC
-off_80603D4:
-	.word off_80603D8
+	.include "src/asm08_skytown_entermapgroup.s"
 off_80603D8:
 	.word byte_80603E8
 	.word byte_80603EE
@@ -64,16 +18,7 @@ byte_80603FE:
 	thumb_func_end SkyTown_EnterMapGroup
 
 	thumb_func_start SkyTown_LoadGFXAnims
-SkyTown_LoadGFXAnims:
-	push {lr}
-	lsl r1, r1, #2
-	ldr r0, off_8060414 // =off_8060418 
-	ldr r0, [r0,r1]
-	bl LoadGFXAnims // (gfx_anim_data_arr: * FFStop32<[GFXAnimScript]>) -> ()
-	pop {pc}
-	.balign 4, 0
-off_8060414:
-	.word off_8060418
+	.include "src/asm08_skytown_loadgfxanims.s"
 off_8060418:
 	.word off_8060428
 	.word off_8060430
@@ -95,19 +40,7 @@ off_8060444:
 	thumb_func_end SkyTown_LoadGFXAnims
 
 	thumb_func_start SkyTown_SpawnMapObjectsForMap
-SkyTown_SpawnMapObjectsForMap:
-	push {lr}
-	mov r0, r10
-	ldr r0, [r0,#oToolkit_GameStatePtr]
-	ldrb r0, [r0,#oGameState_MapNumber]
-	lsl r0, r0, #2
-	ldr r1, off_8060460 // =pt_8060464 
-	ldr r0, [r1,r0]
-	bl SpawnObjectsFromList // (data: *const MapObjectSpawnData) -> i32
-	pop {pc}
-	.balign 4, 0
-off_8060460:
-	.word pt_8060464
+	.include "src/asm08_skytown_spawn.s"
 pt_8060464:
 	// <endpool> <endfile>
 	.word byte_8060474

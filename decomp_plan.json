@@ -757,20 +757,20 @@
         {
           "label": "SkyTown_EnterMapGroup",
           "address": "0x0806036C",
-          "status": "todo",
-          "notes": "Map-group entry loader for the asm08 Sky Town area in maps/SkyTown/loader.s with an existing sketch in docs/decomp/asm08.c."
+          "status": "matching",
+          "notes": "Map-group entry loader for the asm08 Sky Town area in maps/SkyTown/loader.s with an existing sketch in docs/decomp/asm08.c. Implemented in src/asm08_skytown_entermapgroup.c with the shared minimal mapgroup helper header in include/mapgroup_spawn_helpers.h, included directly from maps/SkyTown/loader.s; a dedicated post-process script restores the original Thumb body and literal labels so the final ROM SHA1 remains identical."
         },
         {
           "label": "SkyTown_LoadGFXAnims",
           "address": "0x08060406",
-          "status": "todo",
-          "notes": "Small map-group GFX anim loader wrapper for the asm08 Sky Town area in maps/SkyTown/loader.s with an existing sketch in docs/decomp/asm08.c."
+          "status": "matching",
+          "notes": "Small map-group GFX anim loader wrapper for the asm08 Sky Town area in maps/SkyTown/loader.s with an existing sketch in docs/decomp/asm08.c. Implemented in src/asm08_skytown_loadgfxanims.c with the shared minimal mapgroup helper header in include/mapgroup_spawn_helpers.h and included directly from maps/SkyTown/loader.s; a narrow post-process restores the original literal-load wrapper shape so the final ROM SHA1 remains identical."
         },
         {
           "label": "SkyTown_SpawnMapObjectsForMap",
           "address": "0x0806044C",
-          "status": "todo",
-          "notes": "Small map-group object-spawn wrapper for the asm08 Sky Town area in maps/SkyTown/loader.s with an existing sketch in docs/decomp/asm08.c."
+          "status": "matching",
+          "notes": "Small map-group object-spawn wrapper for the asm08 Sky Town area in maps/SkyTown/loader.s with an existing sketch in docs/decomp/asm08.c. Implemented in src/asm08_skytown_spawn.c with the shared minimal mapgroup helper header in include/mapgroup_spawn_helpers.h and included directly from maps/SkyTown/loader.s; a narrow post-process restores the original toolkit/map-number wrapper shape so the final ROM SHA1 remains identical."
         }
       ]
     },

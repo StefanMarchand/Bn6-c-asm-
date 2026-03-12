@@ -44,6 +44,16 @@ FUNCTIONS = {
         "sprite_table": "off_805DF74",
         "spawn": "GreenTown_SpawnMapObjectsForMap",
     },
+    "SkyTown_EnterMapGroup": {
+        "warp_literal": "off_80603C8",
+        "warp_table": "off_8060184",
+        "sprite_state_literal": "off_80603CC",
+        "state_literal": "off_80603D0",
+        "state_table": "off_80606BC",
+        "sprite_literal": "off_80603D4",
+        "sprite_table": "off_80603D8",
+        "spawn": "SkyTown_SpawnMapObjectsForMap",
+    },
 }
 
 
