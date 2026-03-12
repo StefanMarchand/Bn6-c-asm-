@@ -305,6 +305,42 @@
           "notes": "Small internet PET update wrapper in asm/asm03_1_0.s with an existing sketch in docs/decomp/asm03_1.c. Implemented alongside the neighboring real-world/internet update wrappers in src/asm03_1_0_realworld_wrappers.c and included directly from asm/asm03_1_0.s via the shared ROM-include wrapper; a narrow post-process preserves the original local Thumb call sequence so the final ROM SHA1 remains identical."
         }
       ]
+    },
+    {
+      "name": "asm03_2",
+      "priority": 2,
+      "functions": [
+        {
+          "label": "renderTextGfx_8045F8C",
+          "address": "0x08045F8C",
+          "status": "matching",
+          "notes": "Text-script render wrapper in asm/asm03_2.s with an existing sketch in docs/decomp/asm03_2.c. Implemented in src/asm03_2_text_render_wrappers.c with a minimal toolkit/text-render header in include/asm03_2_text_render_wrappers.h, included directly from asm/asm03_2.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original register-save wrapper and local literal so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_8045FBC",
+          "address": "0x08045FBC",
+          "status": "matching",
+          "notes": "Tiny text-render mode wrapper in asm/asm03_2.s with an existing sketch in docs/decomp/asm03_2.c. Implemented alongside the neighboring wrappers in src/asm03_2_text_render_wrappers.c and included directly from asm/asm03_2.s via the shared ROM-include wrapper; a narrow post-process preserves the original local branch wrapper so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_8045FC6",
+          "address": "0x08045FC6",
+          "status": "matching",
+          "notes": "Tiny text-render mode wrapper in asm/asm03_2.s with an existing sketch in docs/decomp/asm03_2.c. Implemented alongside the neighboring wrappers in src/asm03_2_text_render_wrappers.c and included directly from asm/asm03_2.s via the shared ROM-include wrapper; a narrow post-process preserves the original local branch wrapper so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_8045FD0",
+          "address": "0x08045FD0",
+          "status": "matching",
+          "notes": "Small text-render setup wrapper in asm/asm03_2.s with an existing sketch in docs/decomp/asm03_2.c. Implemented alongside the neighboring wrappers in src/asm03_2_text_render_wrappers.c and included directly from asm/asm03_2.s via the shared ROM-include wrapper; a narrow post-process preserves the original shared local-entry wrapper shape so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "loc_8045FE4",
+          "address": "0x08045FE4",
+          "status": "matching",
+          "notes": "Shared local text-render setup entry in asm/asm03_2.s with an existing sketch in docs/decomp/asm03_2.c. Implemented as the exported C helper loc_8045FE4 alongside the neighboring wrappers and included directly from asm/asm03_2.s via the shared ROM-include wrapper; a narrow post-process preserves the original shared local-entry wrapper shape so the final ROM SHA1 remains identical."
+        }
+      ]
     }
   ]
 }
