@@ -19,100 +19,7 @@ sub_801FE00:
 	pop {pc}
 	thumb_func_end sub_801FE00
 
-	thumb_func_start sub_801FE24
-sub_801FE24:
-	push {r4,lr}
-	bl GetBattleEffects // () -> int
-	mov r1, #8
-	tst r0, r1
-	bne loc_801FE4A
-	bl notZero_eByte200AD04
-	beq locret_801FE5C
-	mov r0, #0
-	bl sub_803DE88
-	mov r0, #0x10
-	mov r1, #0
-	mov r2, #2
-	mov r3, #5
-	bl sub_803DCE8
-	b loc_801FE56
-loc_801FE4A:
-	mov r0, #0x10
-	mov r1, #0
-	mov r2, #2
-	mov r3, #0
-	bl sub_803DCE8
-loc_801FE56:
-	ldr r3, off_80200CC // =eStruct203F7D8
-	mov r0, #1
-	strb r0, [r3]
-locret_801FE5C:
-	pop {r4,pc}
-	thumb_func_end sub_801FE24
-
 	.include "src/asm01_menu_transfer_state_rominc.s"
-
-	thumb_func_start sub_801FE6C
-sub_801FE6C:
-	push {r4,r6,lr}
-	ldr r4, off_80200D8 // =eStruct203F7D8
-	ldrb r6, [r4,#0x1] // (eStruct203F7D8+1 - 0x203f7d8)
-	mov r0, #2
-	strb r0, [r4,#0x1] // (eStruct203F7D8+1 - 0x203f7d8)
-	ldrb r0, [r4]
-	tst r0, r0
-	beq loc_801FED2
-	movflag EVENT_172D
-	bl TestEventFlagFromImmediate // (flag: u16) -> !zf
-	beq loc_801FEB6
-	strb r6, [r4,#0x1] // (eStruct203F7D8+1 - 0x203f7d8)
-	ldrb r0, [r4,#0x1] // (eStruct203F7D8+1 - 0x203f7d8)
-	cmp r0, #2
-	bne locret_801FEE6
-	push {r5}
-	bl GetBattleEffects // () -> int
-	mov r1, #8
-	tst r0, r1
-	pop {r5}
-	beq locret_801FEE6
-	mov r0, #0
-	bl sub_8144D04
-	cmp r0, #1
-	bne loc_801FEB0
-	mov r0, #3
-	bl sub_8144D04
-	cmp r0, #1
-	beq locret_801FEE6
-loc_801FEB0:
-	mov r0, #4
-	strb r0, [r4,#0x1] // (eStruct203F7D8+1 - 0x203f7d8)
-	b locret_801FEE6
-loc_801FEB6:
-	push {r5}
-	bl GetBattleEffects // () -> int
-	mov r1, #8
-	tst r0, r1
-	pop {r5}
-	bne loc_801FECC
-	bl sub_803DEB4
-	strb r0, [r4,#0x1] // (eStruct203F7D8+1 - 0x203f7d8)
-	b locret_801FEE6
-loc_801FECC:
-	strb r6, [r4,#0x1] // (eStruct203F7D8+1 - 0x203f7d8)
-	ldrb r0, [r4,#0x1] // (eStruct203F7D8+1 - 0x203f7d8)
-	b locret_801FEE6
-loc_801FED2:
-	ldr r0, off_80200DC // =eStruct2036780
-	ldr r1, off_80200E0 // =unk_20399F0 
-	mov r2, #0x10
-	bl CopyWords // (src: *const u32, mut_dest: *mut u32, size: u32) -> ()
-	ldr r0, off_80200E4 // =eStruct2036780
-	ldr r1, off_80200E8 // =unk_2039A00 
-	mov r2, #0x10
-	bl CopyWords // (src: *const u32, mut_dest: *mut u32, size: u32) -> ()
-locret_801FEE6:
-	pop {r4,r6,pc}
-	thumb_func_end sub_801FE6C
 
 	.include "src/asm01_menu_transfer_dispatch_rominc.s"
 
@@ -295,40 +202,7 @@ off_8020130:
 	.word eStruct203F7D8
 	thumb_func_end sub_80200A4
 
-	thumb_func_start eStruct2038160_clearStruct
-eStruct2038160_clearStruct:
-	push {lr}
-	// memBlock
-	ldr r0, off_8020164 // =eStruct2038160
-	// size
-	mov r1, #4
-	bl ZeroFillByWord // (mut_mem: *mut (), num_bytes: usize) -> ()
-	pop {pc}
-	thumb_func_end eStruct2038160_clearStruct
-
-	thumb_func_start sub_8020140
-sub_8020140:
-	push {r7,lr}
-	bl test0x200bc50_0x5_813D60C
-	beq locret_802015C
-	bl eStruct200BC30_getJumpOffset00
-	cmp r0, #0xc
-	bne locret_802015C
-	ldr r7, off_8020168 // =eStruct2038160
-	bl sub_813D66C
-	bl sub_803C620
-	strb r0, [r7,#0x1] // (eStruct2038160_BattleTerminate01 - 0x2038160)
-locret_802015C:
-	pop {r7,pc}
-	thumb_func_end sub_8020140
-
-	thumb_func_start eStruct2038160_getBattleTerminate01
-eStruct2038160_getBattleTerminate01:
-	ldr r0, off_802016C // =eStruct2038160
-	ldrb r0, [r0,#0x1] // (eStruct2038160_BattleTerminate01 - 0x2038160)
-	// <endpool>
-	mov pc, lr
-	thumb_func_end eStruct2038160_getBattleTerminate01
+	.include "src/asm01_battle_terminate_helpers_rominc.s"
 
 off_8020164:
 	.word eStruct2038160

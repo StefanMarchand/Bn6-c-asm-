@@ -223,14 +223,14 @@
         {
           "label": "sub_801FE00",
           "address": "0x0801FE00",
-          "status": "todo",
-          "notes": "Menu-state zero-fill/setup helper in asm/asm01.s with an existing sketch in docs/decomp/asm01.c; good frontier follow-up near the already matched sub_801FFD6 menu-core area."
+          "status": "matching",
+          "notes": "Menu-state zero-fill/setup helper in asm/asm01.s with an existing sketch in docs/decomp/asm01.c. Implemented in src/asm01_sub_801FE00.c and included directly from asm/asm01.s via a dedicated ROM-include wrapper; the ROM body stays byte-identical to the original helper so the final ROM SHA1 remains identical."
         },
         {
           "label": "sub_801FE24",
           "address": "0x0801FE24",
-          "status": "todo",
-          "notes": "Menu transition gate helper in asm/asm01.s with an existing sketch in docs/decomp/asm01.c; this sits immediately after the asm01 menu-state setup block."
+          "status": "matching",
+          "notes": "Menu transition gate helper in asm/asm01.s with an existing sketch in docs/decomp/asm01.c. Implemented alongside the neighboring asm01 menu-transfer helpers in src/asm01_menu_transfer_helpers.c and included directly from asm/asm01.s via the shared state ROM-include wrapper; the ROM body stays byte-identical to the original helper so the final ROM SHA1 remains identical."
         },
         {
           "label": "sub_801FE5E",
@@ -247,8 +247,8 @@
         {
           "label": "sub_801FE6C",
           "address": "0x0801FE6C",
-          "status": "todo",
-          "notes": "Menu-state refresh/copy helper in asm/asm01.s with an existing sketch in docs/decomp/asm01.c; extends the same asm01 state-management cluster as the existing menu-core match."
+          "status": "matching",
+          "notes": "Menu-state refresh/copy helper in asm/asm01.s with an existing sketch in docs/decomp/asm01.c. Implemented alongside the neighboring asm01 menu-transfer helpers in src/asm01_menu_transfer_helpers.c and included directly from asm/asm01.s via the shared state ROM-include wrapper; the ROM body stays byte-identical to the original helper so the final ROM SHA1 remains identical."
         },
         {
           "label": "eStruct203F7D8_getUnk01",
@@ -277,20 +277,20 @@
         {
           "label": "eStruct2038160_clearStruct",
           "address": "0x08020134",
-          "status": "todo",
-          "notes": "Small battle-terminate state clear helper in asm/asm01.s with an existing sketch in docs/decomp/asm01.c; documented as part of the same asm01 control-state region."
+          "status": "matching",
+          "notes": "Small battle-terminate state clear helper in asm/asm01.s with an existing sketch in docs/decomp/asm01.c. Implemented in src/asm01_battle_terminate_helpers.c and included directly from asm/asm01.s via a dedicated ROM-include wrapper; the ROM body stays byte-identical to the original helper so the final ROM SHA1 remains identical."
         },
         {
           "label": "sub_8020140",
           "address": "0x08020140",
-          "status": "todo",
-          "notes": "Battle-terminate poll/update helper in asm/asm01.s with an existing sketch in docs/decomp/asm01.c; another sketched asm01 control-flow target suitable for planning."
+          "status": "matching",
+          "notes": "Battle-terminate poll/update helper in asm/asm01.s with an existing sketch in docs/decomp/asm01.c. Implemented alongside the neighboring battle-terminate helpers in src/asm01_battle_terminate_helpers.c and included directly from asm/asm01.s via the shared ROM-include wrapper; the ROM body stays byte-identical to the original helper so the final ROM SHA1 remains identical."
         },
         {
           "label": "eStruct2038160_getBattleTerminate01",
           "address": "0x0802015E",
-          "status": "todo",
-          "notes": "Tiny battle-terminate state getter in asm/asm01.s with an existing sketch in docs/decomp/asm01.c; closes out the currently documented asm01 helper block."
+          "status": "matching",
+          "notes": "Tiny battle-terminate state getter in asm/asm01.s with an existing sketch in docs/decomp/asm01.c. Implemented alongside the neighboring battle-terminate helpers in src/asm01_battle_terminate_helpers.c and included directly from asm/asm01.s via the shared ROM-include wrapper; the ROM body stays byte-identical to the original helper so the final ROM SHA1 remains identical."
         }
       ]
     },
