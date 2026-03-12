@@ -217,6 +217,36 @@
       ]
     },
     {
+      "name": "asm03_0",
+      "priority": 2,
+      "functions": [
+        {
+          "label": "sub_8026450",
+          "address": "0x08026450",
+          "status": "matching",
+          "notes": "Small beast-panel scan helper in asm/asm03_0.s with an existing sketch in docs/decomp/asm03_0.c. Implemented in src/asm03_0_beast_scan_helpers.c with a minimal battle-object panel header in include/asm03_0_beast_helpers.h, included directly from asm/asm03_0.s via a dedicated ROM-include wrapper; a narrow post-process restores the original stack frame and local branch labels so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_80264A8",
+          "address": "0x080264A8",
+          "status": "matching",
+          "notes": "Small beast-panel scan-and-lock helper in asm/asm03_0.s with an existing sketch in docs/decomp/asm03_0.c. Implemented alongside the neighboring scan helper in src/asm03_0_beast_scan_helpers.c and included directly from asm/asm03_0.s via the shared ROM-include wrapper; a narrow post-process restores the original stack frame and local branch labels so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_80265FE",
+          "address": "0x080265FE",
+          "status": "matching",
+          "notes": "Tiny beast-panel Y fallback helper in asm/asm03_0.s with an existing sketch in docs/decomp/asm03_0.c. Implemented in src/asm03_0_beast_panel_helpers.c with the shared minimal battle-object panel header in include/asm03_0_beast_helpers.h, included directly from asm/asm03_0.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original register-return convention so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_802661C",
+          "address": "0x0802661C",
+          "status": "matching",
+          "notes": "Tiny beast-panel position getter in asm/asm03_0.s with an existing sketch in docs/decomp/asm03_0.c. Implemented alongside the neighboring helper in src/asm03_0_beast_panel_helpers.c and included directly from asm/asm03_0.s via the shared ROM-include wrapper; a narrow post-process preserves the original two-register return shape so the final ROM SHA1 remains identical."
+        }
+      ]
+    },
+    {
       "name": "asm03_1_0",
       "priority": 2,
       "functions": [
