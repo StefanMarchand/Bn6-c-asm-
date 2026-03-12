@@ -145,47 +145,7 @@ locret_802664E:
 	pop {r4,pc}
 	thumb_func_end sub_8026622
 
-	thumb_local_start
-sub_8026650:
-	push {lr}
-	ldr r0, off_80267FC // =byte_8026753 
-	bl sub_80265D0
-	pop {pc}
-	thumb_func_end sub_8026650
-
-	thumb_local_start
-sub_802665A:
-	push {lr}
-	ldr r0, off_8026800 // =byte_802675A 
-	bl sub_80265D0
-	bl sub_80265FE
-	pop {pc}
-	thumb_func_end sub_802665A
-
-	thumb_local_start
-sub_8026668:
-	push {lr}
-	ldr r0, off_8026804 // =byte_8026761 
-	bl sub_80265D0
-	pop {pc}
-	thumb_func_end sub_8026668
-
-	thumb_local_start
-sub_8026672:
-	push {lr}
-	ldr r0, off_8026808 // =byte_802676E 
-	bl sub_80265D0
-	pop {pc}
-	thumb_func_end sub_8026672
-
-	thumb_local_start
-sub_802667C:
-	push {lr}
-	ldr r0, off_802680C // =byte_8026781 
-	bl sub_80265D0
-	bl sub_80265FE
-	pop {pc}
-	thumb_func_end sub_802667C
+	.include "src/asm03_0_beast_search_wrappers_rominc.s"
 
 	thumb_local_start
 sub_802668A:
