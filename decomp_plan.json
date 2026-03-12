@@ -441,6 +441,42 @@
           "address": "0x08033B6E",
           "status": "matching",
           "notes": "Small internet PET update wrapper in asm/asm03_1_0.s with an existing sketch in docs/decomp/asm03_1.c. Implemented alongside the neighboring real-world/internet update wrappers in src/asm03_1_0_realworld_wrappers.c and included directly from asm/asm03_1_0.s via the shared ROM-include wrapper; a narrow post-process preserves the original local Thumb call sequence so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_80341AA",
+          "address": "0x080341AA",
+          "status": "matching",
+          "notes": "Tiny jack-in state zero-fill helper in asm/asm03_1_0.s with an existing sketch in docs/decomp/asm03_1.c. Implemented in src/asm03_1_0_sub_80341AA.c with the shared minimal jack-in helper header in include/asm03_1_0_small_helpers.h, included directly from asm/asm03_1_0.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original Thumb wrapper body so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_80342DC",
+          "address": "0x080342DC",
+          "status": "matching",
+          "notes": "Tiny jack-in state setter in asm/asm03_1_0.s with an existing sketch in docs/decomp/asm03_1.c. Implemented alongside the neighboring jack-in helpers in src/asm03_1_0_jackin_state_wrappers.c with the shared minimal helper header in include/asm03_1_0_small_helpers.h, included directly from asm/asm03_1_0.s via a shared ROM-include wrapper; a narrow post-process preserves the original local Thumb body so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_80342E4",
+          "address": "0x080342E4",
+          "status": "matching",
+          "notes": "Tiny jack-in state setter in asm/asm03_1_0.s with an existing sketch in docs/decomp/asm03_1.c. Implemented alongside the neighboring jack-in helpers in src/asm03_1_0_jackin_state_wrappers.c with the shared minimal helper header in include/asm03_1_0_small_helpers.h, included directly from asm/asm03_1_0.s via a shared ROM-include wrapper; a narrow post-process preserves the original local Thumb body so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_80342EC",
+          "address": "0x080342EC",
+          "status": "matching",
+          "notes": "Small jack-in map-enter helper in asm/asm03_1_0.s with an existing sketch in docs/decomp/asm03_1.c. Implemented alongside the neighboring jack-in helpers in src/asm03_1_0_jackin_state_wrappers.c with the shared minimal helper header in include/asm03_1_0_small_helpers.h, included directly from asm/asm03_1_0.s via a shared ROM-include wrapper; a narrow post-process preserves the original register setup and call sequence so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_80355DE",
+          "address": "0x080355DE",
+          "status": "matching",
+          "notes": "Tiny PET animation lookup helper in asm/asm03_1_0.s with an existing sketch in docs/decomp/asm03_1.c. Implemented in src/asm03_1_0_sub_80355DE.c with the shared minimal jack-in helper header in include/asm03_1_0_small_helpers.h, included directly from asm/asm03_1_0.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original literal-load body so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_80356EC",
+          "address": "0x080356EC",
+          "status": "matching",
+          "notes": "Tiny cutscene-camera buffer zero-fill helper in asm/asm03_1_0.s with an existing sketch in docs/decomp/asm03_1.c. Implemented in src/asm03_1_0_sub_80356EC.c with the shared minimal jack-in helper header in include/asm03_1_0_small_helpers.h, included directly from asm/asm03_1_0.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original register-save wrapper body so the final ROM SHA1 remains identical."
         }
       ]
     },

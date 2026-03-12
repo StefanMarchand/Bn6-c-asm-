@@ -85,7 +85,7 @@ $(ELF): $(OFILES)
 %.o: %.s
 	$(AS) $(ASFLAGS) $< -o $@
 
-rom.o: $(CDIR)/asm00_0_soundmain.s $(CDIR)/asm00_0_sound.s $(CDIR)/asm00_0_playsfx.s $(CDIR)/asm00_0_playmusic.s $(CDIR)/asm00_0_music_80005F2.s $(CDIR)/asm00_0_sub_800060A_rominc.s $(CDIR)/asm00_0_sound_wrappers.s $(CDIR)/asm00_0_sound_8000642_rominc.s $(CDIR)/asm00_0_sound_800065A_rominc.s $(CDIR)/asm00_0_sound_8000672_rominc.s $(CDIR)/asm00_0_sound_800068A_rominc.s $(CDIR)/asm00_0_sound_80006A2_rominc.s $(CDIR)/asm00_0_musicGameState_8000784_rominc.s $(CDIR)/asm00_0_sub_80007A0_rominc.s $(CDIR)/asm00_0_zeroFill_80007B2_rominc.s $(CDIR)/asm00_0_sub_80007BE_rominc.s $(CDIR)/asm00_0_sound_8000808_rominc.s $(CDIR)/asm00_1_sub_800318C_rominc.s $(CDIR)/asm00_1_runbattleobjectlogic_rominc.s $(CDIR)/asm00_2_sub_800ED80.s $(CDIR)/asm00_2_sub_800ED90.s $(CDIR)/asm00_2_chip_helpers_rominc.s $(CDIR)/asm00_2_small_helpers_rominc.s $(CDIR)/battle_core_initbattle_rominc.s $(CDIR)/battle_core_loadchipdata_rominc.s $(CDIR)/menu_core_initmainmenu_rominc.s $(CDIR)/asm03_0_beast_scan_helpers_rominc.s $(CDIR)/asm03_0_beast_panel_helpers_rominc.s $(CDIR)/asm03_0_beast_search_wrappers_rominc.s $(CDIR)/asm03_1_0_realworld_wrappers_rominc.s $(CDIR)/asm03_2_text_render_wrappers_rominc.s $(CDIR)/asm03_2_text_sprite_wrappers_rominc.s $(CDIR)/asm03_2_text_sprite_reset_wrappers_rominc.s $(CDIR)/asm03_2_text_sprite_clear_8046696_rominc.s $(CDIR)/asm04_centraltown_entermapgroup.s $(CDIR)/asm04_centraltown_loadgfxanims.s $(CDIR)/asm04_centraltown_spawn.s $(CDIR)/asm05_cyberacademy_entermapgroup.s $(CDIR)/asm05_cyberacademy_loadgfxanims.s $(CDIR)/asm05_cyberacademy_spawn.s $(CDIR)/asm06_seasidetown_entermapgroup.s $(CDIR)/asm06_seasidetown_loadgfxanims.s $(CDIR)/asm06_seasidetown_spawn.s
+rom.o: $(CDIR)/asm00_0_soundmain.s $(CDIR)/asm00_0_sound.s $(CDIR)/asm00_0_playsfx.s $(CDIR)/asm00_0_playmusic.s $(CDIR)/asm00_0_music_80005F2.s $(CDIR)/asm00_0_sub_800060A_rominc.s $(CDIR)/asm00_0_sound_wrappers.s $(CDIR)/asm00_0_sound_8000642_rominc.s $(CDIR)/asm00_0_sound_800065A_rominc.s $(CDIR)/asm00_0_sound_8000672_rominc.s $(CDIR)/asm00_0_sound_800068A_rominc.s $(CDIR)/asm00_0_sound_80006A2_rominc.s $(CDIR)/asm00_0_musicGameState_8000784_rominc.s $(CDIR)/asm00_0_sub_80007A0_rominc.s $(CDIR)/asm00_0_zeroFill_80007B2_rominc.s $(CDIR)/asm00_0_sub_80007BE_rominc.s $(CDIR)/asm00_0_sound_8000808_rominc.s $(CDIR)/asm00_1_sub_800318C_rominc.s $(CDIR)/asm00_1_runbattleobjectlogic_rominc.s $(CDIR)/asm00_2_sub_800ED80.s $(CDIR)/asm00_2_sub_800ED90.s $(CDIR)/asm00_2_chip_helpers_rominc.s $(CDIR)/asm00_2_small_helpers_rominc.s $(CDIR)/battle_core_initbattle_rominc.s $(CDIR)/battle_core_loadchipdata_rominc.s $(CDIR)/menu_core_initmainmenu_rominc.s $(CDIR)/asm03_0_beast_scan_helpers_rominc.s $(CDIR)/asm03_0_beast_panel_helpers_rominc.s $(CDIR)/asm03_0_beast_search_wrappers_rominc.s $(CDIR)/asm03_1_0_realworld_wrappers_rominc.s $(CDIR)/asm03_1_0_sub_80341AA_rominc.s $(CDIR)/asm03_1_0_jackin_state_wrappers_rominc.s $(CDIR)/asm03_1_0_sub_80355DE_rominc.s $(CDIR)/asm03_1_0_sub_80356EC_rominc.s $(CDIR)/asm03_2_text_render_wrappers_rominc.s $(CDIR)/asm03_2_text_sprite_wrappers_rominc.s $(CDIR)/asm03_2_text_sprite_reset_wrappers_rominc.s $(CDIR)/asm03_2_text_sprite_clear_8046696_rominc.s $(CDIR)/asm04_centraltown_entermapgroup.s $(CDIR)/asm04_centraltown_loadgfxanims.s $(CDIR)/asm04_centraltown_spawn.s $(CDIR)/asm05_cyberacademy_entermapgroup.s $(CDIR)/asm05_cyberacademy_loadgfxanims.s $(CDIR)/asm05_cyberacademy_spawn.s $(CDIR)/asm06_seasidetown_entermapgroup.s $(CDIR)/asm06_seasidetown_loadgfxanims.s $(CDIR)/asm06_seasidetown_spawn.s
 
 $(CDIR)/%.i: $(CDIR)/%.c $(INC)/asm00_0_sound.h
 	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
@@ -127,6 +127,18 @@ $(CDIR)/asm00_2_small_helpers.i: $(CDIR)/asm00_2_small_helpers.c $(INC)/asm00_2_
 	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
 
 $(CDIR)/asm03_1_0_realworld_wrappers.i: $(CDIR)/asm03_1_0_realworld_wrappers.c $(INC)/asm03_1_0_realworld_wrappers.h
+	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
+
+$(CDIR)/asm03_1_0_sub_80341AA.i: $(CDIR)/asm03_1_0_sub_80341AA.c $(INC)/asm03_1_0_small_helpers.h
+	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
+
+$(CDIR)/asm03_1_0_jackin_state_wrappers.i: $(CDIR)/asm03_1_0_jackin_state_wrappers.c $(INC)/asm03_1_0_small_helpers.h
+	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
+
+$(CDIR)/asm03_1_0_sub_80355DE.i: $(CDIR)/asm03_1_0_sub_80355DE.c $(INC)/asm03_1_0_small_helpers.h
+	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
+
+$(CDIR)/asm03_1_0_sub_80356EC.i: $(CDIR)/asm03_1_0_sub_80356EC.c $(INC)/asm03_1_0_small_helpers.h
 	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
 
 $(CDIR)/asm03_2_text_render_wrappers.i: $(CDIR)/asm03_2_text_render_wrappers.c $(INC)/asm03_2_text_render_wrappers.h
@@ -355,6 +367,22 @@ $(CDIR)/asm03_0_beast_search_wrappers_rominc.s: $(CDIR)/asm03_0_beast_search_wra
 $(CDIR)/asm03_1_0_realworld_wrappers_rominc.s: $(CDIR)/asm03_1_0_realworld_wrappers.i
 	$(AGBCC) -O2 -mthumb-interwork $< -o $@
 	python3 tools/fix_agbcc_asm03_1_0_realworld_wrappers_rominc.py $@
+
+$(CDIR)/asm03_1_0_sub_80341AA_rominc.s: $(CDIR)/asm03_1_0_sub_80341AA.i
+	$(AGBCC) -O2 -mthumb-interwork $< -o $@
+	python3 tools/fix_agbcc_asm03_1_0_sub_80341AA_rominc.py $@
+
+$(CDIR)/asm03_1_0_jackin_state_wrappers_rominc.s: $(CDIR)/asm03_1_0_jackin_state_wrappers.i
+	$(AGBCC) -O2 -mthumb-interwork $< -o $@
+	python3 tools/fix_agbcc_asm03_1_0_jackin_state_wrappers_rominc.py $@
+
+$(CDIR)/asm03_1_0_sub_80355DE_rominc.s: $(CDIR)/asm03_1_0_sub_80355DE.i
+	$(AGBCC) -O2 -mthumb-interwork $< -o $@
+	python3 tools/fix_agbcc_asm03_1_0_sub_80355DE_rominc.py $@
+
+$(CDIR)/asm03_1_0_sub_80356EC_rominc.s: $(CDIR)/asm03_1_0_sub_80356EC.i
+	$(AGBCC) -O2 -mthumb-interwork $< -o $@
+	python3 tools/fix_agbcc_asm03_1_0_sub_80356EC_rominc.py $@
 
 $(CDIR)/asm03_2_text_render_wrappers_rominc.s: $(CDIR)/asm03_2_text_render_wrappers.i
 	$(AGBCC) -O2 -mthumb-interwork $< -o $@

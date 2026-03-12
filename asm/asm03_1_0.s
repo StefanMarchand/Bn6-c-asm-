@@ -998,16 +998,7 @@ loc_8034140:
 	pop {r4-r7,pc}
 	thumb_func_end navi_80340F6
 
-	thumb_func_start sub_80341AA
-sub_80341AA:
-	push {lr}
-	// memBlock
-	ldr r0, off_80341F4 // =byte_2011A40
-	// size
-	mov r1, #0xc
-	bl ZeroFillByWord // (mut_mem: *mut (), num_bytes: usize) -> ()
-	pop {pc}
-	thumb_func_end sub_80341AA
+	.include "src/asm03_1_0_sub_80341AA_rominc.s"
 
 	thumb_func_start ho_jackIn_80341B6
 ho_jackIn_80341B6:
@@ -1165,41 +1156,7 @@ loc_80342D6:
 	pop {pc}
 	thumb_func_end sub_80342C6
 
-	thumb_local_start
-sub_80342DC:
-	push {lr}
-	mov r0, #4
-	strb r0, [r5]
-	pop {pc}
-	thumb_func_end sub_80342DC
-
-	thumb_local_start
-sub_80342E4:
-	push {lr}
-	mov r0, #8
-	strb r0, [r5]
-	pop {pc}
-	thumb_func_end sub_80342E4
-
-	thumb_local_start
-sub_80342EC:
-	push {lr}
-	mov r7, r10
-	ldr r0, [r7,#oToolkit_MainJumptableIndexPtr]
-	mov r1, #4
-	strb r1, [r0]
-	bl zeroFillVRAM // () -> ()
-	bl ZeroFillGFX30025c0
-	mov r7, r10
-	ldr r0, [r7,#oToolkit_GameStatePtr]
-	mov r1, #0
-	strb r1, [r0,#oGameState_EnterMapFadeParam1]
-	mov r1, #0x10
-	strb r1, [r0,#oGameState_EnterMapFadeParam2]
-	bl map_triggerEnterMapOnWarp_8005C04
-	bl navi_80340F6
-	pop {pc}
-	thumb_func_end sub_80342EC
+	.include "src/asm03_1_0_jackin_state_wrappers_rominc.s"
 
 // () -> void
 // [break] jack-in
@@ -2959,16 +2916,7 @@ clearSetFlags_80355a8:
 	pop {r4-r7,pc}
 	thumb_func_end clearSetFlags_80355a8
 
-	thumb_func_start sub_80355DE
-sub_80355DE:
-	ldr r1, off_80355E8 // =byte_80984C8
-	mov r2, #0x14
-	mul r2, r0
-	add r0, r1, r2
-	mov pc, lr
-off_80355E8:
-	.word byte_80984C8
-	thumb_func_end sub_80355DE
+	.include "src/asm03_1_0_sub_80355DE_rominc.s"
 
 	thumb_func_start sub_80355EC
 sub_80355EC:
@@ -3098,16 +3046,7 @@ applyLayerEffectToOWObject_8035694:
 	.pool // Struct8034460
 	thumb_func_end applyLayerEffectToOWObject_8035694
 
-	thumb_func_start sub_80356EC
-sub_80356EC:
-	push {r4-r7,lr}
-	// memBlock
-	ldr r0, off_8035784 // =dword_2000DC0
-	// size
-	ldr r1, off_8035788 // =0x100
-	bl ZeroFillByWord // (mut_mem: *mut (), num_bytes: usize) -> ()
-	pop {r4-r7,pc}
-	thumb_func_end sub_80356EC
+	.include "src/asm03_1_0_sub_80356EC_rominc.s"
 
 	thumb_func_start sub_80356F8
 sub_80356F8:
