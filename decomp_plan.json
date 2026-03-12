@@ -437,6 +437,12 @@
       "priority": 2,
       "functions": [
         {
+          "label": "CentralTown_EnterMapGroup",
+          "address": "0x0804E62C",
+          "status": "matching",
+          "notes": "Map-group entry loader in maps/CentralTown/loader.s with an existing sketch in docs/decomp/asm04.c. Implemented in src/asm04_centraltown_entermapgroup.c with the shared minimal mapgroup helper header in include/mapgroup_spawn_helpers.h, included directly from maps/CentralTown/loader.s; a dedicated post-process script restores the original Thumb body and literal labels so the final ROM SHA1 remains identical."
+        },
+        {
           "label": "CentralTown_LoadGFXAnims",
           "address": "0x0804E6D0",
           "status": "matching",
@@ -455,6 +461,12 @@
       "priority": 2,
       "functions": [
         {
+          "label": "CyberAcademy_EnterMapGroup",
+          "address": "0x08052688",
+          "status": "matching",
+          "notes": "Map-group entry loader in maps/CyberAcademy/loader.s with an existing sketch in docs/decomp/asm05.c. Implemented in src/asm05_cyberacademy_entermapgroup.c with the shared minimal mapgroup helper header in include/mapgroup_spawn_helpers.h, included directly from maps/CyberAcademy/loader.s; a dedicated post-process script restores the original Thumb body and literal labels so the final ROM SHA1 remains identical."
+        },
+        {
           "label": "CyberAcademy_LoadGFXAnims",
           "address": "0x08052764",
           "status": "matching",
@@ -472,6 +484,12 @@
       "name": "asm06",
       "priority": 2,
       "functions": [
+        {
+          "label": "SeasideTown_EnterMapGroup",
+          "address": "0x080595B8",
+          "status": "matching",
+          "notes": "Map-group entry loader in maps/SeasideTown/loader.s with an existing sketch in docs/decomp/asm06.c. Implemented in src/asm06_seasidetown_entermapgroup.c with the shared minimal mapgroup helper header in include/mapgroup_spawn_helpers.h, included directly from maps/SeasideTown/loader.s; a dedicated post-process script restores the original Thumb body and literal labels so the final ROM SHA1 remains identical."
+        },
         {
           "label": "SeasideTown_LoadGFXAnims",
           "address": "0x08059664",
