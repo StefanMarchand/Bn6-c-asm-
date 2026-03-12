@@ -235,14 +235,14 @@
         {
           "label": "sub_801FE5E",
           "address": "0x0801FE5E",
-          "status": "todo",
-          "notes": "Tiny menu-state flag getter in asm/asm01.s with an existing sketch in docs/decomp/asm01.c; pairs with the surrounding asm01 eStruct203F7D8 helpers."
+          "status": "matching",
+          "notes": "Tiny menu-state flag getter in asm/asm01.s with an existing sketch in docs/decomp/asm01.c. Implemented alongside the neighboring asm01 menu-transfer helpers in src/asm01_menu_transfer_helpers.c and included directly from asm/asm01.s via a dedicated ROM-include wrapper; the ROM body stays byte-identical to the original helper so the final ROM SHA1 remains identical."
         },
         {
           "label": "sub_801FE64",
           "address": "0x0801FE64",
-          "status": "todo",
-          "notes": "Tiny menu-state flag clearer in asm/asm01.s with an existing sketch in docs/decomp/asm01.c; adjacent to the asm01 getter/setter-style helpers."
+          "status": "matching",
+          "notes": "Tiny menu-state flag clearer in asm/asm01.s with an existing sketch in docs/decomp/asm01.c. Implemented alongside the neighboring asm01 menu-transfer helpers in src/asm01_menu_transfer_helpers.c and included directly from asm/asm01.s via a dedicated ROM-include wrapper; the ROM body stays byte-identical to the original helper so the final ROM SHA1 remains identical."
         },
         {
           "label": "sub_801FE6C",
@@ -253,14 +253,14 @@
         {
           "label": "eStruct203F7D8_getUnk01",
           "address": "0x0801FEE8",
-          "status": "todo",
-          "notes": "Tiny menu-state byte getter in asm/asm01.s with an existing sketch in docs/decomp/asm01.c; a low-risk asm01 wrapper TODO next to the menu dispatch code."
+          "status": "matching",
+          "notes": "Tiny menu-state byte getter in asm/asm01.s with an existing sketch in docs/decomp/asm01.c. Implemented alongside the neighboring asm01 menu-transfer helpers in src/asm01_menu_transfer_helpers.c and included directly from asm/asm01.s via a dedicated ROM-include wrapper; the ROM body stays byte-identical to the original helper so the final ROM SHA1 remains identical."
         },
         {
           "label": "sub_801FEEE",
           "address": "0x0801FEEE",
-          "status": "todo",
-          "notes": "Menu jump-table dispatcher in asm/asm01.s with an existing sketch in docs/decomp/asm01.c; directly feeds the surrounding asm01 menu handlers."
+          "status": "matching",
+          "notes": "Menu jump-table dispatcher in asm/asm01.s with an existing sketch in docs/decomp/asm01.c. Implemented alongside the neighboring asm01 menu-transfer helpers in src/asm01_menu_transfer_helpers.c and included directly from asm/asm01.s via a dedicated ROM-include wrapper; the ROM body keeps the original jump-table layout so the final ROM SHA1 remains identical."
         },
         {
           "label": "sub_801FF18",
@@ -271,8 +271,8 @@
         {
           "label": "sub_80200A4",
           "address": "0x080200A4",
-          "status": "todo",
-          "notes": "Menu countdown/flag setter in asm/asm01.s with an existing sketch in docs/decomp/asm01.c; continues the asm01 state block after the matched main menu handler."
+          "status": "matching",
+          "notes": "Menu countdown/flag setter in asm/asm01.s with an existing sketch in docs/decomp/asm01.c. Implemented alongside the neighboring asm01 menu-transfer helpers in src/asm01_menu_transfer_helpers.c and included directly from asm/asm01.s via a dedicated ROM-include wrapper; the ROM body stays byte-identical to the original helper so the final ROM SHA1 remains identical."
         },
         {
           "label": "eStruct2038160_clearStruct",
