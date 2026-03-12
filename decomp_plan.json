@@ -315,6 +315,42 @@
           "address": "0x080266DE",
           "status": "matching",
           "notes": "Tiny beast-panel search wrapper in asm/asm03_0.s with an existing sketch in docs/decomp/asm03_0.c. Implemented alongside the neighboring search wrappers in src/asm03_0_beast_search_wrappers.c and included directly from asm/asm03_0.s via the shared ROM-include wrapper; a narrow post-process preserves the original local literal-load wrapper shape so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_80266E8",
+          "address": "0x080266E8",
+          "status": "matching",
+          "notes": "Tiny beast-panel search wrapper in asm/asm03_0.s with an existing sketch in docs/decomp/asm03_0.c. Implemented alongside the neighboring search wrappers in src/asm03_0_beast_search_wrappers.c and included directly from asm/asm03_0.s via the shared ROM-include wrapper; a narrow post-process preserves the original local literal-load wrapper shape so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_80266F2",
+          "address": "0x080266F2",
+          "status": "matching",
+          "notes": "Tiny beast-panel search/fallback wrapper in asm/asm03_0.s with an existing sketch in docs/decomp/asm03_0.c. Implemented alongside the neighboring search wrappers in src/asm03_0_beast_search_wrappers.c and included directly from asm/asm03_0.s via the shared ROM-include wrapper; a narrow post-process preserves the original local literal-load wrapper shape and register-return convention so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_8026704",
+          "address": "0x08026704",
+          "status": "matching",
+          "notes": "Tiny beast-panel search wrapper in asm/asm03_0.s with an existing sketch in docs/decomp/asm03_0.c. Implemented alongside the neighboring search wrappers in src/asm03_0_beast_search_wrappers.c and included directly from asm/asm03_0.s via the shared ROM-include wrapper; a narrow post-process preserves the original local literal-load wrapper shape so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_802670E",
+          "address": "0x0802670E",
+          "status": "matching",
+          "notes": "Tiny beast-panel search/fallback wrapper in asm/asm03_0.s with an existing sketch in docs/decomp/asm03_0.c. Implemented alongside the neighboring search wrappers in src/asm03_0_beast_search_wrappers.c and included directly from asm/asm03_0.s via the shared ROM-include wrapper; a narrow post-process preserves the original local literal-load wrapper shape and register-return convention so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_802671C",
+          "address": "0x0802671C",
+          "status": "matching",
+          "notes": "Tiny beast-panel search wrapper in asm/asm03_0.s with an existing sketch in docs/decomp/asm03_0.c. Implemented alongside the neighboring search wrappers in src/asm03_0_beast_search_wrappers.c and included directly from asm/asm03_0.s via the shared ROM-include wrapper; a narrow post-process preserves the original local literal-load wrapper shape so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "sub_8026726",
+          "address": "0x08026726",
+          "status": "matching",
+          "notes": "Tiny beast-panel search wrapper in asm/asm03_0.s with an existing sketch in docs/decomp/asm03_0.c. Implemented alongside the neighboring search wrappers in src/asm03_0_beast_search_wrappers.c and included directly from asm/asm03_0.s via the shared ROM-include wrapper; a narrow post-process preserves the original local literal-load wrapper shape so the final ROM SHA1 remains identical."
         }
       ]
     },

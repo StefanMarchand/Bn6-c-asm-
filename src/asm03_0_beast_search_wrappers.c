@@ -11,6 +11,10 @@ static const signed char sBeastSearchOffsets_8026794[] = {-2, 0, -2, -1, -2, 1, 
 static const signed char sBeastSearchOffsets_802679B[] = {-5, 0, -4, 0, -3, 0, -2, 0, -1, 0, 0x7F};
 static const signed char sBeastSearchOffsets_80267A6[] = {0, 0, -2, 0, 0x7F};
 static const signed char sBeastSearchOffsets_80267AB[] = {-1, 0, 0x7F};
+static const signed char sBeastSearchOffsets_80267AE[] = {-1, 0, -2, -1, -2, 1, 1, -1, 1, 1, 0x7F};
+static const signed char sBeastSearchOffsets_80267B9[] = {-3, 0, -4, 0, -3, -1, -3, 1, -4, -1, -4, 1, -2, 0, -2, -1, -2, 1, 0x7F};
+static const signed char sBeastSearchOffsets_80267CC[] = {-2, 0, -2, -1, -2, 1, -1, 0, 0x7F};
+static const signed char sBeastSearchOffsets_80267D5[] = {-1, 0, -1, -1, -1, 1, 0, -1, 0, 1, 1, -1, 1, 1, 1, 0, 0x7F};
 
 int sub_8026650(void)
 {
@@ -72,4 +76,34 @@ int sub_80266BA(void)
 int sub_80266DE(void)
 {
     return sub_80265D0(sBeastSearchOffsets_80267AB);
+}
+
+int sub_80266E8(void)
+{
+    return sub_80265D0(sBeastSearchOffsets_80267AE);
+}
+
+int sub_80266F2(void)
+{
+    return sub_80265FE(sub_8026450(gBeastSearchPanelX, gBeastSearchPanelY, sBeastSearchOffsets_802679B), 0);
+}
+
+int sub_8026704(void)
+{
+    return sub_80265D0(sBeastSearchOffsets_80267B9);
+}
+
+int sub_802670E(void)
+{
+    return sub_80265FE(sub_80265D0(sBeastSearchOffsets_8026791), 0);
+}
+
+int sub_802671C(void)
+{
+    return sub_80265D0(sBeastSearchOffsets_80267CC);
+}
+
+int sub_8026726(void)
+{
+    return sub_80265D0(sBeastSearchOffsets_80267D5);
 }

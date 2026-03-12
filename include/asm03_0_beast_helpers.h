@@ -34,5 +34,11 @@ int sub_802669E(void);
 int sub_80266AC(void);
 int sub_80266BA(void);
 int sub_80266DE(void);
+int sub_80266E8(void);
+int sub_80266F2(void);
+int sub_8026704(void);
+int sub_802670E(void);
+int sub_802671C(void);
+int sub_8026726(void);
 
 #endif
