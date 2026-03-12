@@ -85,17 +85,7 @@ dword_8052760:
 	.word 0xFFFF2418
 	thumb_func_end CyberAcademy_EnterMapGroup
 
-	thumb_func_start CyberAcademy_LoadGFXAnims
-CyberAcademy_LoadGFXAnims:
-	push {lr}
-	lsl r1, r1, #2
-	ldr r0, off_8052774 // =off_8052778 
-	ldr r0, [r0,r1]
-	bl LoadGFXAnims // (gfx_anim_data_arr: * FFStop32<[GFXAnimScript]>) -> ()
-	pop {pc}
-	.balign 4, 0
-off_8052774:
-	.word off_8052778
+	.include "src/asm05_cyberacademy_loadgfxanims.s"
 off_8052778:
 	.word off_80527A4
 	.word off_80527AC
@@ -140,20 +130,7 @@ dword_80527EC:
 	.word 0xFFFFFFFF
 	thumb_func_end CyberAcademy_LoadGFXAnims
 
-	thumb_func_start CyberAcademy_SpawnMapObjectsForMap
-CyberAcademy_SpawnMapObjectsForMap:
-	push {lr}
-	mov r0, r10
-	ldr r0, [r0,#oToolkit_GameStatePtr]
-	ldrb r0, [r0,#oGameState_MapNumber]
-	lsl r0, r0, #2
-	ldr r1, off_8052804 // =off_8052808 
-	ldr r0, [r1,r0]
-	bl SpawnObjectsFromList // (data: *const MapObjectSpawnData) -> i32
-	pop {pc}
-	.balign 4, 0
-off_8052804:
-	.word off_8052808
+	.include "src/asm05_cyberacademy_spawn.s"
 off_8052808:
 	.word byte_8052834
 	.word byte_80529B4

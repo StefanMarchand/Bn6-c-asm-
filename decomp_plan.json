@@ -371,6 +371,60 @@
           "notes": "Tiny text-sprite clear wrapper in asm/asm03_2.s with an existing sketch in docs/decomp/asm03_2.c. Implemented in src/asm03_2_text_sprite_clear_8046696.c with a minimal text-sprite header in include/asm03_2_text_sprite_clear_8046696.h and included directly from asm/asm03_2.s via a dedicated ROM-include wrapper; a narrow post-process preserves the original slot-addressing wrapper shape so the final ROM SHA1 remains identical."
         }
       ]
+    },
+    {
+      "name": "asm04",
+      "priority": 2,
+      "functions": [
+        {
+          "label": "CentralTown_LoadGFXAnims",
+          "address": "0x0804E6D0",
+          "status": "matching",
+          "notes": "Small map-group GFX anim loader wrapper in maps/CentralTown/loader.s with an existing sketch in docs/decomp/asm04.c. Implemented in src/asm04_centraltown_loadgfxanims.c with a shared minimal mapgroup helper header in include/mapgroup_spawn_helpers.h and included directly from maps/CentralTown/loader.s; a narrow post-process restores the original literal-load wrapper shape so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "CentralTown_SpawnMapObjectsForMap",
+          "address": "0x0804E720",
+          "status": "matching",
+          "notes": "Small map-group object-spawn wrapper in maps/CentralTown/loader.s with an existing sketch in docs/decomp/asm04.c. Implemented in src/asm04_centraltown_spawn.c with the shared minimal mapgroup helper header in include/mapgroup_spawn_helpers.h and included directly from maps/CentralTown/loader.s; a narrow post-process restores the original toolkit/map-number wrapper shape so the final ROM SHA1 remains identical."
+        }
+      ]
+    },
+    {
+      "name": "asm05",
+      "priority": 2,
+      "functions": [
+        {
+          "label": "CyberAcademy_LoadGFXAnims",
+          "address": "0x08052764",
+          "status": "matching",
+          "notes": "Small map-group GFX anim loader wrapper in maps/CyberAcademy/loader.s with an existing sketch in docs/decomp/asm05.c. Implemented in src/asm05_cyberacademy_loadgfxanims.c with a shared minimal mapgroup helper header in include/mapgroup_spawn_helpers.h and included directly from maps/CyberAcademy/loader.s; a narrow post-process restores the original literal-load wrapper shape so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "CyberAcademy_SpawnMapObjectsForMap",
+          "address": "0x080527F0",
+          "status": "matching",
+          "notes": "Small map-group object-spawn wrapper in maps/CyberAcademy/loader.s with an existing sketch in docs/decomp/asm05.c. Implemented in src/asm05_cyberacademy_spawn.c with the shared minimal mapgroup helper header in include/mapgroup_spawn_helpers.h and included directly from maps/CyberAcademy/loader.s; a narrow post-process restores the original toolkit/map-number wrapper shape so the final ROM SHA1 remains identical."
+        }
+      ]
+    },
+    {
+      "name": "asm06",
+      "priority": 2,
+      "functions": [
+        {
+          "label": "SeasideTown_LoadGFXAnims",
+          "address": "0x08059664",
+          "status": "matching",
+          "notes": "Small map-group GFX anim loader wrapper in maps/SeasideTown/loader.s with an existing sketch in docs/decomp/asm06.c. Implemented in src/asm06_seasidetown_loadgfxanims.c with a shared minimal mapgroup helper header in include/mapgroup_spawn_helpers.h and included directly from maps/SeasideTown/loader.s; a narrow post-process restores the original literal-load wrapper shape so the final ROM SHA1 remains identical."
+        },
+        {
+          "label": "SeasideTown_SpawnMapObjectsForMap",
+          "address": "0x080596C8",
+          "status": "matching",
+          "notes": "Small map-group object-spawn wrapper in maps/SeasideTown/loader.s with an existing sketch in docs/decomp/asm06.c. Implemented in src/asm06_seasidetown_spawn.c with the shared minimal mapgroup helper header in include/mapgroup_spawn_helpers.h and included directly from maps/SeasideTown/loader.s; a narrow post-process restores the original toolkit/map-number wrapper shape so the final ROM SHA1 remains identical."
+        }
+      ]
     }
   ]
 }

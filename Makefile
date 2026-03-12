@@ -39,7 +39,7 @@ SFILES = rom.s data.s ewram.s iwram.s vram.s
 include lz_assets.mk
 
 OFILES = $(addprefix $(OBJ),$(SFILES:.s=.o))
-CSRCS := $(CDIR)/asm00_0_sound.c $(CDIR)/asm00_0_soundmain.c $(CDIR)/asm00_0_playsfx.c $(CDIR)/asm00_0_playmusic.c $(CDIR)/asm00_0_music_80005F2.c $(CDIR)/asm00_0_sub_800060A.c $(CDIR)/asm00_0_sound_8000642.c $(CDIR)/asm00_0_sound_800065A.c $(CDIR)/asm00_0_sound_8000672.c $(CDIR)/asm00_0_sound_800068A.c $(CDIR)/asm00_0_sound_80006A2.c $(CDIR)/asm00_0_musicGameState_8000784.c $(CDIR)/asm00_0_sub_80007A0.c $(CDIR)/asm00_0_zeroFill_80007B2.c $(CDIR)/asm00_0_sound_8000808.c $(CDIR)/asm00_1_sub_800318C.c $(CDIR)/asm00_1_runbattleobjectlogic.c $(CDIR)/asm00_2_sub_800ED80.c $(CDIR)/asm00_2_sub_800ED90.c $(CDIR)/asm00_2_chip_helpers.c $(CDIR)/battle_core_loadchipdata.c $(CDIR)/menu_core_initmainmenu.c $(CDIR)/asm03_2_text_render_wrappers.c $(CDIR)/asm03_2_text_sprite_wrappers.c $(CDIR)/asm03_2_text_sprite_reset_wrappers.c $(CDIR)/asm03_2_text_sprite_clear_8046696.c
+CSRCS := $(CDIR)/asm00_0_sound.c $(CDIR)/asm00_0_soundmain.c $(CDIR)/asm00_0_playsfx.c $(CDIR)/asm00_0_playmusic.c $(CDIR)/asm00_0_music_80005F2.c $(CDIR)/asm00_0_sub_800060A.c $(CDIR)/asm00_0_sound_8000642.c $(CDIR)/asm00_0_sound_800065A.c $(CDIR)/asm00_0_sound_8000672.c $(CDIR)/asm00_0_sound_800068A.c $(CDIR)/asm00_0_sound_80006A2.c $(CDIR)/asm00_0_musicGameState_8000784.c $(CDIR)/asm00_0_sub_80007A0.c $(CDIR)/asm00_0_zeroFill_80007B2.c $(CDIR)/asm00_0_sound_8000808.c $(CDIR)/asm00_1_sub_800318C.c $(CDIR)/asm00_1_runbattleobjectlogic.c $(CDIR)/asm00_2_sub_800ED80.c $(CDIR)/asm00_2_sub_800ED90.c $(CDIR)/asm00_2_chip_helpers.c $(CDIR)/battle_core_loadchipdata.c $(CDIR)/menu_core_initmainmenu.c $(CDIR)/asm03_2_text_render_wrappers.c $(CDIR)/asm03_2_text_sprite_wrappers.c $(CDIR)/asm03_2_text_sprite_reset_wrappers.c $(CDIR)/asm03_2_text_sprite_clear_8046696.c $(CDIR)/asm04_centraltown_loadgfxanims.c $(CDIR)/asm04_centraltown_spawn.c $(CDIR)/asm05_cyberacademy_loadgfxanims.c $(CDIR)/asm05_cyberacademy_spawn.c $(CDIR)/asm06_seasidetown_loadgfxanims.c $(CDIR)/asm06_seasidetown_spawn.c
 C_PPS := $(CSRCS:.c=.i)
 C_ASM := $(CSRCS:.c=.s)
 C_OFILES := $(CSRCS:.c=.o)
@@ -85,7 +85,7 @@ $(ELF): $(OFILES)
 %.o: %.s
 	$(AS) $(ASFLAGS) $< -o $@
 
-rom.o: $(CDIR)/asm00_0_soundmain.s $(CDIR)/asm00_0_sound.s $(CDIR)/asm00_0_playsfx.s $(CDIR)/asm00_0_playmusic.s $(CDIR)/asm00_0_music_80005F2.s $(CDIR)/asm00_0_sub_800060A_rominc.s $(CDIR)/asm00_0_sound_wrappers.s $(CDIR)/asm00_0_sound_8000642_rominc.s $(CDIR)/asm00_0_sound_800065A_rominc.s $(CDIR)/asm00_0_sound_8000672_rominc.s $(CDIR)/asm00_0_sound_800068A_rominc.s $(CDIR)/asm00_0_sound_80006A2_rominc.s $(CDIR)/asm00_0_musicGameState_8000784_rominc.s $(CDIR)/asm00_0_sub_80007A0_rominc.s $(CDIR)/asm00_0_zeroFill_80007B2_rominc.s $(CDIR)/asm00_0_sub_80007BE_rominc.s $(CDIR)/asm00_0_sound_8000808_rominc.s $(CDIR)/asm00_1_sub_800318C_rominc.s $(CDIR)/asm00_1_runbattleobjectlogic_rominc.s $(CDIR)/asm00_2_sub_800ED80.s $(CDIR)/asm00_2_sub_800ED90.s $(CDIR)/asm00_2_chip_helpers_rominc.s $(CDIR)/asm00_2_small_helpers_rominc.s $(CDIR)/battle_core_initbattle_rominc.s $(CDIR)/battle_core_loadchipdata_rominc.s $(CDIR)/menu_core_initmainmenu_rominc.s $(CDIR)/asm03_1_0_realworld_wrappers_rominc.s $(CDIR)/asm03_2_text_render_wrappers_rominc.s $(CDIR)/asm03_2_text_sprite_wrappers_rominc.s $(CDIR)/asm03_2_text_sprite_reset_wrappers_rominc.s $(CDIR)/asm03_2_text_sprite_clear_8046696_rominc.s
+rom.o: $(CDIR)/asm00_0_soundmain.s $(CDIR)/asm00_0_sound.s $(CDIR)/asm00_0_playsfx.s $(CDIR)/asm00_0_playmusic.s $(CDIR)/asm00_0_music_80005F2.s $(CDIR)/asm00_0_sub_800060A_rominc.s $(CDIR)/asm00_0_sound_wrappers.s $(CDIR)/asm00_0_sound_8000642_rominc.s $(CDIR)/asm00_0_sound_800065A_rominc.s $(CDIR)/asm00_0_sound_8000672_rominc.s $(CDIR)/asm00_0_sound_800068A_rominc.s $(CDIR)/asm00_0_sound_80006A2_rominc.s $(CDIR)/asm00_0_musicGameState_8000784_rominc.s $(CDIR)/asm00_0_sub_80007A0_rominc.s $(CDIR)/asm00_0_zeroFill_80007B2_rominc.s $(CDIR)/asm00_0_sub_80007BE_rominc.s $(CDIR)/asm00_0_sound_8000808_rominc.s $(CDIR)/asm00_1_sub_800318C_rominc.s $(CDIR)/asm00_1_runbattleobjectlogic_rominc.s $(CDIR)/asm00_2_sub_800ED80.s $(CDIR)/asm00_2_sub_800ED90.s $(CDIR)/asm00_2_chip_helpers_rominc.s $(CDIR)/asm00_2_small_helpers_rominc.s $(CDIR)/battle_core_initbattle_rominc.s $(CDIR)/battle_core_loadchipdata_rominc.s $(CDIR)/menu_core_initmainmenu_rominc.s $(CDIR)/asm03_1_0_realworld_wrappers_rominc.s $(CDIR)/asm03_2_text_render_wrappers_rominc.s $(CDIR)/asm03_2_text_sprite_wrappers_rominc.s $(CDIR)/asm03_2_text_sprite_reset_wrappers_rominc.s $(CDIR)/asm03_2_text_sprite_clear_8046696_rominc.s $(CDIR)/asm04_centraltown_loadgfxanims.s $(CDIR)/asm04_centraltown_spawn.s $(CDIR)/asm05_cyberacademy_loadgfxanims.s $(CDIR)/asm05_cyberacademy_spawn.s $(CDIR)/asm06_seasidetown_loadgfxanims.s $(CDIR)/asm06_seasidetown_spawn.s
 
 $(CDIR)/%.i: $(CDIR)/%.c $(INC)/asm00_0_sound.h
 	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
@@ -130,6 +130,24 @@ $(CDIR)/asm03_2_text_sprite_reset_wrappers.i: $(CDIR)/asm03_2_text_sprite_reset_
 	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
 
 $(CDIR)/asm03_2_text_sprite_clear_8046696.i: $(CDIR)/asm03_2_text_sprite_clear_8046696.c $(INC)/asm03_2_text_sprite_clear_8046696.h
+	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
+
+$(CDIR)/asm04_centraltown_loadgfxanims.i: $(CDIR)/asm04_centraltown_loadgfxanims.c $(INC)/mapgroup_spawn_helpers.h
+	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
+
+$(CDIR)/asm04_centraltown_spawn.i: $(CDIR)/asm04_centraltown_spawn.c $(INC)/mapgroup_spawn_helpers.h
+	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
+
+$(CDIR)/asm05_cyberacademy_loadgfxanims.i: $(CDIR)/asm05_cyberacademy_loadgfxanims.c $(INC)/mapgroup_spawn_helpers.h
+	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
+
+$(CDIR)/asm05_cyberacademy_spawn.i: $(CDIR)/asm05_cyberacademy_spawn.c $(INC)/mapgroup_spawn_helpers.h
+	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
+
+$(CDIR)/asm06_seasidetown_loadgfxanims.i: $(CDIR)/asm06_seasidetown_loadgfxanims.c $(INC)/mapgroup_spawn_helpers.h
+	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
+
+$(CDIR)/asm06_seasidetown_spawn.i: $(CDIR)/asm06_seasidetown_spawn.c $(INC)/mapgroup_spawn_helpers.h
 	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
 
 $(CDIR)/%.s: $(CDIR)/%.i
@@ -323,6 +341,30 @@ $(CDIR)/asm03_2_text_sprite_reset_wrappers_rominc.s: $(CDIR)/asm03_2_text_sprite
 $(CDIR)/asm03_2_text_sprite_clear_8046696_rominc.s: $(CDIR)/asm03_2_text_sprite_clear_8046696.i
 	$(AGBCC) -O2 -mthumb-interwork $< -o $@
 	python3 tools/fix_agbcc_asm03_2_text_sprite_clear_8046696_rominc.py $@
+
+$(CDIR)/asm04_centraltown_loadgfxanims.s: $(CDIR)/asm04_centraltown_loadgfxanims.i
+	$(AGBCC) -O2 -mthumb-interwork $< -o $@
+	python3 tools/fix_agbcc_mapgroup_loadgfxanims.py $@ CentralTown_LoadGFXAnims off_804E6E0 off_804E6E4
+
+$(CDIR)/asm04_centraltown_spawn.s: $(CDIR)/asm04_centraltown_spawn.i
+	$(AGBCC) -O2 -mthumb-interwork $< -o $@
+	python3 tools/fix_agbcc_mapgroup_spawn.py $@ CentralTown_SpawnMapObjectsForMap off_804E734 off_804E738
+
+$(CDIR)/asm05_cyberacademy_loadgfxanims.s: $(CDIR)/asm05_cyberacademy_loadgfxanims.i
+	$(AGBCC) -O2 -mthumb-interwork $< -o $@
+	python3 tools/fix_agbcc_mapgroup_loadgfxanims.py $@ CyberAcademy_LoadGFXAnims off_8052774 off_8052778
+
+$(CDIR)/asm05_cyberacademy_spawn.s: $(CDIR)/asm05_cyberacademy_spawn.i
+	$(AGBCC) -O2 -mthumb-interwork $< -o $@
+	python3 tools/fix_agbcc_mapgroup_spawn.py $@ CyberAcademy_SpawnMapObjectsForMap off_8052804 off_8052808
+
+$(CDIR)/asm06_seasidetown_loadgfxanims.s: $(CDIR)/asm06_seasidetown_loadgfxanims.i
+	$(AGBCC) -O2 -mthumb-interwork $< -o $@
+	python3 tools/fix_agbcc_mapgroup_loadgfxanims.py $@ SeasideTown_LoadGFXAnims off_8059674 off_8059678
+
+$(CDIR)/asm06_seasidetown_spawn.s: $(CDIR)/asm06_seasidetown_spawn.i
+	$(AGBCC) -O2 -mthumb-interwork $< -o $@
+	python3 tools/fix_agbcc_mapgroup_spawn.py $@ SeasideTown_SpawnMapObjectsForMap off_80596DC off_80596E0
 
 $(CDIR)/%.o: $(CDIR)/%.s
 	$(AS) $(C_ASFLAGS) $< -o $@

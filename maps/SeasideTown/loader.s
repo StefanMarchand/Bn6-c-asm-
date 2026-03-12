@@ -67,17 +67,7 @@ byte_8059662:
 	.byte 0xFF, 0xFF
 	thumb_func_end SeasideTown_EnterMapGroup
 
-	thumb_func_start SeasideTown_LoadGFXAnims
-SeasideTown_LoadGFXAnims:
-	push {lr}
-	lsl r1, r1, #2
-	ldr r0, off_8059674 // =off_8059678 
-	ldr r0, [r0,r1]
-	bl LoadGFXAnims // (gfx_anim_data_arr: * FFStop32<[GFXAnimScript]>) -> ()
-	pop {pc}
-	.balign 4, 0
-off_8059674:
-	.word off_8059678
+	.include "src/asm06_seasidetown_loadgfxanims.s"
 off_8059678:
 	.word off_805968C
 	.word off_80596A0
@@ -106,20 +96,7 @@ off_80596BC:
 	.word 0xFFFFFFFF
 	thumb_func_end SeasideTown_LoadGFXAnims
 
-	thumb_func_start SeasideTown_SpawnMapObjectsForMap
-SeasideTown_SpawnMapObjectsForMap:
-	push {lr}
-	mov r0, r10
-	ldr r0, [r0,#oToolkit_GameStatePtr]
-	ldrb r0, [r0,#oGameState_MapNumber]
-	lsl r0, r0, #2
-	ldr r1, off_80596DC // =off_80596E0 
-	ldr r0, [r1,r0]
-	bl SpawnObjectsFromList // (data: *const MapObjectSpawnData) -> i32
-	pop {pc}
-	.balign 4, 0
-off_80596DC:
-	.word off_80596E0
+	.include "src/asm06_seasidetown_spawn.s"
 off_80596E0:
 	// <endpool> <endfile>
 	.word byte_80596F4

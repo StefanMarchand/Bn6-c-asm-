@@ -137,17 +137,7 @@ byte_804E6C8: // [SpriteLoadData; 3]
   .hword 0xFFFF
 	thumb_func_end CentralTown_EnterMapGroup
 
-	thumb_func_start CentralTown_LoadGFXAnims
-CentralTown_LoadGFXAnims:
-	push {lr}
-	lsl r1, r1, #2
-	ldr r0, off_804E6E0 // =off_804E6E4 
-	ldr r0, [r0,r1]
-	bl LoadGFXAnims // (gfx_anim_data_arr: * FFStop32<[GFXAnimScript]>) -> ()
-	pop {pc}
-	.balign 4, 0
-off_804E6E0:
-	.word off_804E6E4
+	.include "src/asm04_centraltown_loadgfxanims.s"
 off_804E6E4:
 	.word dword_804E6F8
 	.word off_804E6FC
@@ -171,22 +161,7 @@ off_804E718:
 	.word 0xFFFFFFFF
 	thumb_func_end CentralTown_LoadGFXAnims
 
-	thumb_func_start CentralTown_SpawnMapObjectsForMap
-CentralTown_SpawnMapObjectsForMap:
-	push {lr}
-
-	mov r0, r10
-
-	ldr r0, [r0,#oToolkit_GameStatePtr]
-	ldrb r0, [r0,#oGameState_MapNumber]
-	lsl r0, r0, #2
-
-	ldr r1, =off_804E738 // [*const MapObjectSpawnData; CENTRAL_TOWN_NUM_MAPS]
-	ldr r0, [r1,r0]
-	bl SpawnObjectsFromList // (data: *const MapObjectSpawnData) -> i32
-
-	pop {pc}
-	.pool // off_804E734
+	.include "src/asm04_centraltown_spawn.s"
 off_804E738: // [*const MapObjectSpawnData; CENTRAL_TOWN_NUM_MAPS]
 	// <endpool>
 	.word CentralTownObjectSpawns // [MapObjectSpawnData; 15]]
