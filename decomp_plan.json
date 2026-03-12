@@ -217,6 +217,84 @@
       ]
     },
     {
+      "name": "asm01",
+      "priority": 2,
+      "functions": [
+        {
+          "label": "sub_801FE00",
+          "address": "0x0801FE00",
+          "status": "todo",
+          "notes": "Menu-state zero-fill/setup helper in asm/asm01.s with an existing sketch in docs/decomp/asm01.c; good frontier follow-up near the already matched sub_801FFD6 menu-core area."
+        },
+        {
+          "label": "sub_801FE24",
+          "address": "0x0801FE24",
+          "status": "todo",
+          "notes": "Menu transition gate helper in asm/asm01.s with an existing sketch in docs/decomp/asm01.c; this sits immediately after the asm01 menu-state setup block."
+        },
+        {
+          "label": "sub_801FE5E",
+          "address": "0x0801FE5E",
+          "status": "todo",
+          "notes": "Tiny menu-state flag getter in asm/asm01.s with an existing sketch in docs/decomp/asm01.c; pairs with the surrounding asm01 eStruct203F7D8 helpers."
+        },
+        {
+          "label": "sub_801FE64",
+          "address": "0x0801FE64",
+          "status": "todo",
+          "notes": "Tiny menu-state flag clearer in asm/asm01.s with an existing sketch in docs/decomp/asm01.c; adjacent to the asm01 getter/setter-style helpers."
+        },
+        {
+          "label": "sub_801FE6C",
+          "address": "0x0801FE6C",
+          "status": "todo",
+          "notes": "Menu-state refresh/copy helper in asm/asm01.s with an existing sketch in docs/decomp/asm01.c; extends the same asm01 state-management cluster as the existing menu-core match."
+        },
+        {
+          "label": "eStruct203F7D8_getUnk01",
+          "address": "0x0801FEE8",
+          "status": "todo",
+          "notes": "Tiny menu-state byte getter in asm/asm01.s with an existing sketch in docs/decomp/asm01.c; a low-risk asm01 wrapper TODO next to the menu dispatch code."
+        },
+        {
+          "label": "sub_801FEEE",
+          "address": "0x0801FEEE",
+          "status": "todo",
+          "notes": "Menu jump-table dispatcher in asm/asm01.s with an existing sketch in docs/decomp/asm01.c; directly feeds the surrounding asm01 menu handlers."
+        },
+        {
+          "label": "sub_801FF18",
+          "address": "0x0801FF18",
+          "status": "todo",
+          "notes": "Large menu input/state handler in asm/asm01.s with an existing sketch in docs/decomp/asm01.c; substantial asm01 frontier item just before the matched sub_801FFD6 implementation."
+        },
+        {
+          "label": "sub_80200A4",
+          "address": "0x080200A4",
+          "status": "todo",
+          "notes": "Menu countdown/flag setter in asm/asm01.s with an existing sketch in docs/decomp/asm01.c; continues the asm01 state block after the matched main menu handler."
+        },
+        {
+          "label": "eStruct2038160_clearStruct",
+          "address": "0x08020134",
+          "status": "todo",
+          "notes": "Small battle-terminate state clear helper in asm/asm01.s with an existing sketch in docs/decomp/asm01.c; documented as part of the same asm01 control-state region."
+        },
+        {
+          "label": "sub_8020140",
+          "address": "0x08020140",
+          "status": "todo",
+          "notes": "Battle-terminate poll/update helper in asm/asm01.s with an existing sketch in docs/decomp/asm01.c; another sketched asm01 control-flow target suitable for planning."
+        },
+        {
+          "label": "eStruct2038160_getBattleTerminate01",
+          "address": "0x0802015E",
+          "status": "todo",
+          "notes": "Tiny battle-terminate state getter in asm/asm01.s with an existing sketch in docs/decomp/asm01.c; closes out the currently documented asm01 helper block."
+        }
+      ]
+    },
+    {
       "name": "asm03_0",
       "priority": 2,
       "functions": [
@@ -669,6 +747,54 @@
           "address": "0x0805DFF0",
           "status": "matching",
           "notes": "Small map-group object-spawn wrapper in maps/GreenTown/loader.s with an existing sketch in docs/decomp/asm07.c. Implemented in src/asm07_greentown_spawn.c with the shared minimal mapgroup helper header in include/mapgroup_spawn_helpers.h and included directly from maps/GreenTown/loader.s; a narrow post-process restores the original toolkit/map-number wrapper shape so the final ROM SHA1 remains identical."
+        }
+      ]
+    },
+    {
+      "name": "asm08",
+      "priority": 2,
+      "functions": [
+        {
+          "label": "SkyTown_EnterMapGroup",
+          "address": "0x0806036C",
+          "status": "todo",
+          "notes": "Map-group entry loader for the asm08 Sky Town area in maps/SkyTown/loader.s with an existing sketch in docs/decomp/asm08.c."
+        },
+        {
+          "label": "SkyTown_LoadGFXAnims",
+          "address": "0x08060406",
+          "status": "todo",
+          "notes": "Small map-group GFX anim loader wrapper for the asm08 Sky Town area in maps/SkyTown/loader.s with an existing sketch in docs/decomp/asm08.c."
+        },
+        {
+          "label": "SkyTown_SpawnMapObjectsForMap",
+          "address": "0x0806044C",
+          "status": "todo",
+          "notes": "Small map-group object-spawn wrapper for the asm08 Sky Town area in maps/SkyTown/loader.s with an existing sketch in docs/decomp/asm08.c."
+        }
+      ]
+    },
+    {
+      "name": "asm09",
+      "priority": 2,
+      "functions": [
+        {
+          "label": "ExpoSite_EnterMapGroup",
+          "address": "0x08062AB0",
+          "status": "todo",
+          "notes": "Map-group entry loader for the asm09 Expo Site area in maps/ExpoSite/loader.s with an existing sketch in docs/decomp/asm09.c."
+        },
+        {
+          "label": "ExpoSite_LoadGFXAnims",
+          "address": "0x08062B64",
+          "status": "todo",
+          "notes": "Small map-group GFX anim loader wrapper for the asm09 Expo Site area in maps/ExpoSite/loader.s with an existing sketch in docs/decomp/asm09.c."
+        },
+        {
+          "label": "ExpoSite_SpawnMapObjectsForMap",
+          "address": "0x08062BCC",
+          "status": "todo",
+          "notes": "Small map-group object-spawn wrapper for the asm09 Expo Site area in maps/ExpoSite/loader.s with an existing sketch in docs/decomp/asm09.c."
         }
       ]
     }
