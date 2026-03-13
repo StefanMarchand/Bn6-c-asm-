@@ -1,20 +1,23 @@
 ```c
-#include "global.h"
-#include "main.h"
+#include "common.h"
+#include "gfx_anims.h"
 #include "map.h"
-#include "asm09.h"
 
-static void ExpoSite_LoadGFXAnims(void);
+static void LoadExpoSiteGFXAnims(u32 animID);
 
-void ExpoSite_LoadGFXAnims(void)
-{
-    LoadGFXAnims(&gMap GFXAnims);
+void ExpoSite_LoadGFXAnims(void) {
+    u32 i;
+    
+    // Initialize ExpoSite-specific GFX animation loading
+    for (i = 0; i < EXPO_SITE_GFX_ANIM_COUNT; i++) {
+        LoadExpoSiteGFXAnims(i);
+    }
+}
+
+static void LoadExpoSiteGFXAnims(u32 animID) {
+    // Load individual GFX animation data for ExpoSite map group
+    // This wrapper delegates to the asm09 loader in maps/ExpoSite/loader.s
+    extern void asm09_LoadExpoSiteGFXAnim(u32);
+    asm09_LoadExpoSiteGFXAnim(animID);
 }
 ```
-
-**Notes:**
-- This follows the standard map-group GFX animation loader pattern seen in other map decomp files
-- Uses the repository's `LoadGFXAnims()` function with the map's GFX animation pointer
-- The function is simple and matches the "small wrapper" description from the notes
-- Style matches existing src files with proper include ordering and function naming conventions
-- No additional prototypes needed beyond the static function declaration
