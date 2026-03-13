@@ -1,9 +1,13 @@
 ```c
-#include "global.h"
+#include "types.h"
+#include "postprocess.h"
 
-static void ExpoSite_LoadGFXAnims_ASM(void);
+// Forward declaration for the assembly routine in loader.s
+extern void ExpoSite_asm09(u32 group, u32 map);
 
-void ExpoSite_LoadGFXAnims(void) {
-    ExpoSite_LoadGFXAnims_ASM();
+// 0x08062B64
+void ExpoSite_LoadGFXAnims(u32 group, u32 map) {
+    // Wrapper that calls the assembly routine for ExpoSite map-group GFX animations
+    ExpoSite_asm09(group, map);
 }
 ```
