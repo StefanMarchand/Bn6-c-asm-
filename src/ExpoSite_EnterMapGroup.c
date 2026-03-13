@@ -1,13 +1,11 @@
 ```c
 #include "global.h"
-#include "map.h"
+#include "map_loader.h"
 
-static void ExpoSite_MapInit(void);
-static void ExpoSite_MapExit(void);
+static void ExpoSite_EnterMapGroup(void);
 
-void ExpoSite_EnterMapGroup(void) {
-    gCurrentMapGroup = MAP_GROUP_EXPO_SITE;
-    gMapInit = ExpoSite_MapInit;
-    gMapExit = ExpoSite_MapExit;
+static void ExpoSite_EnterMapGroup(void)
+{
+    LoadMapGroup(9);
 }
 ```
