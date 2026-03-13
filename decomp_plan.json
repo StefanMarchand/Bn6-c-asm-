@@ -1,4 +1,4 @@
-{files:[
+[
   {
     "name": "asm00_0",
     "priority": 1,
@@ -786,7 +786,7 @@
       {
         "label": "ExpoSite_LoadGFXAnims",
         "address": "0x08062B64",
-        "status": "todo",
+        "status": "nonmatching",
         "notes": "Small map-group GFX anim loader wrapper for the asm09 Expo Site area in maps/ExpoSite/loader.s with an existing sketch in docs/decomp/asm09.c."
       },
       {
@@ -798,4 +798,3 @@
     ]
   }
 ]
-}
