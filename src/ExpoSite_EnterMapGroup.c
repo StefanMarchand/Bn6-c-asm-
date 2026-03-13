@@ -2,11 +2,18 @@
 #include "global.h"
 #include "map_group.h"
 
-static void ExpoSite_EnterMapGroup(void) {
-    // Map group entry loader for asm09 Expo Site area
-    // Address: 0x08062AB0
-    
-    LoadMapGroup(0x09);  // MAP_GROUP_EXPO_SITE = 0x09
-    SetCurrentMapGroup(0x09);
+static void ExpoSite_SetupEvents(void);
+
+void ExpoSite_EnterMapGroup(struct MapGroup *mapGroup)
+{
+    ExpoSite_SetupEvents();
+    mapGroup->eventScript = ExpoSite_EventScript;
+    mapGroup->tileset = ExpoSite_Tileset;
+    mapGroup->music = MUS_EXPO_SITE;
+}
+
+static void ExpoSite_SetupEvents(void)
+{
+    // Event setup implementation
 }
 ```
