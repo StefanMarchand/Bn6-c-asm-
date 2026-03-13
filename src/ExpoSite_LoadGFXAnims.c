@@ -1,11 +1,9 @@
 ```c
 #include "global.h"
-#include "postprocess.h"
 
-static void ExpoSite_LoadGFXAnims(void);
+static void ExpoSite_LoadGFXAnims_ASM(void);
 
-void ExpoSite_LoadGFXAnims(void)
-{
-    LoadGFXAnimsForMapGroup(0x09);
+void ExpoSite_LoadGFXAnims(void) {
+    ExpoSite_LoadGFXAnims_ASM();
 }
 ```
