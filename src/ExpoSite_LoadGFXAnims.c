@@ -1,23 +1,15 @@
 ```c
-#include "common.h"
-#include "gfx_anims.h"
-#include "map.h"
+#include "global.h"
+#include "event_data.h"
+#include "script.h"
 
-static void LoadExpoSiteGFXAnims(u32 animID);
+static void ExpoSite_LoadGFXAnimsInternal(void);
 
 void ExpoSite_LoadGFXAnims(void) {
-    u32 i;
-    
-    // Initialize ExpoSite-specific GFX animation loading
-    for (i = 0; i < EXPO_SITE_GFX_ANIM_COUNT; i++) {
-        LoadExpoSiteGFXAnims(i);
-    }
+    ExpoSite_LoadGFXAnimsInternal();
 }
 
-static void LoadExpoSiteGFXAnims(u32 animID) {
-    // Load individual GFX animation data for ExpoSite map group
-    // This wrapper delegates to the asm09 loader in maps/ExpoSite/loader.s
-    extern void asm09_LoadExpoSiteGFXAnim(u32);
-    asm09_LoadExpoSiteGFXAnim(animID);
+static void ExpoSite_LoadGFXAnimsInternal(void) {
+    LoadGFXAnimsForMapGroup(MAP_GROUP_EXPO_SITE, MAP_NUM_EXPO_SITE);
 }
 ```
