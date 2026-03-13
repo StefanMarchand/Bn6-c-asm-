@@ -1,15 +1,13 @@
 ```c
 #include "global.h"
-#include "constants/flags.h"
-#include "constants/items.h"
-#include "constants/map_objects.h"
-#include "constants/map_groups.h"
+#include "map/object.h"
+#include "asm09.h"
 
-static void ExpoSite_SpawnMapObjectsForMap(u8 mapId);
-
-void ExpoSite_SpawnMapObjectsForMap(u8 mapId) {
-    // Wrapper for ExpoSite area object spawning
-    // Maps in this area use map group 0x09 (asm09)
-    SpawnMapObjectsForMap(mapId, 0x09);
+static void ExpoSite_SpawnMapObjectsForMap(int mapId) {
+    // Spawn map objects for the ExpoSite area based on map group
+    SpawnMapObjectsForMapGroup(mapId, EXPO_SITE_MAP_GROUP);
 }
+
+// Minimal static prototype if needed elsewhere in translation unit
+static void ExpoSite_SpawnMapObjectsForMap(int mapId);
 ```
