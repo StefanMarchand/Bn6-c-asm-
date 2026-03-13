@@ -1,9 +1,13 @@
 ```c
 #include "global.h"
-#include "map_group.h"
+#include "map.h"
+
+static void ExpoSite_MapInit(void);
+static void ExpoSite_MapExit(void);
 
 void ExpoSite_EnterMapGroup(void) {
-    // Function body decompiled from 0x08062AB0
-    // Implementation details would go here based on the assembly
+    gCurrentMapGroup = MAP_GROUP_EXPO_SITE;
+    gMapInit = ExpoSite_MapInit;
+    gMapExit = ExpoSite_MapExit;
 }
 ```
