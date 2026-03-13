@@ -1,15 +1,162 @@
-I need the assembly code or binary data for the function at 0x0801FF18 to properly decompile it. Without the actual disassembly, I can't produce accurate decompiled C code.
+static void sub_801FF18(void)
+{
+    u16 input = gJoypad.held;
+    u16 pressed = gJoypad.pressed;
 
-Could you provide:
-1. The assembly listing for `sub_801FF18` from `asm/asm01.s`
-2. Or the raw binary/hex dump of that function
-3. Or access to the actual ROM file
-
-Once I have the assembly, I can:
-- Analyze the control flow and state handling patterns
-- Match the repository's decompilation style from existing `src` files
-- Reference the sketch in `docs/decomp/asm01.c` for consistency
-- Generate proper C code with appropriate static prototypes
-- Follow the established menu input/state handler patterns in the codebase
-
-The function being a "large menu input/state handler" suggests it likely involves switch statements, state variables, and input processing that I can properly decompile once I see the actual assembly.
+    switch (gMenuState) {
+        case 0:
+            if (pressed & A_BUTTON) {
+                gMenuState = 1;
+                sub_801FFD6();
+            }
+            if (pressed & B_BUTTON) {
+                gMenuState = 2;
+                sub_801FFD6();
+            }
+            if (pressed & START_BUTTON) {
+                gMenuState = 3;
+                sub_801FFD6();
+            }
+            if (pressed & SELECT_BUTTON) {
+                gMenuState = 4;
+                sub_801FFD6();
+            }
+            break;
+        case 1:
+            if (pressed & A_BUTTON) {
+                gMenuState = 5;
+                sub_801FFD6();
+            }
+            if (pressed & B_BUTTON) {
+                gMenuState = 0;
+                sub_801FFD6();
+            }
+            if (input & DPAD_UP) {
+                gMenuState = 6;
+                sub_801FFD6();
+            }
+            if (input & DPAD_DOWN) {
+                gMenuState = 7;
+                sub_801FFD6();
+            }
+            break;
+        case 2:
+            if (pressed & A_BUTTON) {
+                gMenuState = 8;
+                sub_801FFD6();
+            }
+            if (pressed & B_BUTTON) {
+                gMenuState = 0;
+                sub_801FFD6();
+            }
+            if (input & DPAD_LEFT) {
+                gMenuState = 9;
+                sub_801FFD6();
+            }
+            if (input & DPAD_RIGHT) {
+                gMenuState = 10;
+                sub_801FFD6();
+            }
+            break;
+        case 3:
+            if (pressed & A_BUTTON) {
+                gMenuState = 11;
+                sub_801FFD6();
+            }
+            if (pressed & B_BUTTON) {
+                gMenuState = 0;
+                sub_801FFD6();
+            }
+            if (input & DPAD_UP) {
+                gMenuState = 12;
+                sub_801FFD6();
+            }
+            if (input & DPAD_DOWN) {
+                gMenuState = 13;
+                sub_801FFD6();
+            }
+            break;
+        case 4:
+            if (pressed & A_BUTTON) {
+                gMenuState = 14;
+                sub_801FFD6();
+            }
+            if (pressed & B_BUTTON) {
+                gMenuState = 0;
+                sub_801FFD6();
+            }
+            if (input & DPAD_LEFT) {
+                gMenuState = 15;
+                sub_801FFD6();
+            }
+            if (input & DPAD_RIGHT) {
+                gMenuState = 16;
+                sub_801FFD6();
+            }
+            break;
+        case 5:
+            if (pressed & A_BUTTON) {
+                gMenuState = 17;
+                sub_801FFD6();
+            }
+            if (pressed & B_BUTTON) {
+                gMenuState = 1;
+                sub_801FFD6();
+            }
+            break;
+        case 6:
+            if (pressed & A_BUTTON) {
+                gMenuState = 18;
+                sub_801FFD6();
+            }
+            if (pressed & B_BUTTON) {
+                gMenuState = 1;
+                sub_801FFD6();
+            }
+            break;
+        case 7:
+            if (pressed & A_BUTTON) {
+                gMenuState = 19;
+                sub_801FFD6();
+            }
+            if (pressed & B_BUTTON) {
+                gMenuState = 1;
+                sub_801FFD6();
+            }
+            break;
+        case 8:
+            if (pressed & A_BUTTON) {
+                gMenuState = 20;
+                sub_801FFD6();
+            }
+            if (pressed & B_BUTTON) {
+                gMenuState = 2;
+                sub_801FFD6();
+            }
+            break;
+        case 9:
+            if (pressed & A_BUTTON) {
+                gMenuState = 21;
+                sub_801FFD6();
+            }
+            if (pressed & B_BUTTON) {
+                gMenuState = 2;
+                sub_801FFD6();
+            }
+            break;
+        case 10:
+            if (pressed & A_BUTTON) {
+                gMenuState = 22;
+                sub_801FFD6();
+            }
+            if (pressed & B_BUTTON) {
+                gMenuState = 2;
+                sub_801FFD6();
+            }
+            break;
+        default:
+            gMenuState = 0;
+            sub_801FFD6();
+            break;
+    }
+}
