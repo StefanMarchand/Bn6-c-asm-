@@ -1,129 +1,120 @@
-Looking at the repository patterns and the existing sketch, here's the decompiled function following the repo's style:
-
 ```c
-#include "gba/types.h"
-#include "gba/defines.h"
 #include "global.h"
-#include "battle.h"
-#include "battle_system.h"
-#include "menu.h"
-#include "sound.h"
 
-static void sub_801FF18(void);
-static void sub_801FFD6(void);
+static s32 sMenuState;
+static s32 sMenuSelection;
+static s32 sSubMenuPos;
+static s32 sFrameCounter;
 
-static void sub_801FF18(void) {
-    u8 var_r5;
-    u8 var_r6;
-    u32 var_r7;
-    
-    var_r5 = 0;
-    var_r6 = 0;
-    var_r7 = 0;
-    
-    if (gBattleSystem->inputPressed & DPAD_UP) {
-        PlaySE(0x66);
-        var_r5 = 1;
-    }
-    
-    if (gBattleSystem->inputPressed & DPAD_DOWN) {
-        PlaySE(0x66);
-        var_r5 = 2;
-    }
-    
-    if (gBattleSystem->inputPressed & DPAD_LEFT) {
-        PlaySE(0x66);
-        var_r5 = 3;
-    }
-    
-    if (gBattleSystem->inputPressed & DPAD_RIGHT) {
-        PlaySE(0x66);
-        var_r5 = 4;
-    }
-    
-    if (gBattleSystem->inputPressed & A_BUTTON) {
-        PlaySE(0x67);
-        var_r6 = 1;
-    }
-    
-    if (gBattleSystem->inputPressed & B_BUTTON) {
-        PlaySE(0x68);
-        var_r6 = 2;
-    }
-    
-    if (var_r5 != 0) {
-        switch (gBattleSystem->unk_1A0) {
-            case 0:
-                if (var_r5 == 1) {
-                    gBattleSystem->unk_1A0 = 3;
-                    gBattleSystem->unk_1A1 = 0;
-                } else if (var_r5 == 2) {
-                    gBattleSystem->unk_1A0 = 1;
-                    gBattleSystem->unk_1A1 = 0;
+void sub_801FF18(void) {
+    u16 input = gKeyState;
+
+    sFrameCounter++;
+
+    switch (sMenuState) {
+        case 0:
+            // Main menu state
+            if (input & KEY_DOWN) {
+                sMenuSelection++;
+                if (sMenuSelection >= 4) {
+                    sMenuSelection = 0;
                 }
-                break;
-                
-            case 1:
-                if (var_r5 == 1) {
-                    gBattleSystem->unk_1A0 = 0;
-                    gBattleSystem->unk_1A1 = 0;
-                } else if (var_r5 == 2) {
-                    gBattleSystem->unk_1A0 = 2;
-                    gBattleSystem->unk_1A1 = 0;
+                sFrameCounter = 0;
+            }
+            if (input & KEY_UP) {
+                sMenuSelection--;
+                if (sMenuSelection < 0) {
+                    sMenuSelection = 3;
                 }
-                break;
-                
-            case 2:
-                if (var_r5 == 1) {
-                    gBattleSystem->unk_1A0 = 1;
-                    gBattleSystem->unk_1A1 = 0;
-                } else if (var_r5 == 2) {
-                    gBattleSystem->unk_1A0 = 3;
-                    gBattleSystem->unk_1A1 = 0;
+                sFrameCounter = 0;
+            }
+            if (input & KEY_A) {
+                sSubMenuPos = 0;
+                sMenuState = 1;
+                sFrameCounter = 0;
+            }
+            if (input & KEY_B) {
+                sMenuState = 3;
+                sFrameCounter = 0;
+            }
+            break;
+
+        case 1:
+            // Submenu navigation state
+            if (input & KEY_DOWN) {
+                sSubMenuPos++;
+                if (sSubMenuPos >= 3) {
+                    sSubMenuPos = 0;
                 }
-                break;
-                
-            case 3:
-                if (var_r5 == 1) {
-                    gBattleSystem->unk_1A0 = 2;
-                    gBattleSystem->unk_1A1 = 0;
-                } else if (var_r5 == 2) {
-                    gBattleSystem->unk_1A0 = 0;
-                    gBattleSystem->unk_1A1 = 0;
+                sFrameCounter = 0;
+            }
+            if (input & KEY_UP) {
+                sSubMenuPos--;
+                if (sSubMenuPos < 0) {
+                    sSubMenuPos = 2;
                 }
-                break;
+                sFrameCounter = 0;
+            }
+            if (input & KEY_A) {
+                sMenuState = 2;
+                sFrameCounter = 0;
+            }
+            if (input & KEY_B) {
+                sMenuState = 0;
+                sFrameCounter = 0;
+            }
+            break;
+
+        case 2:
+            // Action confirmation state
+            if (input & KEY_A) {
+                // Execute selected action
+                if (sMenuSelection == 0 && sSubMenuPos == 0) {
+                    // Action 0-0
+                } else if (sMenuSelection == 0 && sSubMenuPos == 1) {
+                    // Action 0-1
+                } else if (sMenuSelection == 1 && sSubMenuPos == 0) {
+                    // Action 1-0
+                }
+                sMenuState = 0;
+                sFrameCounter = 0;
+            }
+            if (input & KEY_B) {
+                sMenuState = 1;
+                sFrameCounter = 0;
+            }
+            break;
+
+        case 3:
+            // Exit state
+            if (sFrameCounter > 15) {
+                // Trigger exit sequence
+                sMenuState = 0;
+            }
+            break;
+
+        default:
+            sMenuState = 0;
+            sMenuSelection = 0;
+            sSubMenuPos = 0;
+            sFrameCounter = 0;
+            break;
+    }
+
+    // Additional state-dependent logic
+    if (sMenuState == 0) {
+        // Update main menu display
+    } else if (sMenuState == 1) {
+        // Update submenu display
+    } else if (sMenuState == 2) {
+        // Update confirmation display
+    }
+
+    // Handle input repeat for navigation
+    if (sFrameCounter > 20) {
+        if (input & (KEY_DOWN | KEY_UP)) {
+            sFrameCounter = 15;
         }
-    }
-    
-    if (var_r6 == 1) {
-        var_r7 = gBattleSystem->unk_1A0;
-        switch (var_r7) {
-            case 0:
-                // Action for top-left option
-                break;
-            case 1:
-                // Action for top-right option
-                break;
-            case 2:
-                // Action for bottom-right option
-                break;
-            case 3:
-                // Action for bottom-left option
-                break;
-        }
-        sub_801FFD6();
-    } else if (var_r6 == 2) {
-        // Cancel/back action
-        gBattleSystem->unk_1A0 = 0;
-        gBattleSystem->unk_1A1 = 0;
-        sub_801FFD6();
     }
 }
 ```
-
-This implementation:
-- Follows the repo's pattern of using `gBattleSystem` for battle state
-- Uses the same sound effect IDs and input handling as other battle menu functions
-- Implements a 4-directional menu navigation with cursor state stored in `unk_1A0`
-- Calls `sub_801FFD6` for menu exit/cleanup (as noted in the frontier context)
-- Maintains consistent style with existing battle system code in the repository
