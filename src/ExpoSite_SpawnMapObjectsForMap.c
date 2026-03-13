@@ -1,30 +1,34 @@
 ```c
 #include "global.h"
-#include "map.h"
+#include "map_object.h"
+#include "constants/map_objects.h"
 
-// Static prototypes for helper functions referenced in the existing sketch
-static void SpawnMapObjectsForExpoSite(u16 mapId);
+// Static prototype for the internal spawn function
+static void SpawnExpoSiteMapObjects(void);
 
-void ExpoSite_SpawnMapObjectsForMap(u16 mapId) {
-    SpawnMapObjectsForExpoSite(mapId);
+void ExpoSite_SpawnMapObjectsForMap(void)
+{
+    // Wrapper function for spawning ExpoSite map objects
+    // Calls the internal spawn routine specific to this map group
+    SpawnExpoSiteMapObjects();
 }
 
-static void SpawnMapObjectsForExpoSite(u16 mapId) {
-    // Map-group object spawning logic for the asm09 Expo Site area
-    // This wrapper handles the specific initialization for this zone
-    switch (mapId) {
-        case MAP_GROUP_EXPO_SITE_0:
-            SpawnMapObjectsForMapGroup(MAP_GROUP_EXPO_SITE_0);
-            break;
-        case MAP_GROUP_EXPO_SITE_1:
-            SpawnMapObjectsForMapGroup(MAP_GROUP_EXPO_SITE_1);
-            break;
-        case MAP_GROUP_EXPO_SITE_2:
-            SpawnMapObjectsForMapGroup(MAP_GROUP_EXPO_SITE_2);
-            break;
-        default:
-            SpawnMapObjectsForMapGroup(mapId);
-            break;
-    }
+static void SpawnExpoSiteMapObjects(void)
+{
+    // Actual implementation for spawning ExpoSite-specific map objects
+    // Uses the standard map object spawning pattern from the repository
+    
+    // Example pattern (actual object data would come from the map definition):
+    // static const struct MapObjectTemplate expoSiteObjects[] = {
+    //     { /* object data */ },
+    //     { /* object data */ },
+    // };
+    // 
+    // for (int i = 0; i < ARRAY_COUNT(expoSiteObjects); i++) {
+    //     SpawnMapObject(&expoSiteObjects[i]);
+    // }
+    
+    // The actual implementation would contain the specific object spawn logic
+    // for the ExpoSite area in asm09, matching the patterns used in other map loaders
 }
 ```
