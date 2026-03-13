@@ -1,34 +1,26 @@
 ```c
-#include "global.h"
-#include "map_object.h"
-#include "constants/map_objects.h"
+#include "common.h"
+#include "map_objects.h"
 
-// Static prototype for the internal spawn function
-static void SpawnExpoSiteMapObjects(void);
+// Minimal static prototypes based on repository patterns
+static void ExpoSite_SpawnExpoMapObjects(int mapIndex);
 
-void ExpoSite_SpawnMapObjectsForMap(void)
-{
-    // Wrapper function for spawning ExpoSite map objects
-    // Calls the internal spawn routine specific to this map group
-    SpawnExpoSiteMapObjects();
+void ExpoSite_SpawnMapObjectsForMap(int mapIndex) {
+    // Small wrapper for asm09 Expo Site area map object spawning
+    ExpoSite_SpawnExpoMapObjects(mapIndex);
 }
 
-static void SpawnExpoSiteMapObjects(void)
-{
-    // Actual implementation for spawning ExpoSite-specific map objects
-    // Uses the standard map object spawning pattern from the repository
+static void ExpoSite_SpawnExpoMapObjects(int mapIndex) {
+    // Core spawning logic for ExpoSite map objects
+    // This would contain the specific object spawning calls
+    // based on the map index, following patterns from loader.s
     
-    // Example pattern (actual object data would come from the map definition):
-    // static const struct MapObjectTemplate expoSiteObjects[] = {
-    //     { /* object data */ },
-    //     { /* object data */ },
-    // };
-    // 
-    // for (int i = 0; i < ARRAY_COUNT(expoSiteObjects); i++) {
-    //     SpawnMapObject(&expoSiteObjects[i]);
-    // }
+    // Common patterns would include:
+    // - Checking map validity
+    // - Loading object data
+    // - Spawning items/enemies/NPCs
+    // - Setting object properties
     
-    // The actual implementation would contain the specific object spawn logic
-    // for the ExpoSite area in asm09, matching the patterns used in other map loaders
+    // Implementation would match the sketch in docs/decomp/asm09.c
 }
 ```
