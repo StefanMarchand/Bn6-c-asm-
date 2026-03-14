@@ -2,7 +2,7 @@
 
 // FILE module sound
 
-	.include "src/asm00_0_soundmain.s"
+	.include "src/ai/asm00_0_soundmain.s"
 	.word unk_2006840
 	.word dword_80005BC
 	.balign 4, 0

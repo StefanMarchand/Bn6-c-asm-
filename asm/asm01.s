@@ -202,7 +202,7 @@ off_8020130:
 	.word eStruct203F7D8
 	thumb_func_end sub_80200A4
 
-	.include "src/asm01_battle_terminate_helpers_rominc.s"
+	.include "src/battle/asm01_battle_terminate_helpers_rominc.s"
 
 off_8020164:
 	.word eStruct2038160
