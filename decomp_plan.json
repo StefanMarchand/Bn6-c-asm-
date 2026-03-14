@@ -169,13 +169,13 @@
         {
           "label": "sub_8000E28",
           "address": "",
-          "status": "todo",
+          "status": "matching",
           "notes": "Auto: from asm/asm00_0.s"
         },
         {
           "label": "sub_8000E30",
           "address": "",
-          "status": "todo",
+          "status": "matching",
           "notes": "Auto: from asm/asm00_0.s"
         },
         {
@@ -193,7 +193,7 @@
         {
           "label": "sub_8000F86",
           "address": "",
-          "status": "todo",
+          "status": "matching",
           "notes": "Auto: from asm/asm00_0.s"
         },
         {

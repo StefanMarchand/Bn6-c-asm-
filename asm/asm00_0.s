@@ -1036,22 +1036,9 @@ dword_8000E24:
 	.word 0x14988F0
 	thumb_func_end CapIncrementGameTimeFrames
 
-	thumb_func_start sub_8000E28
-sub_8000E28:
-	mov r3, r10
-	ldr r3, [r3,#oToolkit_S2001c04_Ptr]
-	ldr r0, [r3,#0x18]
-	mov pc, lr
-	thumb_func_end sub_8000E28
+	.include "src/asm00_0_sub_8000E28_rominc.s"
 
-	thumb_func_start sub_8000E30
-sub_8000E30:
-	push {r4-r7,lr}
-	mov r4, #0
-	mov r0, r4
-	tst r0, r0
-	pop {r4-r7,pc}
-	thumb_func_end sub_8000E30
+	.include "src/asm00_0_sub_8000E30_rominc.s"
 
 	thumb_func_start sub_8000E3A
 sub_8000E3A:
@@ -1269,25 +1256,7 @@ loc_8000F80:
 
 	thumb_func_end GetTitleScreenIconCount
 
-	thumb_func_start sub_8000F86
-sub_8000F86:
-	push {r4-r7,lr}
-	mov r4, r0
-	bl sub_803F838 // () -> !zf
-	bne locret_8000FAA
-	// flag 7 @ 0x2001C88[0xE<<5 + 0x0] (=2001E48)
-	movflag EVENT_E00
-	bl SetEventFlagFromImmediate
-	// flag 6 @ 0x2001C88[0x10<<5 + 0x0] (=2001E88)
-	movflag EVENT_1001
-	bl SetEventFlagFromImmediate
-	mov r0, r10
-	ldr r0, [r0,#oToolkit_S2001c04_Ptr]
-	str r4, [r0,#0x18]
-	bl sub_803F79E
-locret_8000FAA:
-	pop {r4-r7,pc}
-	thumb_func_end sub_8000F86
+	.include "src/asm00_0_sub_8000F86_rominc.s"
 
 	thumb_func_start sub_8000FAC
 sub_8000FAC:

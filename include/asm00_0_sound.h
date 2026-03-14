@@ -9,6 +9,7 @@ struct GameState {
 struct Toolkit {
     unsigned char pad[0x3C];
     struct GameState *gameState;
+    void *S2001c04_Ptr; // loc=0x40
 };
 
 register struct Toolkit *gToolkit asm("r10");
@@ -58,5 +59,19 @@ int musicGameState_8000784(int songId, int unused1, int unused2);
 int sub_80007A0(int value, int unused1, int unused2);
 int sub_80007BE(void);
 void zeroFill_80007B2(void);
+
+// asm00_0_sub_8000E28
+int sub_8000E28(void);
+
+// asm00_0_sub_8000E30
+int sub_8000E30(void);
+
+// asm00_0_sub_8000F86
+int sub_8000F86(int arg);
+
+// external functions used by sub_8000F86
+int sub_803F838(void);
+void SetEventFlagFromImmediate(int flagHi, int flagLo);
+void sub_803F79E(void);
 
 #endif
