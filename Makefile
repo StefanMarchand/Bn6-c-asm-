@@ -25,7 +25,7 @@ CPP = cpp
 
 # project paths
 SRCDIR = asm
-CDIR = asm
+CDIR = src
 BIN = bin
 OBJ =
 CONST = constants
@@ -39,7 +39,7 @@ SFILES = rom.s data.s ewram.s iwram.s vram.s
 include lz_assets.mk
 
 OFILES = $(addprefix $(OBJ),$(SFILES:.s=.o))
-CSRCS := $(CDIR)/asm00_0_sound.c $(CDIR)/asm00_0_soundmain.c $(CDIR)/asm00_0_playsfx.c $(CDIR)/asm00_0_playmusic.c $(CDIR)/asm00_0_music_80005F2.c $(CDIR)/asm00_0_sub_800060A.c $(CDIR)/asm00_0_sound_8000642.c $(CDIR)/asm00_0_sound_800065A.c $(CDIR)/asm00_0_sound_8000672.c $(CDIR)/asm00_0_sound_800068A.c $(CDIR)/asm00_0_sound_80006A2.c $(CDIR)/asm00_0_musicGameState_8000784.c $(CDIR)/asm00_0_sub_80007A0.c $(CDIR)/asm00_0_zeroFill_80007B2.c $(CDIR)/asm00_0_sound_8000808.c $(CDIR)/asm00_1_sub_800318C.c $(CDIR)/asm00_1_runbattleobjectlogic.c $(CDIR)/asm00_2_sub_800ED80.c $(CDIR)/asm00_2_sub_800ED90.c $(CDIR)/asm00_2_chip_helpers.c $(CDIR)/battle_core_loadchipdata.c $(CDIR)/menu_core_initmainmenu.c $(CDIR)/asm01_menu_transfer_helpers.c $(CDIR)/asm03_0_beast_scan_helpers.c $(CDIR)/asm03_0_beast_panel_helpers.c $(CDIR)/asm03_0_beast_search_wrappers.c $(CDIR)/asm03_2_text_render_wrappers.c $(CDIR)/asm03_2_text_sprite_wrappers.c $(CDIR)/asm03_2_text_sprite_reset_wrappers.c $(CDIR)/asm03_2_text_sprite_clear_wrappers.c $(CDIR)/asm03_2_text_sprite_clear_8046696.c $(CDIR)/asm03_2_text_sprite_secondary_clear.c $(CDIR)/asm04_centraltown_entermapgroup.c $(CDIR)/asm04_centraltown_loadgfxanims.c $(CDIR)/asm04_centraltown_spawn.c $(CDIR)/asm05_cyberacademy_entermapgroup.c $(CDIR)/asm05_cyberacademy_loadgfxanims.c $(CDIR)/asm05_cyberacademy_spawn.c $(CDIR)/asm06_seasidetown_entermapgroup.c $(CDIR)/asm06_seasidetown_loadgfxanims.c $(CDIR)/asm06_seasidetown_spawn.c $(CDIR)/asm07_greentown_entermapgroup.c $(CDIR)/asm07_greentown_loadgfxanims.c $(CDIR)/asm07_greentown_spawn.c $(CDIR)/asm08_skytown_entermapgroup.c $(CDIR)/asm08_skytown_loadgfxanims.c $(CDIR)/asm08_skytown_spawn.c
+CSRCS := $(CDIR)/asm00_0_sound.c $(CDIR)/ai/asm00_0_soundmain.c $(CDIR)/asm00_0_playsfx.c $(CDIR)/asm00_0_playmusic.c $(CDIR)/asm00_0_music_80005F2.c $(CDIR)/asm00_0_sub_800060A.c $(CDIR)/asm00_0_sound_8000642.c $(CDIR)/asm00_0_sound_800065A.c $(CDIR)/asm00_0_sound_8000672.c $(CDIR)/asm00_0_sound_800068A.c $(CDIR)/asm00_0_sound_80006A2.c $(CDIR)/asm00_0_musicGameState_8000784.c $(CDIR)/asm00_0_sub_80007A0.c $(CDIR)/asm00_0_zeroFill_80007B2.c $(CDIR)/asm00_0_sound_8000808.c $(CDIR)/asm00_1_sub_800318C.c $(CDIR)/asm00_1_runbattleobjectlogic.c $(CDIR)/asm00_2_sub_800ED80.c $(CDIR)/asm00_2_sub_800ED90.c $(CDIR)/chips/asm00_2_chip_helpers.c $(CDIR)/battle_core_loadchipdata.c $(CDIR)/ai/menu_core_initmainmenu.c $(CDIR)/asm01_menu_transfer_helpers.c $(CDIR)/asm03_0_beast_scan_helpers.c $(CDIR)/asm03_0_beast_panel_helpers.c $(CDIR)/asm03_0_beast_search_wrappers.c $(CDIR)/asm03_2_text_render_wrappers.c $(CDIR)/asm03_2_text_sprite_wrappers.c $(CDIR)/asm03_2_text_sprite_reset_wrappers.c $(CDIR)/asm03_2_text_sprite_clear_wrappers.c $(CDIR)/asm03_2_text_sprite_clear_8046696.c $(CDIR)/asm03_2_text_sprite_secondary_clear.c $(CDIR)/asm04_centraltown_entermapgroup.c $(CDIR)/asm04_centraltown_loadgfxanims.c $(CDIR)/asm04_centraltown_spawn.c $(CDIR)/asm05_cyberacademy_entermapgroup.c $(CDIR)/asm05_cyberacademy_loadgfxanims.c $(CDIR)/asm05_cyberacademy_spawn.c $(CDIR)/asm06_seasidetown_entermapgroup.c $(CDIR)/asm06_seasidetown_loadgfxanims.c $(CDIR)/asm06_seasidetown_spawn.c $(CDIR)/asm07_greentown_entermapgroup.c $(CDIR)/asm07_greentown_loadgfxanims.c $(CDIR)/asm07_greentown_spawn.c $(CDIR)/asm08_skytown_entermapgroup.c $(CDIR)/asm08_skytown_loadgfxanims.c $(CDIR)/asm08_skytown_spawn.c
 C_PPS := $(CSRCS:.c=.i)
 C_ASM := $(CSRCS:.c=.s)
 C_OFILES := $(CSRCS:.c=.o)
@@ -85,7 +85,7 @@ $(ELF): $(OFILES)
 %.o: %.s
 	$(AS) $(ASFLAGS) $< -o $@
 
-rom.o: $(CDIR)/asm00_0_soundmain.s $(CDIR)/asm00_0_sound.s $(CDIR)/asm00_0_playsfx.s $(CDIR)/asm00_0_playmusic.s $(CDIR)/asm00_0_music_80005F2.s $(CDIR)/asm00_0_sub_800060A_rominc.s $(CDIR)/asm00_0_sound_wrappers.s $(CDIR)/asm00_0_sound_8000642_rominc.s $(CDIR)/asm00_0_sound_800065A_rominc.s $(CDIR)/asm00_0_sound_8000672_rominc.s $(CDIR)/asm00_0_sound_800068A_rominc.s $(CDIR)/asm00_0_sound_80006A2_rominc.s $(CDIR)/asm00_0_musicGameState_8000784_rominc.s $(CDIR)/asm00_0_sub_80007A0_rominc.s $(CDIR)/asm00_0_zeroFill_80007B2_rominc.s $(CDIR)/asm00_0_sub_80007BE_rominc.s $(CDIR)/asm00_0_sound_8000808_rominc.s $(CDIR)/asm00_1_sub_800318C_rominc.s $(CDIR)/asm00_1_runbattleobjectlogic_rominc.s $(CDIR)/asm00_2_sub_800ED80.s $(CDIR)/asm00_2_sub_800ED90.s $(CDIR)/asm00_2_chip_helpers_rominc.s $(CDIR)/asm00_2_small_helpers_rominc.s $(CDIR)/battle_core_initbattle_rominc.s $(CDIR)/battle_core_loadchipdata_rominc.s $(CDIR)/menu_core_initmainmenu_rominc.s $(CDIR)/asm01_menu_transfer_state_rominc.s $(CDIR)/asm01_menu_transfer_dispatch_rominc.s $(CDIR)/asm01_menu_transfer_timer_rominc.s $(CDIR)/asm03_0_beast_scan_helpers_rominc.s $(CDIR)/asm03_0_beast_panel_helpers_rominc.s $(CDIR)/asm03_0_beast_search_wrappers_rominc.s $(CDIR)/asm03_1_0_realworld_wrappers_rominc.s $(CDIR)/asm03_1_0_sub_80341AA_rominc.s $(CDIR)/asm03_1_0_jackin_state_wrappers_rominc.s $(CDIR)/asm03_1_0_sub_80355DE_rominc.s $(CDIR)/asm03_1_0_sub_80356EC_rominc.s $(CDIR)/asm03_2_text_render_wrappers_rominc.s $(CDIR)/asm03_2_text_sprite_wrappers_rominc.s $(CDIR)/asm03_2_text_sprite_reset_wrappers_rominc.s $(CDIR)/asm03_2_text_sprite_clear_804668A_rominc.s $(CDIR)/asm03_2_text_sprite_clear_80466AA_rominc.s $(CDIR)/asm03_2_text_sprite_clear_8046696_rominc.s $(CDIR)/asm03_2_text_sprite_clear_80468E0_rominc.s $(CDIR)/asm04_centraltown_entermapgroup.s $(CDIR)/asm04_centraltown_loadgfxanims.s $(CDIR)/asm04_centraltown_spawn.s $(CDIR)/asm05_cyberacademy_entermapgroup.s $(CDIR)/asm05_cyberacademy_loadgfxanims.s $(CDIR)/asm05_cyberacademy_spawn.s $(CDIR)/asm06_seasidetown_entermapgroup.s $(CDIR)/asm06_seasidetown_loadgfxanims.s $(CDIR)/asm06_seasidetown_spawn.s $(CDIR)/asm07_greentown_entermapgroup.s $(CDIR)/asm07_greentown_loadgfxanims.s $(CDIR)/asm07_greentown_spawn.s $(CDIR)/asm08_skytown_entermapgroup.s $(CDIR)/asm08_skytown_loadgfxanims.s $(CDIR)/asm08_skytown_spawn.s
+rom.o: $(CDIR)/ai/asm00_0_soundmain.s $(CDIR)/asm00_0_sound.s $(CDIR)/asm00_0_playsfx.s $(CDIR)/asm00_0_playmusic.s $(CDIR)/asm00_0_music_80005F2.s $(CDIR)/asm00_0_sub_800060A_rominc.s $(CDIR)/asm00_0_sound_wrappers.s $(CDIR)/asm00_0_sound_8000642_rominc.s $(CDIR)/asm00_0_sound_800065A_rominc.s $(CDIR)/asm00_0_sound_8000672_rominc.s $(CDIR)/asm00_0_sound_800068A_rominc.s $(CDIR)/asm00_0_sound_80006A2_rominc.s $(CDIR)/asm00_0_musicGameState_8000784_rominc.s $(CDIR)/asm00_0_sub_80007A0_rominc.s $(CDIR)/asm00_0_zeroFill_80007B2_rominc.s $(CDIR)/asm00_0_sub_80007BE_rominc.s $(CDIR)/asm00_0_sound_8000808_rominc.s $(CDIR)/asm00_1_sub_800318C_rominc.s $(CDIR)/asm00_1_runbattleobjectlogic_rominc.s $(CDIR)/asm00_2_sub_800ED80.s $(CDIR)/asm00_2_sub_800ED90.s $(CDIR)/chips/asm00_2_chip_helpers_rominc.s $(CDIR)/asm00_2_small_helpers_rominc.s $(CDIR)/battle_core_initbattle_rominc.s $(CDIR)/battle_core_loadchipdata_rominc.s $(CDIR)/ai/menu_core_initmainmenu_rominc.s $(CDIR)/asm01_menu_transfer_state_rominc.s $(CDIR)/asm01_menu_transfer_dispatch_rominc.s $(CDIR)/asm01_menu_transfer_timer_rominc.s $(CDIR)/asm03_0_beast_scan_helpers_rominc.s $(CDIR)/asm03_0_beast_panel_helpers_rominc.s $(CDIR)/asm03_0_beast_search_wrappers_rominc.s $(CDIR)/asm03_1_0_realworld_wrappers_rominc.s $(CDIR)/asm03_1_0_sub_80341AA_rominc.s $(CDIR)/asm03_1_0_jackin_state_wrappers_rominc.s $(CDIR)/asm03_1_0_sub_80355DE_rominc.s $(CDIR)/asm03_1_0_sub_80356EC_rominc.s $(CDIR)/asm03_2_text_render_wrappers_rominc.s $(CDIR)/asm03_2_text_sprite_wrappers_rominc.s $(CDIR)/asm03_2_text_sprite_reset_wrappers_rominc.s $(CDIR)/asm03_2_text_sprite_clear_804668A_rominc.s $(CDIR)/asm03_2_text_sprite_clear_80466AA_rominc.s $(CDIR)/asm03_2_text_sprite_clear_8046696_rominc.s $(CDIR)/asm03_2_text_sprite_clear_80468E0_rominc.s $(CDIR)/asm04_centraltown_entermapgroup.s $(CDIR)/asm04_centraltown_loadgfxanims.s $(CDIR)/asm04_centraltown_spawn.s $(CDIR)/asm05_cyberacademy_entermapgroup.s $(CDIR)/asm05_cyberacademy_loadgfxanims.s $(CDIR)/asm05_cyberacademy_spawn.s $(CDIR)/asm06_seasidetown_entermapgroup.s $(CDIR)/asm06_seasidetown_loadgfxanims.s $(CDIR)/asm06_seasidetown_spawn.s $(CDIR)/asm07_greentown_entermapgroup.s $(CDIR)/asm07_greentown_loadgfxanims.s $(CDIR)/asm07_greentown_spawn.s $(CDIR)/asm08_skytown_entermapgroup.s $(CDIR)/asm08_skytown_loadgfxanims.s $(CDIR)/asm08_skytown_spawn.s
 
 $(CDIR)/%.i: $(CDIR)/%.c $(INC)/asm00_0_sound.h
 	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
@@ -102,7 +102,7 @@ $(CDIR)/asm00_1_runbattleobjectlogic.i: $(CDIR)/asm00_1_runbattleobjectlogic.c $
 $(CDIR)/battle_core_loadchipdata.i: $(CDIR)/battle_core_loadchipdata.c $(INC)/battle_core_loadchipdata.h
 	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
 
-$(CDIR)/menu_core_initmainmenu.i: $(CDIR)/menu_core_initmainmenu.c $(INC)/menu_core_initmainmenu.h
+$(CDIR)/ai/menu_core_initmainmenu.i: $(CDIR)/ai/menu_core_initmainmenu.c $(INC)/menu_core_initmainmenu.h
 	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
 
 $(CDIR)/asm01_menu_transfer_helpers.i: $(CDIR)/asm01_menu_transfer_helpers.c $(INC)/menu_core_initmainmenu.h
@@ -123,7 +123,7 @@ $(CDIR)/asm00_2_sub_800ED80.i: $(CDIR)/asm00_2_sub_800ED80.c $(INC)/asm00_2_ai.h
 $(CDIR)/asm00_2_sub_800ED90.i: $(CDIR)/asm00_2_sub_800ED90.c $(INC)/asm00_2_sub_800ED90.h
 	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
 
-$(CDIR)/asm00_2_chip_helpers.i: $(CDIR)/asm00_2_chip_helpers.c $(INC)/asm00_2_chip_helpers.h
+$(CDIR)/chips/asm00_2_chip_helpers.i: $(CDIR)/chips/asm00_2_chip_helpers.c $(INC)/asm00_2_chip_helpers.h
 	$(CPP) -undef -nostdinc -I$(INC) $< -o $@
 
 $(CDIR)/asm00_2_small_helpers.i: $(CDIR)/asm00_2_small_helpers.c $(INC)/asm00_2_small_helpers.h
@@ -210,7 +210,7 @@ $(CDIR)/asm08_skytown_spawn.i: $(CDIR)/asm08_skytown_spawn.c $(INC)/mapgroup_spa
 $(CDIR)/%.s: $(CDIR)/%.i
 	$(AGBCC) -O2 -mthumb-interwork $< -o $@
 
-$(CDIR)/asm00_0_soundmain.s: $(CDIR)/asm00_0_soundmain.i
+$(CDIR)/ai/asm00_0_soundmain.s: $(CDIR)/ai/asm00_0_soundmain.i
 	$(AGBCC) -O2 -mthumb-interwork $< -o $@
 	python3 tools/fix_agbcc_thumb_wrapper.py $@ call_m4aSoundMain
 
@@ -343,11 +343,11 @@ $(CDIR)/asm00_2_sub_800ED90.s: $(CDIR)/asm00_2_sub_800ED90.i
 	$(AGBCC) -O2 -mthumb-interwork $< -o $@
 	python3 tools/fix_agbcc_sub_800ED90.py $@
 
-$(CDIR)/asm00_2_chip_helpers.s: $(CDIR)/asm00_2_chip_helpers.i
+$(CDIR)/chips/asm00_2_chip_helpers.s: $(CDIR)/chips/asm00_2_chip_helpers.i
 	$(AGBCC) -O2 -mthumb-interwork $< -o $@
 	python3 tools/fix_agbcc_asm00_2_chip_helpers.py $@
 
-$(CDIR)/asm00_2_chip_helpers_rominc.s: $(CDIR)/asm00_2_chip_helpers.i
+$(CDIR)/chips/asm00_2_chip_helpers_rominc.s: $(CDIR)/chips/asm00_2_chip_helpers.i
 	$(AGBCC) -O2 -mthumb-interwork $< -o $@
 	python3 tools/fix_agbcc_asm00_2_chip_helpers.py $@
 
@@ -371,11 +371,11 @@ $(CDIR)/battle_core_loadchipdata_rominc.s: $(CDIR)/battle_core_loadchipdata.i
 	$(AGBCC) -O2 -mthumb-interwork $< -o $@
 	python3 tools/fix_agbcc_battle_core_loadchipdata_rominc.py $@
 
-$(CDIR)/menu_core_initmainmenu.s: $(CDIR)/menu_core_initmainmenu.i
+$(CDIR)/ai/menu_core_initmainmenu.s: $(CDIR)/ai/menu_core_initmainmenu.i
 	$(AGBCC) -O2 -mthumb-interwork $< -o $@
 	python3 tools/fix_agbcc_menu_core_initmainmenu.py $@
 
-$(CDIR)/menu_core_initmainmenu_rominc.s: $(CDIR)/menu_core_initmainmenu.i
+$(CDIR)/ai/menu_core_initmainmenu_rominc.s: $(CDIR)/ai/menu_core_initmainmenu.i
 	$(AGBCC) -O2 -mthumb-interwork $< -o $@
 	python3 tools/fix_agbcc_menu_core_initmainmenu_rominc.py $@
 
