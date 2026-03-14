@@ -25,7 +25,7 @@ CPP = cpp
 
 # project paths
 SRCDIR = asm
-CDIR = src
+CDIR = asm
 BIN = bin
 OBJ =
 CONST = constants
