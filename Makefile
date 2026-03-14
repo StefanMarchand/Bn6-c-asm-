@@ -24,8 +24,8 @@ PY = py
 CPP = cpp
 
 # project paths
-SRCDIR = src
-CDIR = src
+SRCDIR = asm
+CDIR = asm
 BIN = bin
 OBJ =
 CONST = constants
