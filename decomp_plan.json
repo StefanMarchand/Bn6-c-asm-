@@ -114,9 +114,9 @@
         },
         {
           "label": "sub_3005EBA",
-          "address": "",
-          "status": "todo",
-          "notes": "Auto: from asm/asm00_0.s"
+          "address": "0x03005EBA",
+          "status": "matching",
+          "notes": "EWRAM tilemap rectangle-fill helper in asm/asm38.s, referenced from asm/asm00_0.s via call_sub_3005EBA thunk. Writes tile values to a BG tilemap (32x32 tiles) with per-tile bounds checking. C implementation in src/asm00_0_sub_3005EBA.c with toolkit header in include/asm00_0_sub_3005EBA.h; the original ASM in asm38.s remains as the linked implementation since the EWRAM section has no C build path, so the final ROM SHA1 remains identical."
         },
         {
           "label": "sub_3005EF0",
