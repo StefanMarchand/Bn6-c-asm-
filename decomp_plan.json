@@ -114,9 +114,9 @@
         },
         {
           "label": "sub_3005EBA",
-          "address": "0x03005EBA",
-          "status": "matching",
-          "notes": "EWRAM tilemap rectangle-fill helper in asm/asm38.s, referenced from asm/asm00_0.s via call_sub_3005EBA thunk. Writes tile values to a BG tilemap (32x32 tiles) with per-tile bounds checking. C implementation in src/asm00_0_sub_3005EBA.c with toolkit header in include/asm00_0_sub_3005EBA.h; the original ASM in asm38.s remains as the linked implementation since the EWRAM section has no C build path, so the final ROM SHA1 remains identical."
+          "address": "",
+          "status": "todo",
+          "notes": "Auto: from asm/asm00_0.s"
         },
         {
           "label": "sub_3005EF0",
@@ -156,9 +156,9 @@
         },
         {
           "label": "sub_8000C5C",
-          "address": "0x08000C5C",
-          "status": "matching",
-          "notes": "Decompiled from asm/asm00_0.s into src/asm00_0_sub_8000c5c_rominc.s. C implementation in src/asm00_0_sub_8000C5C.c. ROM SHA1 remains identical."
+          "address": "",
+          "status": "todo",
+          "notes": "Auto: from asm/asm00_0.s"
         },
         {
           "label": "sub_8000DE0",
@@ -169,13 +169,13 @@
         {
           "label": "sub_8000E28",
           "address": "",
-          "status": "matching",
+          "status": "todo",
           "notes": "Auto: from asm/asm00_0.s"
         },
         {
           "label": "sub_8000E30",
           "address": "",
-          "status": "matching",
+          "status": "todo",
           "notes": "Auto: from asm/asm00_0.s"
         },
         {
@@ -193,7 +193,7 @@
         {
           "label": "sub_8000F86",
           "address": "",
-          "status": "matching",
+          "status": "todo",
           "notes": "Auto: from asm/asm00_0.s"
         },
         {
@@ -549,42 +549,6 @@
           "address": "",
           "status": "todo",
           "notes": "Auto: from asm/asm00_0.s"
-        },
-        {
-          "label": "unused_8000D4A",
-          "address": "",
-          "status": "todo",
-          "notes": "Auto: from asm/asm00_0.s"
-        },
-        {
-          "label": "unused_8000D5E",
-          "address": "",
-          "status": "todo",
-          "notes": "Auto: from asm/asm00_0.s"
-        },
-        {
-          "label": "ShuffleByteList_PrimaryRNG",
-          "address": "0x08000C72",
-          "status": "matching",
-          "notes": "Decompiled from asm/asm00_0.s. C implementation in src/asm00_0_shuffle_rng.c with hand-crafted ASM wrapper in rominc file. ROM SHA1 remains identical."
-        },
-        {
-          "label": "ShuffleByteList_SecondaryRNG",
-          "address": "0x08000CA6",
-          "status": "matching",
-          "notes": "Decompiled from asm/asm00_0.s. C implementation in src/asm00_0_shuffle_rng.c with hand-crafted ASM wrapper in rominc file. ROM SHA1 remains identical."
-        },
-        {
-          "label": "ShuffleHwordList_PrimaryRNG",
-          "address": "0x08000CDA",
-          "status": "matching",
-          "notes": "Decompiled from asm/asm00_0.s. C implementation in src/asm00_0_shuffle_rng.c with hand-crafted ASM wrapper in rominc file. ROM SHA1 remains identical."
-        },
-        {
-          "label": "ShuffleHwordList_SecondaryRNG",
-          "address": "0x08000D12",
-          "status": "matching",
-          "notes": "Decompiled from asm/asm00_0.s. C implementation in src/asm00_0_shuffle_rng.c with hand-crafted ASM wrapper in rominc file. ROM SHA1 remains identical."
         }
       ]
     },
