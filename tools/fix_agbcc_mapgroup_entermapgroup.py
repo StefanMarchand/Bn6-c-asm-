@@ -54,6 +54,16 @@ FUNCTIONS = {
         "sprite_table": "off_80603D8",
         "spawn": "SkyTown_SpawnMapObjectsForMap",
     },
+    "ExpoSite_EnterMapGroup": {
+        "warp_literal": "off_8062B0C",
+        "warp_table": "off_8062728",
+        "sprite_state_literal": "off_8062B10",
+        "state_literal": "off_8062B14",
+        "state_table": "off_8063008",
+        "sprite_literal": "off_8062B18",
+        "sprite_table": "off_8062B1C",
+        "spawn": "ExpoSite_SpawnMapObjectsForMap",
+    },
 }
 
 

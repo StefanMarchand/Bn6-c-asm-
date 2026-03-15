@@ -1,7 +1,7 @@
 
 	.include "src/asm00_2_sub_800ED80.s"
 	.include "src/asm00_2_sub_800ED90.s"
-	.include "src/asm00_2_chip_helpers_rominc.s"
+	.include "src/chips/asm00_2_chip_helpers_rominc.s"
 
 	thumb_local_start
 sub_800EF34:

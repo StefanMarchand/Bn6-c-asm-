@@ -131,7 +131,7 @@ loc_801FFD2:
 	pop {r4-r7,pc}
 	thumb_func_end sub_801FF18
 
-	.include "src/menu_core_initmainmenu_rominc.s"
+	.include "src/ai/menu_core_initmainmenu_rominc.s"
 
 	.include "src/asm01_menu_transfer_timer_rominc.s"
 
