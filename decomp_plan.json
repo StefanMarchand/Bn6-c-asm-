@@ -781,20 +781,20 @@
         {
           "label": "ExpoSite_EnterMapGroup",
           "address": "0x08062AB0",
-          "status": "nonmatching",
-          "notes": "Map-group entry loader for the asm09 Expo Site area in maps/ExpoSite/loader.s with an existing sketch in docs/decomp/asm09.c."
+          "status": "matching",
+          "notes": "Map-group entry loader for the asm09 Expo Site area; implemented in src/asm09_exposite_entermapgroup.c with the shared map-group loader pattern and post-processed via fix_agbcc_mapgroup_entermapgroup.py so the final ROM SHA1 remains identical."
         },
         {
           "label": "ExpoSite_LoadGFXAnims",
           "address": "0x08062B64",
-          "status": "nonmatching",
-          "notes": "Small map-group GFX anim loader wrapper for the asm09 Expo Site area in maps/ExpoSite/loader.s with an existing sketch in docs/decomp/asm09.c."
+          "status": "matching",
+          "notes": "Small GFX animation loader for the asm09 Expo Site area; implemented in src/asm09_exposite_loadgfxanims.c with the shared map-group pattern and post-processed via fix_agbcc_mapgroup_loadgfxanims.py so the final ROM SHA1 remains identical."
         },
         {
           "label": "ExpoSite_SpawnMapObjectsForMap",
           "address": "0x08062BCC",
-          "status": "todo",
-          "notes": "Small map-group object-spawn wrapper for the asm09 Expo Site area in maps/ExpoSite/loader.s with an existing sketch in docs/decomp/asm09.c."
+          "status": "matching",
+          "notes": "Small map-group object-spawn wrapper for the asm09 Expo Site area; implemented in src/asm09_exposite_spawn.c with the shared minimal map-group pattern and post-processed via fix_agbcc_mapgroup_spawn.py so the final ROM SHA1 remains identical."
         }
       ]
     },
