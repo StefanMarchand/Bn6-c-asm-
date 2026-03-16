@@ -265,8 +265,8 @@
         {
           "label": "sub_801FF18",
           "address": "0x0801FF18",
-          "status": "todo",
-          "notes": "Large menu input/state handler in asm/asm01.s with an existing sketch in docs/decomp/asm01.c; substantial asm01 frontier item just before the matched sub_801FFD6 implementation."
+          "status": "matching",
+          "notes": "Menu-state transfer helper in asm/asm01.s with an existing Ghidra sketch in docs/decomp/asm01.c. Implemented in src/ai/menu_core_initmainmenu.c alongside the nearly identical sub_801FFD6; processes both transfer buffers and handles the eStruct203F7D8 timer/flag countdown. The ROM body stays byte-identical."
         },
         {
           "label": "sub_80200A4",

@@ -79,5 +79,6 @@ int sub_8144D04(int arg0);
 
 int sub_801FF18(int stateFlags);
 int sub_801FFD6(int stateFlags);
+int sub_803EA2C(void);
 
 #endif
