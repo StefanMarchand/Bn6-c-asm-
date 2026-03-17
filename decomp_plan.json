@@ -115,49 +115,49 @@
         {
           "label": "ZeroFillByByte",
           "address": "0x080008AC",
-          "status": "todo",
+          "status": "matching",
           "notes": "Small byte-level zero-fill utility. Simple loop: sub r1, #1 / strb r2, [r0,r1] / bne. Located in asm/asm00_0.s."
         },
         {
           "label": "ZeroFillByHalfword",
           "address": "0x080008C4",
-          "status": "todo",
+          "status": "matching",
           "notes": "Uses SWI_CpuSet with halfword fill mask 0x1000000. Located in asm/asm00_0.s."
         },
         {
           "label": "ZeroFillByWord",
           "address": "0x080008E4",
-          "status": "todo",
+          "status": "matching",
           "notes": "Uses SWI_CpuSet with word fill mask 0x5000000. Located in asm/asm00_0.s."
         },
         {
           "label": "ZeroFillByEightWords",
           "address": "0x08000904",
-          "status": "todo",
+          "status": "matching",
           "notes": "Uses SWI_CpuFastSet with fill mask 0x1000000. Located in asm/asm00_0.s."
         },
         {
           "label": "CopyBytes",
           "address": "0x08000930",
-          "status": "todo",
+          "status": "matching",
           "notes": "Simple byte copy loop: sub r2,#1 / ldrb / strb / bne. Located in asm/asm00_0.s."
         },
         {
           "label": "CopyHalfwords",
           "address": "0x08000944",
-          "status": "todo",
+          "status": "matching",
           "notes": "Halfword copy loop. Located in asm/asm00_0.s."
         },
         {
           "label": "CopyWords",
           "address": "0x08000960",
-          "status": "todo",
+          "status": "matching",
           "notes": "Word copy loop. Located in asm/asm00_0.s."
         },
         {
           "label": "CopyByEightWords",
           "address": "0x08000988",
-          "status": "todo",
+          "status": "matching",
           "notes": "Eight-word block copy. Located in asm/asm00_0.s."
         }
       ]

@@ -38,7 +38,15 @@ int call_m4aSoundMain(void);
 int m4a_2_814F00C(void);
 int call_m4a_2_814F00C(void);
 int m4a_SongNumStart(void);
+
+void ZeroFillByByte(void *memBlock, int numBytes);
+void ZeroFillByHalfword(void *memBlock, int numBytes);
 void ZeroFillByWord(void *memBlock, int size);
+void ZeroFillByEightWords(void *dest, int size);
+void CopyBytes(const void *src, void *dest, int numBytes);
+void CopyHalfwords(const void *src, void *dest, int numBytes);
+void CopyWords(const void *src, void *dest, int numBytes);
+void CopyByEightWords(const void *src, void *dest, int numBytes);
 int sub_814E9F0(void);
 int sub_814E87C(void);
 int sub_814EA58(void);
