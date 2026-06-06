@@ -1,0 +1,66 @@
+{
+  "chipDataTable": {
+    "label": "ChipDataArr_8021DA8",
+    "path": "data/ChipDataArr.s",
+    "romAddress": "0x08021DA8",
+    "entrySizeBytes": 44,
+    "entryCount": 206,
+    "structHeader": "docs/structs/ROM/ChipData.h"
+  },
+  "chipPackCode": {
+    "path": "asm/asm02.s",
+    "cSource": "src/chips/asm02_chip_pack.c",
+    "header": "include/chips/asm02_chip_pack.h",
+    "functions": {
+      "getChip8021DA8": {
+        "address": "0x08021DA8",
+        "role": "Lookup static chip definition by index"
+      },
+      "split9BitsFromBitfield_8021AE0": {
+        "address": "0x08021AE0",
+        "role": "Split chip code bitfield into id and variant"
+      },
+      "GiveChips": {
+        "address": "0x08021AEE",
+        "role": "Add chips to folder/pack and set event flag"
+      },
+      "TakeChips": {
+        "address": "0x08021B92",
+        "role": "Remove chips from pack"
+      },
+      "GetChipCountOfCode": {
+        "address": "0x08021BC0",
+        "role": "Count owned copies of a chip code in a pack"
+      },
+      "GetTotalChipCount": {
+        "address": "0x08021BD8",
+        "role": "Sum all chip quantities in a pack slot"
+      },
+      "getOffsetToQuantityOfChipCodeMaybe_8021c7c": {
+        "address": "0x08021C7C",
+        "role": "Find pack byte offset for a chip code"
+      },
+      "addChipsToChipPackOffset_8021b5a": {
+        "address": "0x08021B5A",
+        "role": "Increment quantity with 99-cap logic"
+      }
+    }
+  },
+  "battleChipExecution": {
+    "path": "asm/asm00_2.s",
+    "cSource": "src/chips/asm00_2_chip_helpers.c",
+    "header": "include/asm00_2_chip_helpers.h",
+    "status": "matching"
+  },
+  "battleChipLoader": {
+    "path": "asm/asm00_2.s",
+    "cSource": "src/battle_core_loadchipdata.c",
+    "header": "include/battle_core_loadchipdata.h",
+    "functions": ["somethingWriteChipParams_80126E4", "loc_80126EA"],
+    "status": "matching"
+  },
+  "chipTextAndData": {
+    "dat31": "src/data/chips/dat31.c",
+    "textScripts": "data/textscript/compressed/TextScriptChipDescriptions0_86eb8b8.s"
+  }
+}

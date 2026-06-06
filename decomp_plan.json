@@ -235,6 +235,66 @@
       ]
     },
     {
+      "name": "asm02",
+      "priority": 2,
+      "functions": [
+        {
+          "label": "getChip8021DA8",
+          "address": "0x08021DA8",
+          "status": "matching",
+          "notes": "Chip table lookup in asm/asm02.s. Implemented in src/chips/asm02_chip_pack.c and preserved in ROM via src/chips/asm02_getchip_rominc.s."
+        },
+        {
+          "label": "split9BitsFromBitfield_8021AE0",
+          "address": "0x08021AE0",
+          "status": "matching",
+          "notes": "Chip code bitfield splitter in asm/asm02.s. Implemented in src/chips/asm02_chip_pack.c and preserved in ROM via src/chips/asm02_split_bitfield_rominc.s."
+        },
+        {
+          "label": "addChipsToChipPackOffset_8021b5a",
+          "address": "0x08021B5A",
+          "status": "matching",
+          "notes": "Chip quantity increment helper in asm/asm02.s. Implemented in src/chips/asm02_chip_pack.c and preserved in ROM via src/chips/asm02_add_chips_rominc.s."
+        },
+        {
+          "label": "GetTotalChipCount",
+          "address": "0x08021BD8",
+          "status": "matching",
+          "notes": "Folder chip count helper in asm/asm02.s. Implemented in src/chips/asm02_chip_pack.c and preserved in ROM via src/chips/asm02_total_chip_count_rominc.s."
+        },
+        {
+          "label": "zeroFill_e2002230",
+          "address": "0x08021C68",
+          "status": "matching",
+          "notes": "Chip pack memory clear helper in asm/asm02.s. Implemented in src/chips/asm02_chip_pack.c and preserved in ROM via src/chips/asm02_zero_fill_pack_rominc.s."
+        },
+        {
+          "label": "GiveChips",
+          "address": "0x08021AEE",
+          "status": "todo",
+          "notes": "Add chips to pack and set event flag."
+        },
+        {
+          "label": "TakeChips",
+          "address": "0x08021B92",
+          "status": "todo",
+          "notes": "Remove chips from pack."
+        },
+        {
+          "label": "GetChipCountOfCode",
+          "address": "0x08021BC0",
+          "status": "todo",
+          "notes": "Count owned copies of a chip code."
+        },
+        {
+          "label": "getOffsetToQuantityOfChipCodeMaybe_8021c7c",
+          "address": "0x08021C7C",
+          "status": "todo",
+          "notes": "Resolve pack offset for a chip code."
+        }
+      ]
+    },
+    {
       "name": "battle_core",
       "priority": 1,
       "functions": [

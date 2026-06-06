@@ -1,18 +1,5 @@
 
-// (int chip_idx) -> ChipData*
-	thumb_func_start getChip8021DA8
-// exe6g: 8021eb8	
-getChip8021DA8: // (which_chip: i32) -> *const ChipData
-	ldr r1, off_8021AB0 // =ChipDataArr_8021DA8 // [*const ChipData; 206]
-	mov r2, #44
-	mul r0, r2
-	add r0, r0, r1
-	// return &u8_8021DA8[44*idx]
-	mov pc, lr
-	.byte 0, 0
-off_8021AB0: 
-  .word ChipDataArr_8021DA8 // [*const ChipData; 206]
-	thumb_func_end getChip8021DA8
+	.include "src/chips/asm02_getchip_rominc.s"
 
 	thumb_func_start sub_8021AB4
 sub_8021AB4:
@@ -38,22 +25,7 @@ loc_8021ACC:
 	pop {r4,r6,r7,pc}
 	thumb_func_end sub_8021AB4
 
-/* (r0:u16 bitfield) -> r0:u16 upper9Bits, r1:u16 lower9Bits
-   preserves: lr
-   clobbers: r2
-   ignores: r3-r12*/
-	thumb_func_start split9BitsFromBitfield_8021AE0
-split9BitsFromBitfield_8021AE0: // 8021AE0
-	// splits bitfield into lower and upper 9 bits, and returns those in r0, r1
-	push {lr}
-	lsr r1, r0, #9
-	ldr r2, .Mask9Bits // =0x01ff
-	and r0, r2 // r0 assumed to have bits 16-31 unset
-	pop {pc}
-	.balign 4, 0x00
-.Mask9Bits:
-	.hword 0x01FF
-	thumb_func_end split9BitsFromBitfield_8021AE0
+	.include "src/chips/asm02_split_bitfield_rominc.s"
 
 	thumb_func_start GiveChips
 GiveChips:
@@ -112,25 +84,7 @@ loc_8021B3C:
 	pop {pc}
 	thumb_func_end sub_8021B2A
 
-	thumb_local_start
-addChipsToChipPackOffset_8021b5a:
-	mov r3, #1
-	ldrb r1, [r0]
-	cmp r1, #99
-	beq loc_8021B6E
-	mov r3, #0
-	add r1, r1, r2
-	cmp r1, #99
-	ble loc_8021B6E
-	mov r1, #99
-	mov r3, #2
-loc_8021B6E:
-	strb r1, [r0]
-	mov pc, lr
-	.balign 4, 0
-off_8021B74:
-	.word 0x1E20
-	thumb_func_end addChipsToChipPackOffset_8021b5a
+	.include "src/chips/asm02_add_chips_rominc.s"
 
 // (int idx, int searchItem, int off) -> void*
 // [break (E7FE)]
@@ -200,30 +154,7 @@ loc_8021BD4:
 	pop {r4,pc}
 	thumb_func_end GetChipCountOfCode
 
-	thumb_func_start GetTotalChipCount
-GetTotalChipCount:
-	push {r7,lr}
-	push {r0}
-	bl encryption_testPack_8006e84
-	pop {r0}
-	bne loc_8021BFE
-	mov r7, r10
-	ldr r7, [r7,#oToolkit_Unk2002230_Ptr]
-	mov r1, #0xc
-	mul r1, r0
-	add r7, r7, r1
-	ldrb r0, [r7]
-	ldrb r1, [r7,#1]
-	add r0, r0, r1
-	ldrb r1, [r7,#2]
-	add r0, r0, r1
-	ldrb r1, [r7,#3]
-	add r0, r0, r1
-	pop {r7,pc}
-loc_8021BFE:
-	mov r0, #0
-	pop {r7,pc}
-	thumb_func_end GetTotalChipCount
+	.include "src/chips/asm02_total_chip_count_rominc.s"
 
 	thumb_func_start sub_8021C02
 sub_8021C02:
@@ -282,20 +213,7 @@ dword_8021C64:
 	.word 0x1FF
 	thumb_func_end sub_8021C02
 
-	thumb_func_start zeroFill_e2002230
-zeroFill_e2002230:
-	push {lr}
-	mov r0, r10
-	// memBlock
-	ldr r0, [r0,#oToolkit_Unk2002230_Ptr]
-	// size
-	ldr r1, dword_8021C78 // =0xf00
-	bl ZeroFillByWord // (mut_mem: *mut (), num_bytes: usize) -> ()
-	pop {pc}
-	.balign 4, 0
-dword_8021C78:
-	.word 0xF00
-	thumb_func_end zeroFill_e2002230
+	.include "src/chips/asm02_zero_fill_pack_rominc.s"
 
 // (int chip_idx, int searchItem, int off) -> void*
 	thumb_func_start getOffsetToQuantityOfChipCodeMaybe_8021c7c
